@@ -1,7 +1,6 @@
 const express = require('express');
 const User = require('../models/User');
 const bcrypt = require("bcryptjs")
-const jsonwebtoken = require('jsonwebtoken');
 const crypto = require('crypto');
 
 
@@ -13,32 +12,20 @@ exports.post_login = async function(req, res, next){
     .then(user => {
       if (!user) {
         res.status(404).json({ 
-          message: "Invalid Credentials - 1"
+          message: "User does not exist"
         });
       }else {
         bcrypt.compare(password, user.password, (err, isMatch) => {
           if (err) throw err;
           if (isMatch) {
-
-            user.logged_in_atleast_once = 1; 
-
-            const { password, ...responseUser } = user._doc; 
-
-            user.save();
-
-            const tokenObject = issueJWT(user);
-
             res.status(200).json({
               success: true,
-              user: responseUser,
-              token: tokenObject.token,
-              expiresIn: tokenObject.expires,
               message: "Successful Login"
             });
           } else {
             res.status(404)
               .json({
-                message: 'Invalid Credentials -2 '
+                message: 'Wrong password'
               })
           }
         })
@@ -58,6 +45,8 @@ exports.post_register = async function(req, res, next){
   var email = req.body.email.toLowerCase();
   var password = req.body.password;
   var salt = req.body.salt;
+  var resetPasswordToken = req.body.resetPasswordToken;
+  var resetPasswordExpires =req.body.resetPasswordExpires;
 
   User.findOne({ email: email }) 
     .then(user => {
@@ -67,44 +56,30 @@ exports.post_register = async function(req, res, next){
           lastName,
           email,
           password,
-          salt  
+          salt,
+          resetPasswordToken,
+          resetPasswordExpires  
         });
-        bcrypt.genSalt(10, (err, salt) => {
-          bcrypt.hash(newUser.password, salt, (err, hash) => {
-            if (err) throw err;
-            newUser.password = hash
-            newUser
-              .save()
-              .then(user => {
-                //issue jwt token 
-                const jwt = issueJWT(user)
-                user.password = "********";
-                res.json({
-                  success: true,
-                  user: user,
-                  token: jwt.token,
-                  expiresIn: jwt.expiresIn
-                })
-              })
-              .catch((error) => {
-                console.log('Error: ', error)
-                return res
-                  .status(404)
-                  .send('There was an error with your registration')
-              });
-          });
-        });
+        newUser.save().then(() => {
+          res.status(200).json({
+            success: true,
+            message: "User successfully registered!"
+          })
+        })
       }else {
-        error = "There's a user registered with this email already"
-        return res.status(404)
-          .send("There's a user registered with this email already")
+        return res.status(200).json({
+          success: false,
+          message: "There's a user registered with this email already"
+        })
       }
     });
 }
 
 exports.post_forgot_password = async function(req, res, next){
   // create token 
-  const token = (await promisify(crypto.randomBytes)(20)).toString('hex');
+
+  // const token = (await promisify(crypto.randomBytes)(20)).toString('hex');
+
   // create user variable
   const user = { email: req.body.email.toLowerCase() }
   // use schema findone method
@@ -117,51 +92,63 @@ exports.post_forgot_password = async function(req, res, next){
             message: "No user with this email exists"
           })
       }else {
-        ejs.renderFile('views/templates/reset_email.ejs',{token}, function(err, data){
-          console.log('err: ', err)
-          mailer.sendMail(data, 'Reset Password', user.email)
+        user.resetPasswordToken = token;
+        user.resetPasswordExpires = Date.now() + 3600000;
+        user.save().then(() => {
+          ejs.renderFile(
+            'views/templates/reset_email.ejs',
+            {token}, 
+            function(err, data){
+              console.log('err: ', err)
+              mailer.sendMail(data, 'Reset Password', user.email)
+            }).then(() => {
+              res.status(200)
+              .json({
+                success: true,
+                message: "Reset has been sent to your email"
+              })
+            })
         })
-        res.status(200)
-          .json({
-            success: true,
-            message: "Reset has been sent to your email"
-          })
       }
-    })
-    .catch(() => {
-      return res.status(404)
-        .json({
-          success: false,
-          message: "No user registered with this email"
-        })
     })
 }
 
 exports.post_reset_password = async function(req, res, next){
-  const user = { 'resetPasswordToken': req.body.token }
+ // Find if the users token is still valid
+ const user = { 'resetPasswordToken': req.params.token }
+ console.log('token: ',req.params.token);
+ User.findOne(user)
+   .then(user => {
+     if (!user) {
+       res.status(400).json({ "error": 'token is either invalid or has expired' })
+     } else {
+       // it exists but does the time match our current time? 
+       if (user.resetPasswordExpires > Date.now()) {
+         res.render('password-reset', { title: 'Password-Reset', token: req.params.token })
+         // res.redirect('/password-reset/'+req.params.token)
+       } else {
+         res.status(400).json({ "error": 'Token is expired bruv' })
+       }
+     }
+   })
+   .catch(err => {
+     console.log(err)
+     return res.send("Issue with password reset. Try again later")
+   })
+}
 
-  User.findOne(user)
-    .then(user => {
-      if (!user) {
-        return res.status(404)
-          .json({
-            success: false,
-            message: 'Something went wrong, try again.'
-          })
-      }else {
-        bcrypt.genSalt(10, (err, salt) => {
-          bcrypt.hash(req.body.password, salt, (err, hash) => {
-            if (err) throw err;
-            user.password = hash
-            user.save()
-            return res.status(200)
-              .json({
-                success: true,
-                user_role: user.role, 
-                message: "Password Successfully Reset"
-              })
-          });
-        });
-      }
-    })
+exports.get_login = (req, res) => {
+  res.render('login')
+}
+
+exports.get_register = (req, res) => {
+  res.render('register')
+}
+
+exports.get_forgot_password = (req, res) => {
+  res.render('forgot_password')
+}
+
+exports.get_reset_password = (req, res) => {
+  res.render('reset_password')
 }

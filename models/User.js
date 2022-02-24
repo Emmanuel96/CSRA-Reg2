@@ -12,7 +12,9 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  salt: String
+  salt: String,
+  resetPasswordToken: String,
+  resetPasswordExpires: Number
 });
 
 module.exports = mongoose.model('User', UserSchema);
