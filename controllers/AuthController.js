@@ -1,8 +1,6 @@
 const express = require('express');
 const User = require('../models/User');
-const bcrypt = require("bcryptjs")
-const crypto = require('crypto');
-
+const bcrypt = require("bcryptjs");
 
 exports.post_login = async function(req, res, next){
   email = req.body.email.toLowerCase();
@@ -18,14 +16,12 @@ exports.post_login = async function(req, res, next){
         bcrypt.compare(password, user.password, (err, isMatch) => {
           if (err) throw err;
           if (isMatch) {
-            res.status(200).json({
-              success: true,
-              message: "Successful Login"
-            });
+            res.render('index', { title: `Logged in as: ${user.email}` });
           } else {
+            console.log(err)
             res.status(404)
               .json({
-                message: 'Wrong password'
+                message: 'Password is incorrect',
               })
           }
         })
@@ -60,12 +56,19 @@ exports.post_register = async function(req, res, next){
           resetPasswordToken,
           resetPasswordExpires  
         });
-        newUser.save().then(() => {
-          res.status(200).json({
-            success: true,
-            message: "User successfully registered!"
-          })
-        })
+
+        bcrypt.genSalt(10, (err, salt) => {
+          bcrypt.hash(newUser.password, salt, (err, hash) => {
+            if (err) throw err;
+            newUser.password = hash
+            newUser.save().then(user => { 
+              res.render('login')
+            }).catch((error) => {
+                console.log('Error: ', error)
+                return res.status(404).send('There was an error with your registration')
+              });
+          });
+        });
       }else {
         return res.status(200).json({
           success: false,
@@ -76,13 +79,8 @@ exports.post_register = async function(req, res, next){
 }
 
 exports.post_forgot_password = async function(req, res, next){
-  // create token 
-
-  // const token = (await promisify(crypto.randomBytes)(20)).toString('hex');
-
-  // create user variable
   const user = { email: req.body.email.toLowerCase() }
-  // use schema findone method
+
   User.findOne(user)
     .then(user => {
       if (!user) {
@@ -92,49 +90,13 @@ exports.post_forgot_password = async function(req, res, next){
             message: "No user with this email exists"
           })
       }else {
-        user.resetPasswordToken = token;
-        user.resetPasswordExpires = Date.now() + 3600000;
-        user.save().then(() => {
-          ejs.renderFile(
-            'views/templates/reset_email.ejs',
-            {token}, 
-            function(err, data){
-              console.log('err: ', err)
-              mailer.sendMail(data, 'Reset Password', user.email)
-            }).then(() => {
-              res.status(200)
-              .json({
-                success: true,
-                message: "Reset has been sent to your email"
-              })
-            })
-        })
+        console.log("Send rest link code goes here.")
       }
     })
 }
 
 exports.post_reset_password = async function(req, res, next){
- // Find if the users token is still valid
- const user = { 'resetPasswordToken': req.params.token }
- console.log('token: ',req.params.token);
- User.findOne(user)
-   .then(user => {
-     if (!user) {
-       res.status(400).json({ "error": 'token is either invalid or has expired' })
-     } else {
-       // it exists but does the time match our current time? 
-       if (user.resetPasswordExpires > Date.now()) {
-         res.render('password-reset', { title: 'Password-Reset', token: req.params.token })
-         // res.redirect('/password-reset/'+req.params.token)
-       } else {
-         res.status(400).json({ "error": 'Token is expired bruv' })
-       }
-     }
-   })
-   .catch(err => {
-     console.log(err)
-     return res.send("Issue with password reset. Try again later")
-   })
+ 
 }
 
 exports.get_login = (req, res) => {

@@ -11,17 +11,6 @@ var authRouter = require('./routes/auth');
 
 var app = express();
 
-//mongodb setup
-const url = process.env.DATABASE_URL
-
-mongoose.connect(url)
-  .then(() => {
-    console.log('MongoDB Connected Successfully');
-  })  
-  .catch((error) => {
-  console.log('Error connecting to MongoDB:', error.message)
-})
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
