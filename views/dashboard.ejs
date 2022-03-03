@@ -6,45 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body class="md:bg-gray-50">
-    <!-- <nav class="bg-[#00A19A] shadow-xl sticky top-0">
-      
-      <div class="text-white h- hidden lg:block">
-        <div class="text-right mr-24">
-          <button class="font-bold hover:underline pt-2 my-1 px-2 mb-3 mx-3"><a href="#">LINK</a></button>
-          <button class="font-bold hover:underline pt-2 my-1 px-2 mb-3 mx-3"><a href="#">LINK</a></button>
-          <button class="font-bold hover:underline pt-2 my-1 px-2 mb-3 mx-3"><a href="#">LINK</a></button>
-          <button class="font-bold hover:underline pt-2 my-1 px-2 mb-3 mx-3"><a href="#">LINK</a></button>
-          <button class="font-bold hover:underline pt-2 my-1 px-2 mb-3 mx-3"><a href="#">LINK</a></button>
-        </div>
-      </div>
-          
-      <div class="w-full">
-        <div class="lg:hidden grid justify-items-end">
-          <div class="pr-4 pt-3 pb-3">
-            <img class="w-7" src="../public/assets/images/menu.png" onclick="menuToggle()"/>
-          </div>
-  
-          <div class="py-2 text-white font-bold px-4 grid justify-items-center mx-auto text-lg " id="menuDiv" style="display: none;">
-            <button class="border px-2 mb-3 mx-1 py-1 shadow-xl bg-[#079c96] rounded-md"><a href="#">LINK</a></button>
-            <button class="border px-2 mb-3 mx-1 py-1 shadow-xl bg-[#079c96] rounded-md"><a href="#">LINK</a></button>
-            <button class="border px-2 mb-3 mx-1 py-1 shadow-xl bg-[#079c96] rounded-md"><a href="#">LINK</a></button>
-            <button class="border px-2 mb-3 mx-1 py-1 shadow-xl bg-[#079c96] rounded-md"><a href="#">LINK</a></button>
-            <button class="border px-2 mb-3 mx-1 py-1 shadow-xl bg-[#079c96] rounded-md"><a href="#">LINK</a></button>
-            <button class="border px-2 mb-3 mx-1 py-1 shadow-xl bg-[#079c96] rounded-md"><a href="#">LINK</a></button>
-            <button class="border px-2 mb-3 mx-1 py-1 shadow-xl bg-[#079c96] rounded-md"><a href="#">LINK</a></button>
-            <button class="border px-2 mb-3 mx-1 py-1 shadow-xl bg-[#079c96] rounded-md"><a href="#">LINK</a></button>
-            <button class="border px-2 mb-3 mx-1 py-1 shadow-xl bg-[#079c96] rounded-md"><a href="#">LINK</a></button>
-            <button class="border px-2 mb-3 mx-1 py-1 shadow-xl bg-[#079c96] rounded-md"><a href="#">LINK</a></button>
-          </div>
-        </div>    
-      </div>
-    </nav> -->
+  <body class="">
 
     <div class="md:flex flex-col md:flex-row md:min-h-screen w-full">
-      <div @click.away="open = false" class="flex flex-col w-full md:w-64 text-gray-700 bg-[#00A19A] dark-mode:text-gray-200 dark-mode:bg-gray-800 flex-shrink-0" x-data="{ open: false }">
-        <div class="flex-shrink-0 px-8 py-4 flex flex-row items-center justify-between">
-          <a href="#" class="text-lg font-bold tracking-widest text-white uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline">CSR ACCREDITATION</a>
+      <div @click.away="open = false" class="flex flex-col w-full md:w-64 text-white bg-[#00A19A] dark-mode:text-gray-200 dark-mode:bg-gray-800 flex-shrink-0" x-data="{ open: false }">
+        <div class="flex-shrink-0 px-8 py-4 flex flex-row items-center mt-4 justify-between">
+          <a href="#" class="text-lg font-bold font-mono tracking-widest text-white uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline">CSR ACCREDITATION</a>
           <button class="rounded-lg md:hidden focus:outline-none focus:shadow-outline" @click="open = !open">
             <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
               <path x-show="!open" fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"></path>
@@ -53,11 +20,11 @@
           </button>
         </div>
         <nav :class="{'block': open, 'hidden': !open}" class="flex-grow md:block px-4 pb-4 md:pb-0 md:overflow-y-auto">
-          <a class="block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-gray-200 rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">Blog</a>
-          <a class="block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">Portfolio</a>
-          <a class="block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">About</a>
-          <a class="block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">Contact</a>
-          <div @click.away="open = false" class="relative" x-data="{ open: false }">
+          <a class="block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-gray-200 rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">LINK</a>
+          <a class="block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">LINK</a>
+          <a class="block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">LINK</a>
+          <a class="block px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">LINK</a>
+          <!-- <div @click.away="open = false" class="relative" x-data="{ open: false }">
             <button @click="open = !open" class="flex flex-row items-center w-full px-4 py-2 mt-2 text-sm font-semibold text-left bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:focus:bg-gray-600 dark-mode:hover:bg-gray-600 md:block hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
               <span>Dropdown</span>
               <svg fill="currentColor" viewBox="0 0 20 20" :class="{'rotate-180': open, 'rotate-0': !open}" class="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
@@ -69,12 +36,12 @@
                 <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">Link #3</a>
               </div>
             </div>
-          </div>
+          </div> -->
         </nav>
       </div>
 
 
-      <div class="mt-10 md:mt-12 lg:mt-0 md:py-8 md:px-5 lg:px-0 lg:py-0 mx-5 sm:mx-8 md:mx-12 md:shadow-md xl:mx-40"> 
+      <div class="mt-10 md:mt-2 md:py-8 mx-5 sm:mx-8 md:mx-3 lg:mx-14 xl:mx-20"> 
         <div>
           <img class="w-32" src="/assets/images/CSR-A_Logo-RGB.jpg" alt="logo" />
         </div>
@@ -99,10 +66,64 @@
           </p>
         </div>
 
-        <div class="text-justify pt-8 lg:text-lg">
+        <div class="text-justify pt-8 pb-4 lg:text-lg">
           <p>
             Please make sure you have downloaded our Guidance for Accreditation parts 1 - 4 and familiarised yourself with the content. You will have received an email after you submitted your CSR Registration containing a unique link to this essential guide.
           </p>
+        </div>
+
+        <span class="text-red-700 font-bold text-lg">FORM</span>
+
+        <div class="pt-6 border-[#00A19A] rounded-md border mt-2">
+          <form>
+            <div class="mx-4 mt-4">
+              <label class="text-sm lg:text-base">Contact Person</label>
+              <br>
+              <input class="border-2 w-full lg:h-10 border-[#00A19A] rounded-md py-1 lg:placeholder:text-base px-3 placeholder:text-xs" type="text" placeholder="Type your name">
+            </div>
+
+            <div class="mt-3 mx-4">
+              <label class="text-sm lg:text-base">Organisation Name</label>
+              <br>
+              <input class="border-2 w-full lg:h-10 border-[#00A19A] rounded-md py-1 lg:placeholder:text-base px-3 placeholder:text-xs" type="text" placeholder="Type your organisation's name">
+            </div>
+
+            <div class="mt-3 mx-4">
+              <label class="text-sm lg:text-base">Organisation Address</label>
+              <br>
+              <input class="border-2 w-full lg:h-10 border-[#00A19A] rounded-md py-1 lg:placeholder:text-base px-3 placeholder:text-xs" type="text" placeholder="Type your organisation's address">
+            </div>
+
+            <div class="mt-3 mx-4">
+              <label class="text-sm lg:text-base">Nationality of Organisation</label>
+              <br>
+              <input class="border-2 w-full lg:h-10 border-[#00A19A] rounded-md py-1 lg:placeholder:text-base px-3 placeholder:text-xs" type="text" placeholder="Type your organisation's nationality">
+            </div>
+
+            <div class="mt-3 mx-4">
+              <label class="text-sm lg:text-base">Postal Code</label>
+              <br>
+              <input class="border-2 w-full lg:h-10 border-[#00A19A] rounded-md py-1 lg:placeholder:text-base px-3 placeholder:text-xs" type="text" placeholder="Type your postal code">
+            </div>
+
+            <div class="mt-3 mx-4">
+              <label class="text-sm lg:text-base">Email Address</label>
+              <br>
+              <input class="border-2 w-full lg:h-10 border-[#00A19A] rounded-md py-1 lg:placeholder:text-base px-3 placeholder:text-xs" type="email" placeholder="Type your email">
+            </div>
+
+            <div class="mt-3 mx-4">
+              <label class="text-sm lg:text-base">Mobile Number</label>
+              <br>
+              <input class="border-2 w-full lg:h-10 border-[#00A19A] rounded-md py-1 lg:placeholder:text-base px-3 placeholder:text-xs" type="number" placeholder="Type your mobile number">
+            </div>
+
+            <div class="mt-3 mx-4">
+              <label class="text-sm lg:text-base">Telephone Number</label>
+              <br>
+              <input class="border-2 w-full lg:h-10 border-[#00A19A] rounded-md py-1 lg:placeholder:text-base px-3 placeholder:text-xs" type="number" placeholder="Type your telephone number">
+            </div>
+          </form>
         </div>
 
       </div>
