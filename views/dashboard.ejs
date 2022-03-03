@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
-  <body class="">
+  <body class="bg-gray-50">
 
     <div class="md:flex flex-col md:flex-row md:min-h-screen w-full">
       <div @click.away="open = false" class="flex flex-col w-full md:w-64 text-white bg-[#00A19A] dark-mode:text-gray-200 dark-mode:bg-gray-800 flex-shrink-0" x-data="{ open: false }">
@@ -41,7 +41,7 @@
       </div>
 
 
-      <div class="mt-10 md:mt-2 md:py-8 mx-5 sm:mx-8 md:mx-3 lg:mx-14 xl:mx-20"> 
+      <div class="mt-10 md:mt-2 md:py-8 mx-5 sm:mx-8 lg:mx-14 xl:mx-20"> 
         <div>
           <img class="w-32" src="/assets/images/CSR-A_Logo-RGB.jpg" alt="logo" />
         </div>
@@ -72,59 +72,67 @@
           </p>
         </div>
 
-        <span class="text-red-700 font-bold text-lg">FORM</span>
+        <div class="py-6 lg:py-10 bg-white shadow-xl rounded-md border mt-6">
+          <span class="text-red-700 mx-5 lg:px-6 font-bold text-lg">FORM*</span>
 
-        <div class="pt-6 border-[#00A19A] rounded-md border mt-2">
-          <form>
-            <div class="mx-4 mt-4">
-              <label class="text-sm lg:text-base">Contact Person</label>
-              <br>
-              <input class="border-2 w-full lg:h-10 border-[#00A19A] rounded-md py-1 lg:placeholder:text-base px-3 placeholder:text-xs" type="text" placeholder="Type your name">
+          <form class="lg:grid lg:grid-cols-2">
+            <div class="lg:col-span-1 lg:px-6">
+              <div class="mx-5 mt-4">
+                <label class="text-sm lg:text-base">Contact Person</label>
+                <br>
+                <input class="border h-11 w-full lg:h-10 border-[#00A19A] rounded-md py-1 lg:placeholder:text-base px-3 placeholder:text-xs" type="text" placeholder="Type your name">
+              </div>
+  
+              <div class="mt-3 mx-5">
+                <label class="text-sm lg:text-base">Organisation Name</label>
+                <br>
+                <input class="border h-11 w-full lg:h-10 border-[#00A19A] rounded-md py-1 lg:placeholder:text-base px-3 placeholder:text-xs" type="text" placeholder="Type your organisation's name">
+              </div>
+  
+              <div class="mt-3 mx-5">
+                <label class="text-sm lg:text-base">Organisation Address</label>
+                <br>
+                <input class="border h-11 w-full lg:h-10 border-[#00A19A] rounded-md py-1 lg:placeholder:text-base px-3 placeholder:text-xs" type="text" placeholder="Type your organisation's address">
+              </div>
+  
+              <div class="mt-3 mx-5">
+                <label class="text-sm lg:text-base">Nationality of Organisation</label>
+                <br>
+                <input class="border h-11 w-full lg:h-10 border-[#00A19A] rounded-md py-1 lg:placeholder:text-base px-3 placeholder:text-xs" type="text" placeholder="Type your organisation's nationality">
+              </div>
             </div>
 
-            <div class="mt-3 mx-4">
-              <label class="text-sm lg:text-base">Organisation Name</label>
-              <br>
-              <input class="border-2 w-full lg:h-10 border-[#00A19A] rounded-md py-1 lg:placeholder:text-base px-3 placeholder:text-xs" type="text" placeholder="Type your organisation's name">
-            </div>
-
-            <div class="mt-3 mx-4">
-              <label class="text-sm lg:text-base">Organisation Address</label>
-              <br>
-              <input class="border-2 w-full lg:h-10 border-[#00A19A] rounded-md py-1 lg:placeholder:text-base px-3 placeholder:text-xs" type="text" placeholder="Type your organisation's address">
-            </div>
-
-            <div class="mt-3 mx-4">
-              <label class="text-sm lg:text-base">Nationality of Organisation</label>
-              <br>
-              <input class="border-2 w-full lg:h-10 border-[#00A19A] rounded-md py-1 lg:placeholder:text-base px-3 placeholder:text-xs" type="text" placeholder="Type your organisation's nationality">
-            </div>
-
-            <div class="mt-3 mx-4">
-              <label class="text-sm lg:text-base">Postal Code</label>
-              <br>
-              <input class="border-2 w-full lg:h-10 border-[#00A19A] rounded-md py-1 lg:placeholder:text-base px-3 placeholder:text-xs" type="text" placeholder="Type your postal code">
-            </div>
-
-            <div class="mt-3 mx-4">
-              <label class="text-sm lg:text-base">Email Address</label>
-              <br>
-              <input class="border-2 w-full lg:h-10 border-[#00A19A] rounded-md py-1 lg:placeholder:text-base px-3 placeholder:text-xs" type="email" placeholder="Type your email">
-            </div>
-
-            <div class="mt-3 mx-4">
-              <label class="text-sm lg:text-base">Mobile Number</label>
-              <br>
-              <input class="border-2 w-full lg:h-10 border-[#00A19A] rounded-md py-1 lg:placeholder:text-base px-3 placeholder:text-xs" type="number" placeholder="Type your mobile number">
-            </div>
-
-            <div class="mt-3 mx-4">
-              <label class="text-sm lg:text-base">Telephone Number</label>
-              <br>
-              <input class="border-2 w-full lg:h-10 border-[#00A19A] rounded-md py-1 lg:placeholder:text-base px-3 placeholder:text-xs" type="number" placeholder="Type your telephone number">
+            <div class="lg:col-span-1 lg:px-6">
+              <div class="mt-3 lg:mt-4 mx-5">
+                <label class="text-sm lg:text-base">Postal Code</label>
+                <br>
+                <input class="border h-11 w-full lg:h-10 border-[#00A19A] rounded-md py-1 lg:placeholder:text-base px-3 placeholder:text-xs" type="text" placeholder="Type your postal code">
+              </div>
+  
+              <div class="mt-3 mx-5">
+                <label class="text-sm lg:text-base">Email Address</label>
+                <br>
+                <input class="border h-11 w-full lg:h-10 border-[#00A19A] rounded-md py-1 lg:placeholder:text-base px-3 placeholder:text-xs" type="email" placeholder="Type your email">
+              </div>
+  
+              <div class="mt-3 mx-5">
+                <label class="text-sm lg:text-base">Mobile Number</label>
+                <br>
+                <input class="border h-11 w-full lg:h-10 border-[#00A19A] rounded-md py-1 lg:placeholder:text-base px-3 placeholder:text-xs" type="number" placeholder="Type your mobile number">
+              </div>
+  
+              <div class="my-3 mx-5">
+                <label class="text-sm lg:text-base">Telephone Number</label>
+                <br>
+                <input class="border h-11 w-full lg:h-10 border-[#00A19A] rounded-md py-1 lg:placeholder:text-base px-3 placeholder:text-xs" type="number" placeholder="Type your telephone number">
+              </div>
             </div>
           </form>
+          <p class="text-red-600 mx-5 lg:px-6 text-sm sm:text-base py-5 text-justify">
+            *Please note that your company name should be entered in exactly the format that you want it to appear on your Accreditation Mark, certificate and guidelines document.
+          </p>
         </div>
+
 
       </div>
 
