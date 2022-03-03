@@ -16,7 +16,7 @@ exports.post_login = async function(req, res, next){
         bcrypt.compare(password, user.password, (err, isMatch) => {
           if (err) throw err;
           if (isMatch) {
-            res.render('index', { title: `Logged in as: ${user.email}` });
+            res.render('dashboard')
           } else {
             console.log(err)
             res.status(404)
@@ -113,4 +113,8 @@ exports.get_forgot_password = (req, res) => {
 
 exports.get_reset_password = (req, res) => {
   res.render('reset_password')
+}
+
+exports.get_dashboard = (req, res) => {
+  res.render('dashboard')
 }

@@ -18,4 +18,6 @@ router.get('/forgot_password', AuthController.get_forgot_password);
 
 router.get('/reset_password', AuthController.get_reset_password);
 
+router.get('/dashboard', AuthController.get_dashboard);
+
 module.exports = router;
