@@ -115,6 +115,18 @@ exports.get_reset_password = (req, res) => {
   res.render('reset_password')
 }
 
-exports.get_dashboard = (req, res) => {
-  res.render('dashboard')
+exports.get_page1 = (req, res) => {
+  res.render('page1')
+}
+
+exports.get_page2 = (req, res) => {
+  res.render('page2')
+}
+
+exports.get_page3 = (req, res) => {
+  res.render('page3')
+}
+
+exports.get_page4 = (req, res) => {
+  res.render('page4')
 }
