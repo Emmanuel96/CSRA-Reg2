@@ -9,7 +9,7 @@
   <body class="bg-white">
 
     <div class="md:flex flex-col md:flex-row md:min-h-screen w-full">
-      <%- include('partials/nav.ejs') %>
+      <%- include('../partials/nav.ejs') %>
 
       <div class="mt-4 md:mt-1 md:py-8 mx-1 sm:mx-8 lg:mx-14 xl:mx-20"> 
         <div class="py-6 lg:py-10 bg-white lg:border">
@@ -31,10 +31,10 @@
               </p>
             </div>
 
-            <div class="pt-5">
-              <textarea class="p-8 text-justify resize-y h-40 w-full border border-[#464343]">
+            <form class="pt-5">
+              <textarea class="p-8 max-h-96 text-justify resize-y h-40 w-full border border-[#464343]">
               </textarea>
-            </div>
+            </form>
 
             <div class="pt-5">
               <p class="font-bold lg:text-lg">
@@ -79,6 +79,8 @@
         </div>  
       </div>  
     </div>  
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <script 
+      src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer>
+    </script>
   </body>   
 </html> 

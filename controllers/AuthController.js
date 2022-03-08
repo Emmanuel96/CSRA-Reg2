@@ -100,33 +100,33 @@ exports.post_reset_password = async function(req, res, next){
 }
 
 exports.get_login = (req, res) => {
-  res.render('login')
+  res.render('auth/login')
 }
 
 exports.get_register = (req, res) => {
-  res.render('register')
+  res.render('auth/register')
 }
 
 exports.get_forgot_password = (req, res) => {
-  res.render('forgot_password')
+  res.render('auth/forgot_password')
 }
 
 exports.get_reset_password = (req, res) => {
-  res.render('reset_password')
+  res.render('auth/reset_password')
 }
 
 exports.get_page1 = (req, res) => {
-  res.render('page1')
+  res.render('dashboard/page1')
 }
 
 exports.get_page2 = (req, res) => {
-  res.render('page2')
+  res.render('dashboard/page2')
 }
 
 exports.get_page3 = (req, res) => {
-  res.render('page3')
+  res.render('dashboard/page3')
 }
 
 exports.get_page4 = (req, res) => {
-  res.render('page4')
+  res.render('dashboard/page4')
 }
