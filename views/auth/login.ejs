@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="sweetalert2.all.min.js"></script>
   </head>
   <body class="bg-gray-100">
     <div class="bg-white text-[#514C4C] h-auto w-11/12 sm:w-96 md:w-80 lg:mt-20 lg:w-96 mx-auto mt-12 sm:mt-16 shadow-2xl rounded-lg">
@@ -33,6 +34,14 @@
           </div>
         </div>
       </form>
+      <button onclick="swal()">swal</button>
+
     </div>
+
+    <script>
+      function swal(){
+        Swal.fire('Any fool can use a computer')
+      }
+    </script>
   </body>
 </html>
