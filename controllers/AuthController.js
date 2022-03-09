@@ -10,18 +10,22 @@ exports.post_login = async function(req, res, next){
     .then(user => {
       if (!user) {
         res.status(404).json({ 
-          message: "User does not exist"
+          message: "Password or email is incorrect"
         });
       }else {
         bcrypt.compare(password, user.password, (err, isMatch) => {
           if (err) throw err;
           if (isMatch) {
-            res.render('dashboard')
+            // res.render('dashboard')
+            res.status(200).json({ 
+              message: "Successfully logged in", 
+              success: true
+            });
           } else {
             console.log(err)
             res.status(404)
               .json({
-                message: 'Password is incorrect',
+                message: 'Password or email is incorrect',
               })
           }
         })
