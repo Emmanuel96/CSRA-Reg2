@@ -10,18 +10,22 @@ exports.post_login = async function(req, res, next){
     .then(user => {
       if (!user) {
         res.status(404).json({ 
-          message: "User does not exist"
+          message: "Password or email is incorrect"
         });
       }else {
         bcrypt.compare(password, user.password, (err, isMatch) => {
           if (err) throw err;
           if (isMatch) {
-            res.render('dashboard')
+            // res.render('dashboard')
+            res.status(200).json({ 
+              message: "Successfully logged in", 
+              success: true
+            });
           } else {
             console.log(err)
             res.status(404)
               .json({
-                message: 'Password is incorrect',
+                message: 'Password or email is incorrect',
               })
           }
         })
@@ -61,8 +65,11 @@ exports.post_register = async function(req, res, next){
           bcrypt.hash(newUser.password, salt, (err, hash) => {
             if (err) throw err;
             newUser.password = hash
-            newUser.save().then(user => { 
-              res.render('login')
+            newUser.save().then(() => {
+              res.status(200).json({ 
+                message: "Successfully registered", 
+                success: true
+              })
             }).catch((error) => {
                 console.log('Error: ', error)
                 return res.status(404).send('There was an error with your registration')
@@ -115,18 +122,42 @@ exports.get_reset_password = (req, res) => {
   res.render('auth/reset_password')
 }
 
-exports.get_page1 = (req, res) => {
-  res.render('dashboard/page1')
+exports.get_user_details = (req, res) => {
+  res.render('dashboard/user_details')
 }
 
-exports.get_page2 = (req, res) => {
-  res.render('dashboard/page2')
+exports.get_assessment_and_tips = (req, res) => {
+  res.render('dashboard/assessment_and_tips')
 }
 
-exports.get_page3 = (req, res) => {
-  res.render('dashboard/page3')
+exports.get_application_introduction = (req, res) => {
+  res.render('dashboard/application_introduction')
 }
 
 exports.get_page4 = (req, res) => {
   res.render('dashboard/page4')
+}
+
+exports.get_environment_energy = (req, res) => {
+  res.render('dashboard/environment_energy')
+}
+
+exports.get_environment_natural_resource = (req, res) => {
+  res.render('dashboard/environment_natural_resource')
+}
+
+exports.get_environment_travel = (req, res) => {
+  res.render('dashboard/environment_travel')
+}
+
+exports.get_environment_supply_chain_management = (req, res) => {
+  res.render('dashboard/environment_supply_chain_management')
+}
+
+exports.get_environment_waste = (req, res) => {
+  res.render('dashboard/environment_waste')
+}
+
+exports.get_environment_supporting_documents = (req, res) => {
+  res.render('dashboard/environment_supporting_documents')
 }

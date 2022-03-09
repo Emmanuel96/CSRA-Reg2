@@ -18,12 +18,23 @@ router.get('/forgot_password', AuthController.get_forgot_password);
 
 router.get('/reset_password', AuthController.get_reset_password);
 
-router.get('/page1', AuthController.get_page1);
+router.get('/user_details', AuthController.get_user_details);
 
-router.get('/page2', AuthController.get_page2);
+router.get('/assessment_and_tips', AuthController.get_assessment_and_tips);
 
-router.get('/page3', AuthController.get_page3);
+router.get('/application_introduction', AuthController.get_application_introduction);
 
-router.get('/page4', AuthController.get_page4);
+router.get('/environment_energy', AuthController.get_environment_energy);
+
+router.get('/environment_natural_resource', AuthController.get_environment_natural_resource);
+
+router.get('/environment_travel', AuthController.get_environment_travel);
+
+router.get('/environment_supply_chain_management', AuthController.get_environment_supply_chain_management);
+
+router.get('/environment_waste', AuthController.get_environment_waste);
+
+router.get('/environment_supporting_documents', AuthController.get_environment_supporting_documents);
 
 module.exports = router;
+
