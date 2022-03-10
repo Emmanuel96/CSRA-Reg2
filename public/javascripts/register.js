@@ -29,7 +29,7 @@ function registerSubmit(event){
                     text: "Successfully registered!",
                     confirmButtonText: "Login",
                 }).then(function() {
-                    window.location.href = "/auth/login"
+                    window.location.href = "/login"
                 });
         }else{
             Swal.fire(data.message)
