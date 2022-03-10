@@ -5,12 +5,15 @@ function loginSubmit(event){
     var password = $('#input_password').val()
 
     if(!email || !password || email.length < 0 || password.length <0){
-        Swal.fire("Please enter email and password")
+        return Swal.fire({
+            title:"Please enter email and password",
+            confirmButtonColor: '#00a19a'
+        })
     }
     
     var data = {email, password}
 
-    fetch('/auth/login', {
+    fetch('/login', {
         method: "POST", 
         headers: {
             'Content-Type': 'application/json'
@@ -23,11 +26,15 @@ function loginSubmit(event){
            swal.fire({
                     text: "Successfully Logged in",
                     confirmButtonText: "Ok, got it!",
+                    confirmButtonColor: '#00a19a'
                 }).then(function() {
-                    window.location.href = "/auth/page1"
+                    window.location.href = "/company_details"
                 });
         }else{
-            Swal.fire(data.message)
+            Swal.fire({
+                title: data.message,
+                confirmButtonColor: '#00a19a'
+            })
                 
         }
     })

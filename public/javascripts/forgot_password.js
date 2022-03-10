@@ -4,12 +4,15 @@ function forgotPasswordSubmit(event){
   var email = $('#input_email').val()
 
   if(!email){
-    return Swal.fire("Please enter the email you used to register")
+    return Swal.fire({
+      title: "Please enter the email you used to register",
+      confirmButtonColor: '#00a19a'
+    })
   }
   
   var data = {email}
 
-  fetch('/auth/forgot_password', {
+  fetch('/forgot_password', {
       method: "POST", 
       headers: {
           'Content-Type': 'application/json'
@@ -22,9 +25,13 @@ function forgotPasswordSubmit(event){
         Swal.fire({
           text: "Success! A reset link was sent to your email",
           confirmButtonText: "Ok, got it!",
+          confirmButtonColor: '#00a19a'
         })
       }else{
-          Swal.fire(data.message)
+          Swal.fire({
+            title: data.message,
+            confirmButtonColor: '#00a19a'
+          })
       }
   })
 }

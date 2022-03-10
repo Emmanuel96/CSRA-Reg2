@@ -7,15 +7,24 @@ function registerSubmit(event){
   var password = $('#input_password').val()
 
   if(!email || !password || !lastName || !firstName){
-    Swal.fire("Please complete all fields")
+    Swal.fire({
+      title: "Please complete all fields",
+      confirmButtonColor: '#00a19a'
+    })
   }else if(!/\S+@\S+\.\S+/.test(email)){
-    Swal.fire("Email address is invalid")
+    Swal.fire({
+      title: "Email address is invalid", 
+      confirmButtonColor: '#00a19a'
+    })
   }else if(password.length < 6){
-    Swal.fire("Password must be 6 characters or more")
+    Swal.fire({
+      title: "Password must be 6 characters or more",
+      confirmButtonColor: '#00a19a'
+    })
   }else{
     var data = {email, password, firstName, lastName}
 
-    fetch('/auth/register', {
+    fetch('/register', {
         method: "POST", 
         headers: {
           'Content-Type': 'application/json'
@@ -26,14 +35,17 @@ function registerSubmit(event){
     .then(data => {
         if(data.success){
           swal.fire({
-                    text: "Successfully registered!",
-                    confirmButtonText: "Login",
-                }).then(function() {
-                    window.location.href = "/login"
-                });
+              text: "Successfully registered!",
+              confirmButtonText: "Login",
+              confirmButtonColor: '#00a19a'
+          }).then(function() {
+              window.location.href = "/login"
+          });
         }else{
-            Swal.fire(data.message)
-                
+          Swal.fire({
+            title: data.message,
+            confirmButtonColor: '#00a19a'
+          }) 
         }
     })
   }

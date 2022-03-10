@@ -122,8 +122,8 @@ exports.get_reset_password = (req, res) => {
   res.render('auth/reset_password')
 }
 
-exports.get_user_details = (req, res) => {
-  res.render('dashboard/user_details')
+exports.get_company_details = (req, res) => {
+  res.render('dashboard/company_details')
 }
 
 exports.get_assessment_and_tips = (req, res) => {
@@ -132,10 +132,6 @@ exports.get_assessment_and_tips = (req, res) => {
 
 exports.get_application_introduction = (req, res) => {
   res.render('dashboard/application_introduction')
-}
-
-exports.get_page4 = (req, res) => {
-  res.render('dashboard/page4')
 }
 
 exports.get_environment_energy = (req, res) => {

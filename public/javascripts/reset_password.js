@@ -6,12 +6,15 @@ function resetPasswordSubmit(event){
   
 
   if(!password || !confirm_password){
-    return Swal.fire("Password fields cannot be empty")
+    return Swal.fire({
+      title: "Password fields cannot be empty",
+      confirmButtonColor: '#00a19a'
+    })
   }
   
   var data = {password, confirm_password}
 
-  fetch('/auth/reset_password', {
+  fetch('/reset_password', {
       method: "POST", 
       headers: {
           'Content-Type': 'application/json'

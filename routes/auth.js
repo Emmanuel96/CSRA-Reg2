@@ -18,7 +18,7 @@ router.get('/forgot_password', AuthController.get_forgot_password);
 
 router.get('/reset_password', AuthController.get_reset_password);
 
-router.get('/user_details', AuthController.get_user_details);
+router.get('/company_details', AuthController.get_company_details);
 
 router.get('/assessment_and_tips', AuthController.get_assessment_and_tips);
 
