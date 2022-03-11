@@ -1,19 +1,14 @@
 const mongoose = require('mongoose');
-const url = process.env.DATABASE_URL
-
-console.log("Connecting to mongodb...")
-
-mongoose.connect(url)
-  .then(() => {
-    console.log('MongoDB Connected Successfully');
-  })  
-  .catch((error) => {
-  console.log('Error connecting to MongoDB:', error.message)
-})
 
 const UserSchema = new mongoose.Schema({
-  firstName: String,
-  lastName: String,
+  firstName: {
+    type: String,
+    required: true
+  },
+  lastName: {
+    type: String,
+    required: true
+  },
   email: { 
     type: String,
     unique: true,

@@ -23,13 +23,7 @@ function loginSubmit(event){
     .then(response => response.json())
     .then(data => {
         if(data.success){
-           swal.fire({
-                    text: "Successfully Logged in",
-                    confirmButtonText: "Ok, got it!",
-                    confirmButtonColor: '#00a19a'
-                }).then(function() {
-                    window.location.href = "/company_details"
-                });
+            window.location.href = "/company_details"
         }else{
             Swal.fire({
                 title: data.message,
