@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const DashboardController = require('../controllers/DashboardController');
 
-//FETCH ROUTES
+//GET ROUTES
 
 router.get('/company_details', DashboardController.get_company_details);
 

@@ -2,24 +2,24 @@ const mongoose = require('mongoose');
 
 const FormSchema = new mongoose.Schema({
   user_id: {
-    type: String,
-    // unique: true,  
+    type: Number,
+    unique: true,  
   },
 
   contact_person: {
-    type: String,  
+    type: String  
   },
 
   organisation_name: {
-    type: String,  
+    type: String  
   },
 
   organisation_address: {
-    type: String,  
+    type: String  
   },
 
   organisation_nationality: {
-    type: String,  
+    type: String  
   },
 
   postal_code: {
@@ -28,41 +28,41 @@ const FormSchema = new mongoose.Schema({
 
   email_address: {
     type: String,
-    // unique: true
+    unique: true
   },
 
   mobile_number: {
-    type: String,  
+    type: Number
   },
 
   telephone_number: {
-    type: String,  
+    type: Number,
   },
 
-  // organisation_size: {
-  //   type: String,
-  //   possibleValues: [
-  //     'soleTrader',
-  //     'small',
-  //     'smallToMedium',
-  //     'medium',
-  //     'mediumToLarge',
-  //     'large',
-  //     'large_501',
-  //     'large_1001',
-  //     'large_5001',
-  //     'large_10000'
-  //   ]
-  // },
+  organisation_size: {
+    type: String,
+    enumValues: [
+      'soleTrader',
+      'small',
+      'smallToMedium',
+      'medium',
+      'mediumToLarge',
+      'large',
+      'large_501',
+      'large_1001',
+      'large_5001',
+      'large_10000'
+    ]
+  },
 
-  // organisation_turnover: {
-  //   type: String,
-  //   possibleValues: [
-  //     'small',
-  //     'medium',
-  //     'large'
-  //   ]
-  // },
+  organisation_turnover: {
+    type: String,
+    enumValues: [
+      'small',
+      'medium',
+      'large'
+    ]
+  },
 
   company_details_completed: Boolean,
 

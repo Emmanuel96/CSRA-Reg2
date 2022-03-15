@@ -1,6 +1,6 @@
 const Form = require('../models/Form')
 
-//FETCH CONTROLLERS
+//GET controllers
 
 exports.get_company_details = (req, res) => {
   res.render('dashboard/company_details')
@@ -63,7 +63,7 @@ exports.get_workplace_supporting_documents = (req, res) => {
 }
 
 
-//UPDATE CONTROLLERS
+//UPDATE controllers
 
 exports.update_company_details = (req, res) => {
 
