@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login</title>
+    <%- include('../partials/head.ejs') %>
+  </head>
+  <body class="bg-gray-100">
+    <div class="bg-white text-[#514C4C] h-auto w-11/12 sm:w-96 md:w-80 lg:mt-20 lg:w-96 mx-auto mt-12 sm:mt-16 shadow-2xl rounded-lg">
+      <h1 class="font-mono font-bold text-2xl lg:text-3xl text-center pt-14">Login</h1>
+
+      <form id="login_form" class="mt-7 lg:mt-7 pb-32">
+        <div class="mx-7 mt-1">
+          <label class="text-sm lg:text-base">Email</label>
+          <br>
+          <input id="input_email" class="border-2 w-full lg:h-12 border-[#00A19A] rounded-md py-1 lg:placeholder:text-base px-3 placeholder:text-xs" type="text" name="email" placeholder="Type your email">
+        </div>
+
+        <div class="mx-7 mt-1 lg:mt-5">
+          <label class="text-sm lg:text-base">Password</label>
+          <br>
+          <input id="input_password" class="border-2 w-full lg:h-12 border-[#00A19A] rounded-md p-1 lg:placeholder:text-base px-3 placeholder:text-xs" type="password" name="password" placeholder="Type your password">
+
+          <div class="mt-5 lg:mt-7">
+            <button class="bg-[#00A19A] lg:py-3 py-1 px-2 text-sm lg:text-base rounded shadow-lg hover:bg-[#04c4ba] w-full text-white" value="login">Sign In</button>
+          </div>
+
+          <div class="text-sm lg:text-base text-center font-bold lg:mt-6 mt-4">
+            <a class="hover:text-[#00A19A] hover:underline" href="/forgot_password">Forgot password?</a> 
+            <span>|</span>
+            <a class="hover:text-[#00A19A]" href="/register">Sign Up</a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>
+  <script src = "/javascripts/login.js"></script>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dashboard</title>
+    <%- include('../partials/head.ejs') %>
+  </head>
+  <body class="bg-white">
+    <%- include('../partials/nav.ejs') %>
+    <%- include('../partials/topNav.ejs') %>
+
+    <div class="mt-6 md:mt-0 md:ml-64">
+      <div class="md:py-8 mx-5 sm:mx-8 lg:mx-14 xl:mx-20"> 
+        <div class="py-6 lg:py-10 bg-white lg:border">
+          <div class="mx-5 lg:px-6">
+            <div>
+              <img class="w-32" src="/assets/images/CSR-A_Logo-RGB.jpg" alt="logo" />
+            </div>
+          </div>  
+          
+          <div class="mx-5 lg:px-6 pb-5 text-justify text-sm lg:text-base">
+            <div class="pt-8">
+              <h2 class="text-xl font-bold font-mono text-[#00A19A]">SECTION TWO - WORKPLACE</h2>
+
+              <p class="pt-4 font-bold">WORKPLACE - 2D/ Governance</p>
+
+              <p class="pt-4">
+                For example, is your organisation participatory, consensus oriented, accountable, transparent, responsive, effective and efficient, equitable and inclusive and you follow the rule of law? Are processes of disclosure and transparency followed so as to provide regulators and shareholders as well as the general public with precise and accurate information about the financial, operational and other aspects of the company?
+              </p>
+            </div>
+
+            <div class="pt-4">
+              <h4 class="font-bold text-sm">Please use the list below to prompt your thinking.</h4>
+
+              <ul class="list-disc list-inside pt-3">
+                <li class="pl-5">
+                  Socially responsible positive decision-making and implementation.  
+                </li>
+
+                <li class="pl-5 pt-2">
+                  Investment - of corporate time/effort/funding. 
+                </li>
+
+                <li class="pl-5 pt-2">
+                  Employee benefits - profit sharing schemes, group insurance (health, dental, life etc..), disability income protection, retirement benefits, childcare, training, sick leave.  
+                </li>
+
+                <li class="pl-5 pt-2">
+                  Socially responsible initiatives - for communities, customers, employees and environment. 
+                </li>
+
+                <li class="pl-5 pt-2">
+                  Please show statistical data where available.
+                </li>
+              </ul>
+            </div>  
+
+            <form class="pt-5">
+              <textarea class="p-8 max-h-96 text-justify resize-y h-40 w-full border border-[#464343]">
+              </textarea>
+            </form>
+          </div>
+
+          <div class="text-right text-sm mt-3 text-white pr-5 lg:pr-10">
+            <button class="py-2 px-3 mr-3 hover:bg-[#03857e] rounded-md shadow-lg bg-[#00A19A] transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">
+              <a href="./workplace_ethical_practises">Previous Step</a>
+            </button>
+
+            <button class="py-2 px-3 hover:bg-[#03857e] rounded-md shadow-lg bg-[#00A19A] transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:animate-none animate-bounce duration-300">
+              <a href="./workplace_policies">Next Step</a>
+            </button>
+          </div>
+        </div>  
+      </div>  
+    </div>  
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+  </body>   
+</html> 

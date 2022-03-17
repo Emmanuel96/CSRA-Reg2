@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Register</title>
+    <%- include('../partials/head.ejs') %>
+  </head>
+  <body class="bg-gray-100">
+    <div class="bg-white text-[#514C4C] h-auto w-11/12 sm:w-96 mb-10 md:w-80 lg:mt-11 lg:w-96 mx-auto mt-12 sm:mt-16 shadow-2xl rounded-lg">
+      <h1 class="font-mono font-bold text-2xl lg:text-3xl text-center pt-14">Register</h1>
+
+      <form id="registration_form" class="mt-7 lg:mt-7 pb-20 sm:pb-32">
+        <div class="mx-7 mt-1 lg:mt-5">
+          <label class="text-sm lg:text-base">Firstname</label>
+          <br>
+          <input id="input_first_name" class="border-2 w-full lg:h-12 border-[#00A19A] rounded-md py-1 lg:placeholder:text-base px-3 placeholder:text-xs" type="text" placeholder="Type your firstname" name="firstName">
+        </div>
+
+        <div class="mx-7 mt-1 lg:mt-5">
+          <label class="text-sm lg:text-base">Lastname</label>
+          <br>
+          <input id="input_last_name" class="border-2 w-full lg:h-12 border-[#00A19A] rounded-md py-1 lg:placeholder:text-base px-3 placeholder:text-xs" type="text" placeholder="Type your lastname" name="lastName">
+        </div>
+
+        <div class="mx-7 mt-1 lg:mt-5">
+          <label class="text-sm lg:text-base">Email</label>
+          <br>
+          <input id="input_email" class="border-2 w-full lg:h-12 border-[#00A19A] rounded-md py-1 lg:placeholder:text-base px-3 placeholder:text-xs" type="email" placeholder="Type your email" name="email">
+        </div>
+
+        <div class="mx-7 mt-1 lg:mt-5">
+          <label class="text-sm lg:text-base">Password</label>
+          <br>
+          <input id="input_password" class="border-2 w-full lg:h-12 border-[#00A19A] rounded-md p-1 lg:placeholder:text-base px-3 placeholder:text-xs" type="password" placeholder="Type your password" name="password">
+        </div>
+
+        <div class="mx-7 mt-5 lg:mt-7">
+          <button class="bg-[#00A19A] lg:py-3 py-1 px-2 text-sm lg:text-base rounded shadow-lg hover:bg-[#04c4ba] w-full text-white" value="register">Sign Up</button>
+        </div>
+
+        <div class="text-sm lg:text-base text-center lg:mt-6 mt-4">
+          <span>Have an account?</span> <a class="hover:text-[#00A19A] font-bold hover:underline" href="/login">Sign In</a>  
+        </div>
+      </form>
+    </div>
+  </body>
+  <script src = "/javascripts/register.js"></script>
+</html>

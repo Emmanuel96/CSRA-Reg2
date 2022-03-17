@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dashboard</title>
+    <%- include('../partials/head.ejs') %>
+  </head>
+  <body class="bg-white">
+    <%- include('../partials/nav.ejs') %>
+    <%- include('../partials/topNav.ejs') %>
+
+    <div class="mt-6 md:mt-0 md:ml-64">
+      <div class="md:py-8 mx-5 sm:mx-8 lg:mx-14 xl:mx-20"> 
+        <div class="py-6 lg:py-10 bg-white lg:border">
+          <div class="mx-5 lg:px-6">
+            <div>
+              <img class="w-32" src="/assets/images/CSR-A_Logo-RGB.jpg" alt="logo" />
+            </div>
+          </div>  
+          
+          <div class="mx-5 lg:px-6 pb-5 text-justify text-sm lg:text-base">
+            <div class="pt-8">
+              <h2 class="text-xl font-bold font-mono text-[#00A19A]">SECTION TWO - WORKPLACE</h2>
+
+              <p class="pt-4 font-bold">WORKPLACE - 2B/ Labour Practices</p>
+
+              <p class="pt-4">
+                For example, do you provide Industrial relations mediation, protection of all labour and human rights, HR management, protection against bullying and harassment? Have staff benefited? Can initiatives be expanded?
+              </p>
+            </div>
+
+            <div class="pt-4">
+              <h4 class="font-bold text-sm">Please use the list below to prompt your thinking.</h4>
+
+              <ul class="list-disc list-inside pt-3">
+                <li class="pl-5">
+                  Internal promotion of workers 
+                </li>
+
+                <li class="pl-5 pt-2">
+                  Flexible working opportunities.
+                </li>
+
+                <li class="pl-5 pt-2">
+                  Disciplinary and grievance procedures 
+                </li>
+
+                <li class="pl-5 pt-2">
+                  The transfer and relocation of workers on termination of employment.
+                </li>
+
+                <li class="pl-5 pt-2">
+                  Training and skills development.
+                </li>
+
+                <li class="pl-5 pt-2">
+                  Health, safety and industrial hygiene.
+                </li>
+
+                <li class="pl-5 pt-2">
+                  Conditions of work, in particular working time and remuneration.
+                </li>
+
+                <li class="pl-5 pt-2">
+                  Conditions of work and social protection including: Fair wages and other forms of compensation. Working time and rest periods. Holidays allowance and pay. Fair disciplinary and dismissal practices. Proper maternity protection. Proper sanitation. Provision of canteens. Access to medical services. Allowing observance of national or religious traditions and customs. Respecting the family responsibilities of workers by providing parental leave and, when possible, childcare. Any other facilities that can help workers achieve a proper work-life balance.           
+                </li>
+
+                <li class="pl-5 pt-2">
+                  Please show statistical data where available.
+                </li>
+              </ul>
+            </div>  
+
+            <form class="pt-5">
+              <textarea class="p-8 max-h-96 text-justify resize-y h-40 w-full border border-[#464343]">
+              </textarea>
+            </form>
+          </div>
+
+          <div class="text-right text-sm mt-3 text-white pr-5 lg:pr-10">
+            <button class="py-2 px-3 mr-3 hover:bg-[#03857e] rounded-md shadow-lg bg-[#00A19A] transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">
+              <a href="./workplace_training">Previous Step</a>
+            </button>
+
+            <button class="py-2 px-3 hover:bg-[#03857e] rounded-md shadow-lg bg-[#00A19A] transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:animate-none animate-bounce duration-300">
+              <a href="./workplace_ethical_practises">Next Step</a>
+            </button>
+          </div>
+        </div>  
+      </div>  
+    </div>  
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+  </body>   
+</html> 
