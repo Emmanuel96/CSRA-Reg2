@@ -1,6 +1,6 @@
-const Form = require('../models/Form')
+// const Company_Details = require('../models/Company_Details')
 
-//GET controllers
+//GET CONTROLLERS
 
 exports.get_company_details = (req, res) => {
   res.render('dashboard/company_details')
@@ -63,40 +63,42 @@ exports.get_workplace_supporting_documents = (req, res) => {
 }
 
 
-//UPDATE controllers
+//POST CONTROLLERS
 
-exports.update_company_details = (req, res) => {
+// exports.post_company_details = async function(req, res, next){
+//   const body = req.body
 
-}
+//   var user_id = body.user_id;
+//   var contact_person = body.contact_person;
+//   var organisation_name = body.organisation_name;
+//   var organisation_address = body.organisation_address;
+//   var organisation_nationality = body.organisation_nationality;
+//   var postal_code = body.postal_code;
+//   var email_address = body.email_address;
+//   var mobile_number = body.mobile_number;
+//   var telephone_number = body.telephone_number;
+//   var organisation_size = body.organisation_size;
+//   var organisation_turnover = body.organisation_turnover;
+//   var completed = body.completed;
 
-exports.update_assessment_and_tips = (req, res) => {
+//   const newCompanyDetails = new Company_Details({
+//     user_id,
+//     contact_person,
+//     organisation_name,
+//     organisation_address,
+//     organisation_nationality,
+//     postal_code,
+//     email_address,
+//     mobile_number,
+//     telephone_number,
+//     organisation_size,
+//     organisation_turnover,
+//     completed
+//   })
 
-}
-
-exports.update_application_introduction = (req, res) => {
-
-}
-
-exports.update_environment_energy = (req, res) => {
-
-}
-
-exports.update_environment_natural_resource = (req, res) => {
-
-}
-
-exports.update_environment_travel = (req, res) => {
-
-}
-
-exports.update_environment_supply_chain_management = (req, res) => {
-
-}
-
-exports.update_environment_waste = (req, res) => {
-
-}
-
-exports.update_environment_supporting_documents = (req, res) => {
-
-}
+//   newCompanyDetails.save().then(() => {
+//     console.log('Company details successfully saved!')
+//   }).catch((err) => {
+//     console.log("Failed to save CompanyDetails: ", err)
+//   })
+// }

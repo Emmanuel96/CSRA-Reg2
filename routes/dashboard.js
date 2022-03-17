@@ -34,24 +34,8 @@ router.get('/workplace_policies', DashboardController.get_workplace_policies);
 
 router.get('/workplace_supporting_documents', DashboardController.get_workplace_supporting_documents);
 
-//UPDATE ROUTES
+//POST ROUTES
 
-router.put('/company_details', DashboardController.update_company_details);
-
-router.put('/assessment_and_tips', DashboardController.update_assessment_and_tips);
-
-router.put('/application_introduction', DashboardController.update_application_introduction);
-
-router.put('/environment_energy', DashboardController.update_environment_energy);
-
-router.put('/environment_natural_resource', DashboardController.update_environment_natural_resource);
-
-router.put('/environment_travel', DashboardController.update_environment_travel);
-
-router.put('/environment_supply_chain_management', DashboardController.update_environment_supply_chain_management);
-
-router.put('/environment_waste', DashboardController.update_environment_waste);
-
-router.put('/environment_supporting_documents', DashboardController.update_environment_supporting_documents);
+// router.post('/company_details', DashboardController.post_company_details)
 
 module.exports = router;

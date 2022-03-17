@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
-const FormSchema = new mongoose.Schema({
-  user_id: {
-    type: Number,
+const Company_Details_Schema = new mongoose.Schema({
+  id: {
+    type: String,
     unique: true,  
   },
 
@@ -68,4 +68,4 @@ const FormSchema = new mongoose.Schema({
 
 });
 
-module.exports = mongoose.model('Form', FormSchema);
+module.exports = mongoose.model('Company_Details', Company_Details_Schema);

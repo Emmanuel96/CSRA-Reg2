@@ -11,12 +11,24 @@
       </button>
     </div>
     <nav :class="{'block': open, 'hidden': !open}" class="flex-grow md:block md:pt-2 px-4 md:px-0 pb-4 md:mb-5 ">
-      <a class="block px-4 py-2 md:mb-4 hover:shadow-lg mt-2 text-sm font-semibold text-gray-900 rounded-lg hover:text-gray-900 hover:bg-gray-200" href="./company_details">COMPANY DETAILS</a>
-      <a class="block px-4 py-2 mt-2 md:mb-4 hover:shadow-lg text-sm font-semibold text-gray-900 bg-transparent rounded-lg hover:text-gray-900 hover:bg-gray-200" href="./application_introduction">INTRODUCTION</a>
+      <a class="clear-left block px-4 py-2 md:mb-4 hover:shadow-lg mt-2 text-sm font-semibold text-gray-900 rounded-lg hover:text-gray-900 hover:bg-gray-200" href="./company_details">COMPANY DETAILS 
+        <span class="float-right mt-1">
+          <img class="w-3" src="/assets/images/completed.png" alt="completed tick" />
+        </span>
+      </a>
+
+      <a class="clear-left  block px-4 py-2 mt-2 md:mb-4 hover:shadow-lg text-sm font-semibold text-gray-900 bg-transparent rounded-lg hover:text-gray-900 hover:bg-gray-200" href="./application_introduction">INTRODUCTION
+        <span class="float-right">
+          <img class="w-3 pt-1" src="/assets/images/completed.png" alt="completed tick" />
+        </span>
+      </a>
 
       <div @click.away="open = false" class="relative md:mb-4 hover:shadow-lg z-30" x-data="{ open: false }">
-        <button @click="open = !open" class="flex flex-row items-center text-[#302f2f] w-full px-4 py-2 mt-2 text-sm font-semibold text-left bg-transparent rounded-lg md:block hover:text-gray-900 hover:bg-gray-200 ">
+        <button @click="open = !open" class="clear-left flex flex-row items-center text-[#302f2f] w-full px-4 py-2 mt-2 text-sm font-semibold text-left bg-transparent rounded-lg md:block hover:text-gray-900 hover:bg-gray-200 ">
           <span>ENVIRONMENT</span>
+          <span class="float-right">
+            <img class="w-3 pt-1" src="/assets/images/completed.png" alt="completed tick" />
+          </span>
           <svg fill="currentColor" viewBox="0 0 20 20" :class="{'rotate-180': open, 'rotate-0': !open}" class="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
         </button>
         <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="absolute right-0 w-full mt-2 origin-top-right rounded-md shadow-lg">
@@ -32,8 +44,11 @@
       </div>
 
       <div @click.away="open = false" class="relative md:mb-4 hover:shadow-lg z-20" x-data="{ open: false }">
-        <button @click="open = !open" class="flex flex-row items-center w-full text-[#302f2f] px-4 py-2 mt-2 text-sm font-semibold text-left bg-transparent rounded-lg md:block hover:text-gray-900 hover:bg-gray-200 ">
+        <button @click="open = !open" class="clear-left flex flex-row items-center w-full text-[#302f2f] px-4 py-2 mt-2 text-sm font-semibold text-left bg-transparent rounded-lg md:block hover:text-gray-900 hover:bg-gray-200 ">
           <span>WORKPLACE</span>
+          <span class="float-right">
+            <img class="w-3 pt-1" src="/assets/images/completed.png" alt="completed tick" />
+          </span>
           <svg fill="currentColor" viewBox="0 0 20 20" :class="{'rotate-180': open, 'rotate-0': !open}" class="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
         </button>
         <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="absolute right-0 w-full mt-2 origin-top-right rounded-md shadow-lg">
@@ -49,8 +64,11 @@
       </div>
 
       <div @click.away="open = false" class="relative md:mb-4 hover:shadow-lg z-10" x-data="{ open: false }">
-        <button @click="open = !open" class="flex flex-row items-center w-full text-[#302f2f] px-4 py-2 mt-2 text-sm font-semibold text-left bg-transparent rounded-lg md:block hover:text-gray-900 hover:bg-gray-200 ">
+        <button @click="open = !open" class="clear-left flex flex-row items-center w-full text-[#302f2f] px-4 py-2 mt-2 text-sm font-semibold text-left bg-transparent rounded-lg md:block hover:text-gray-900 hover:bg-gray-200 ">
           <span>COMMUNITY</span>
+          <span class="float-right">
+            <img class="w-3 pt-1" src="/assets/images/completed.png" alt="completed tick" />
+          </span>
           <svg fill="currentColor" viewBox="0 0 20 20" :class="{'rotate-180': open, 'rotate-0': !open}" class="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
         </button>
         <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="absolute right-0 w-full mt-2 origin-top-right rounded-md shadow-lg">
@@ -66,8 +84,11 @@
       </div>
 
       <div @click.away="open = false" class="relative md:mb-4 hover:shadow-lg z-0" x-data="{ open: false }">
-        <button @click="open = !open" class="flex flex-row items-center text-[#302f2f] w-full px-4 py-2 mt-2 text-sm font-semibold text-left bg-transparent rounded-lg md:block hover:text-gray-900 hover:bg-gray-200 ">
+        <button @click="open = !open" class="clear-left flex flex-row items-center text-[#302f2f] w-full px-4 py-2 mt-2 text-sm font-semibold text-left bg-transparent rounded-lg md:block hover:text-gray-900 hover:bg-gray-200 ">
           <span>PHILANTHROPY</span>
+          <span class="float-right">
+            <img class="w-3 pt-1" src="/assets/images/completed.png" alt="completed tick" />
+          </span>
           <svg fill="currentColor" viewBox="0 0 20 20" :class="{'rotate-180': open, 'rotate-0': !open}" class="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
         </button>
         <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="absolute right-0 w-full mt-2 origin-top-right rounded-md shadow-lg">
@@ -81,8 +102,16 @@
           </div>
         </div>
       </div>
-      <a class="block md:mb-4 hover:shadow-lg px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-transparent rounded-lg hover:text-gray-900 hover:bg-gray-200 " href="./assessment_and_tips">ASSESSMENT & TIPS</a>
-      <p class="block md:mb-4 hover:shadow-lg px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-transparent rounded-lg hover:text-gray-900 hover:bg-gray-200 " href="">SUBMIT</p>
+      <a class="clear-left block md:mb-4 hover:shadow-lg px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-transparent rounded-lg hover:text-gray-900 hover:bg-gray-200 " href="./assessment_and_tips">ASSESSMENT | TIPS
+        <span class="float-right">
+          <img class="w-3 pt-1" src="/assets/images/completed.png" alt="completed tick" />
+        </span>
+      </a>
+      <p class="clear-left block md:mb-4 hover:shadow-lg px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-transparent rounded-lg hover:text-gray-900 hover:bg-gray-200 " href="">FINISHED
+        <span class="float-right">
+          <img class="w-3 pt-1" src="/assets/images/completed.png" alt="completed tick" />
+        </span>
+      </p>
     </nav>
   </div>
 
@@ -91,7 +120,6 @@
     const navLinks = document.querySelectorAll('nav a').forEach(link => {
       if(link.href.includes(`${activePage}`)){
         link.classList.add('active');
-        console.log(link);
       }
     })
   </script>
