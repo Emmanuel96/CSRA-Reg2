@@ -1,4 +1,10 @@
-// const Company_Details = require('../models/Company_Details')
+const Company_Details = require("../models/Company_Details")
+const Introduction = require("../models/Introduction")
+const Env_Energy = require('../models/Env_Energy')
+const Env_Natural_Resource = require('../models/Env_Natural_Resource')
+const Env_Travel = require('../models/Env_Travel')
+const Env_Supply_Chain_Management = require('../models/Env_Supply_Chain_Management')
+const Env_Waste = require('../models/Env_Waste')
 
 //GET CONTROLLERS
 
@@ -63,42 +69,209 @@ exports.get_workplace_supporting_documents = (req, res) => {
 }
 
 
-//POST CONTROLLERS
+//PUT CONTROLLERS
 
-// exports.post_company_details = async function(req, res, next){
-//   const body = req.body
+exports.put_company_details = async function(req, res, next){
+  var body = req.body
 
-//   var user_id = body.user_id;
-//   var contact_person = body.contact_person;
-//   var organisation_name = body.organisation_name;
-//   var organisation_address = body.organisation_address;
-//   var organisation_nationality = body.organisation_nationality;
-//   var postal_code = body.postal_code;
-//   var email_address = body.email_address;
-//   var mobile_number = body.mobile_number;
-//   var telephone_number = body.telephone_number;
-//   var organisation_size = body.organisation_size;
-//   var organisation_turnover = body.organisation_turnover;
-//   var completed = body.completed;
+  const company_details = {
+    contact_person: body.contact_person,
+    organisation_name: body.organisation_name,
+    organisation_address: body.organisation_address,
+    organisation_nationality: body.organisation_nationality,
+    postal_code: body.postal_code,
+    email_address: body.email_address,
+    mobile_number: body.mobile_number,
+    telephone_number: body.telephone_number,
+    organisation_size: body.organisation_size,
+    organisation_turnover: body.organisation_turnover,
+    company_details_completed: true
+  }
 
-//   const newCompanyDetails = new Company_Details({
-//     user_id,
-//     contact_person,
-//     organisation_name,
-//     organisation_address,
-//     organisation_nationality,
-//     postal_code,
-//     email_address,
-//     mobile_number,
-//     telephone_number,
-//     organisation_size,
-//     organisation_turnover,
-//     completed
-//   })
+  Company_Details.findByIdAndUpdate(
+    req.params.id, 
+    company_details, 
+    {new: true, runValidators: true, context: 'query'}
+  ).then(() => {
+    res.status(200).json({
+      success: true,
+      message: "Successfully updated company_details"
+    })
+    console.log("Successfully updated company_details")
+  }).catch(error => {
+    res.status(400).json({
+      success: false,
+      message: "Failed to update company_details",
+      error: error
+    })
+    console.log("Failed to update company_details")
+  })
+}
 
-//   newCompanyDetails.save().then(() => {
-//     console.log('Company details successfully saved!')
-//   }).catch((err) => {
-//     console.log("Failed to save CompanyDetails: ", err)
-//   })
-// }
+exports.put_application_introduction = async function(req, res, next){
+  var body = req.body
+
+  const introduction = {
+    introduction: body.introduction,
+    introduction_completed: true
+  }
+
+  Introduction.findByIdAndUpdate(
+    req.params.id, 
+    introduction, 
+    {new: true, runValidators: true, context: 'query'}
+  ).then(() => {
+    res.status(200).json({
+      success: true,
+      message: "Successfully updated application_introduction"
+    })
+    console.log("Successfully updated application_introduction")
+  }).catch(error => {
+    res.status(400).json({
+      success: false,
+      message: "Failed to update application_introduction",
+      error: error
+    })
+    console.log("Failed to update application_introduction")
+  })
+}
+
+exports.put_environment_energy = async function(req, res, next){
+  var body = req.body
+
+  const env_energy = {
+    env_energy: body.env_energy,
+    env_energy_completed: true
+  }
+
+  Env_Energy.findByIdAndUpdate(
+    req.params.id, 
+    env_energy, 
+    {new: true, runValidators: true, context: 'query'}
+  ).then(() => {
+    res.status(200).json({
+      success: true,
+      message: "Successfully updated env_energy"
+    })
+    console.log("Successfully updated env_energy")
+  }).catch(error => {
+    res.status(400).json({
+      success: false,
+      message: "Failed to update env_energy",
+      error: error
+    })
+    console.log("Failed to update env_energy")
+  })
+}
+
+exports.put_environment_natural_resource = async function(req, res, next){
+  var body = req.body
+
+  const env_natural_resource = {
+    env_natural_resource: body.env_natural_resource,
+    env_natural_resource_completed: true
+  }
+
+  Env_Natural_Resource.findByIdAndUpdate(
+    req.params.id, 
+    env_natural_resource, 
+    {new: true, runValidators: true, context: 'query'}
+  ).then(() => {
+    res.status(200).json({
+      success: true,
+      message: "Successfully environment_natural_resource"
+    })
+    console.log("Successfully environment_natural_resource")
+  }).catch(error => {
+    res.status(400).json({
+      success: false,
+      message: "Failed to update environment_natural_resource",
+      error: error
+    })
+    console.log("Failed to update environment_natural_resource")
+  })
+}
+
+exports.put_environment_travel = async function(req, res, next){
+  var body = req.body
+
+  const env_travel = {
+    env_travel: body.env_travel,
+    env_travel_completed: true
+  }
+
+  Env_Travel.findByIdAndUpdate(
+    req.params.id, 
+    env_travel, 
+    {new: true, runValidators: true, context: 'query'}
+  ).then(() => {
+    res.status(200).json({
+      success: true,
+      message: "Successfully updated env_travel"
+    })
+    console.log("Successfully updated env_travel")
+  }).catch(error => {
+    res.status(400).json({
+      success: false,
+      message: "Failed to update env_travel",
+      error: error
+    })
+    console.log("Failed to update env_travel")
+  })
+}
+
+exports.put_environment_supply_chain_management = async function(req, res, next){
+  var body = req.body
+
+  const env_supply_chain_management = {
+    env_supply_chain_management: body.env_supply_chain_management,
+    env_supply_chain_management_completed: true
+  }
+
+  Env_Supply_Chain_Management.findByIdAndUpdate(
+    req.params.id, 
+    env_supply_chain_management, 
+    {new: true, runValidators: true, context: 'query'}
+  ).then(() => {
+    res.status(200).json({
+      success: true,
+      message: "Successfully updated env_supply_chain_management"
+    })
+    console.log("Successfully updated env_supply_chain_management")
+  }).catch(error => {
+    res.status(400).json({
+      success: false,
+      message: "Failed to update env_supply_chain_management",
+      error: error
+    })
+    console.log("Failed to update env_supply_chain_management")
+  })
+}
+
+exports.put_environment_waste = async function(req, res, next){
+  var body = req.body
+
+  const env_waste = {
+    env_waste: body.env_waste,
+    env_waste_completed: true
+  }
+
+  Env_Waste.findByIdAndUpdate(
+    req.params.id, 
+    env_waste, 
+    {new: true, runValidators: true, context: 'query'}
+  ).then(() => {
+    res.status(200).json({
+      success: true,
+      message: "Successfully updated env_waste"
+    })
+    console.log("Successfully updated env_waste")
+  }).catch(error => {
+    res.status(400).json({
+      success: false,
+      message: "Failed to update env_waste",
+      error: error
+    })
+    console.log("Failed to update env_waste")
+  })
+}

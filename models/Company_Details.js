@@ -1,11 +1,6 @@
 const mongoose = require('mongoose');
 
 const Company_Details_Schema = new mongoose.Schema({
-  id: {
-    type: String,
-    unique: true,  
-  },
-
   contact_person: {
     type: String  
   },

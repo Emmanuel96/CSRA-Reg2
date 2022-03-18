@@ -1,11 +1,6 @@
 const mongoose = require('mongoose')
 
 const Introduction_Schema = new mongoose.Schema({
-  id: {
-    type: String,
-    unique: true
-  },
-
   introduction: {
     type: String
   },

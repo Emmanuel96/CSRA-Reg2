@@ -23,12 +23,12 @@ const UserSchema = new mongoose.Schema({
   resetPasswordExpires: Number
 });
 
-UserSchema.set('toJSON', {
-  transform: (document, returnedObject) => {
-    returnedObject.id = returnedObject._id.toString()
-    delete returnedObject._id
-    delete returnedObject.__v
-  }
-})
+// UserSchema.set('toJSON', {
+//   transform: (document, returnedObject) => {
+//     returnedObject.id = returnedObject._id.toString()
+//     delete returnedObject._id
+//     delete returnedObject.__v
+//   }
+// })
 
 module.exports = mongoose.model('User', UserSchema);

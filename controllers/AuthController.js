@@ -2,6 +2,11 @@ const bcrypt = require("bcryptjs");
 const User = require('../models/User');
 const Company_Details = require('../models/Company_Details')
 const Introduction = require('../models/Introduction')
+const Env_Energy = require("../models/Env_Energy")
+const Env_Natural_Resource = require("../models/Env_Natural_Resource")
+const Env_Travel = require('../models/Env_Travel')
+const Env_Supply_Chain_Management = require('../models/Env_Supply_Chain_Management')
+const Env_Waste = require('../models/Env_Waste')
 
 //POST controllers
 
@@ -68,7 +73,6 @@ exports.post_register = async function(req, res, next){
             newUser.password = hash
             newUser.save().then(savedUser => {
               //Compnay_details variables
-              var id = savedUser._id
               var contact_person = null
               var organisation_name = null 
               var organisation_address = null
@@ -82,7 +86,6 @@ exports.post_register = async function(req, res, next){
               var company_details_completed = false 
 
               const newCompanyDetails = new Company_Details({
-                id,
                 contact_person,
                 organisation_name,
                 organisation_address,
@@ -97,27 +100,104 @@ exports.post_register = async function(req, res, next){
               })
 
               //Introduction variables
-              var id = savedUser._id
               var introduction = null
               var introduction_completed = false
 
               const newIntroduction = new Introduction({
-                id, 
                 introduction,
                 introduction_completed
               })
 
               //Env_energy variables
-              var id = savedUser._id
+              var env_energy = null
+              var env_energy_completed = false
 
+              const newEnv_Energy = new Env_Energy({
+                env_energy,
+                env_energy_completed
+              })
+
+              //Env_Natural_Resource variables
+              var env_natural_resource = null
+              var env_natural_resource_completed = false
+
+              const newEnv_Natural_Resource = new Env_Natural_Resource({
+                env_natural_resource,
+                env_natural_resource_completed
+              })
+
+              //Env_travel variables
+              var env_travel = null
+              var env_travel_completed = false
+
+              const newEnv_Travel = new Env_Travel({
+                env_travel,
+                env_travel_completed
+              })
+
+              //Env_Supply_Chain_Management variables
+              var env_supply_chain_management = null
+              var env_supply_chain_management_completed = false
+
+              const newEnv_Supply_Chain_Management = new Env_Supply_Chain_Management({
+                env_supply_chain_management,
+                env_supply_chain_management_completed
+              })
+
+              //Env_waste variables
+              var env_waste = null
+              var env_waste_completed = false
+
+              const newEnv_Waste = new Env_Waste({
+                env_waste,
+                env_waste_completed
+              })
+
+              newCompanyDetails._id = savedUser._id
               newCompanyDetails.save().then(() => {
                 console.log("CompanyDetails saved!")
               }).catch((err) => {
                 console.log("Failed to save!", err)
               })
       
+              newIntroduction._id = savedUser._id
               newIntroduction.save().then(() => {
                 console.log("Introduction saved!")
+              }).catch((err) => {
+                console.log("Failed to save!", err)
+              })
+
+              newEnv_Energy._id = savedUser._id
+              newEnv_Energy.save().then(() => {
+                console.log("Env_Energy saved!")
+              }).catch((err) => {
+                console.log("Failed to save!", err)
+              })
+
+              newEnv_Natural_Resource._id = savedUser._id
+              newEnv_Natural_Resource.save().then(() => {
+                console.log("Env_Natural_Resource saved!")
+              }).catch((err) => {
+                console.log("Failed to save!", err)
+              })
+
+              newEnv_Travel._id = savedUser._id
+              newEnv_Travel.save().then(() => {
+                console.log("Env_Travel saved!")
+              }).catch((err) => {
+                console.log("Failed to save!", err)
+              })
+
+              newEnv_Supply_Chain_Management._id = savedUser._id
+              newEnv_Supply_Chain_Management.save().then(() => {
+                console.log("Env_Supply_Chain_Management saved!")
+              }).catch((err) => {
+                console.log("Failed to save!", err)
+              })
+
+              newEnv_Waste._id = savedUser._id
+              newEnv_Waste.save().then(() => {
+                console.log("Env_Waste saved!")
               }).catch((err) => {
                 console.log("Failed to save!", err)
               })
