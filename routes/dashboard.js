@@ -46,7 +46,7 @@ router.put('/environment_natural_resource/:id', DashboardController.put_environm
 
 router.put('/environment_travel/:id', DashboardController.put_environment_travel)
 
-router.put('/environment_supply_chain_managementy/:id', DashboardController.put_environment_supply_chain_management)
+router.put('/environment_supply_chain_management/:id', DashboardController.put_environment_supply_chain_management)
 
 router.put('/environment_waste/:id', DashboardController.put_environment_waste)
 
