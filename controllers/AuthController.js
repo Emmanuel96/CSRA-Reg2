@@ -1,5 +1,6 @@
 const bcrypt = require("bcryptjs");
 const User = require('../models/User');
+
 const Company_Details = require('../models/Company_Details')
 const Introduction = require('../models/Introduction')
 const Env_Energy = require("../models/Env_Energy")
@@ -7,6 +8,12 @@ const Env_Natural_Resource = require("../models/Env_Natural_Resource")
 const Env_Travel = require('../models/Env_Travel')
 const Env_Supply_Chain_Management = require('../models/Env_Supply_Chain_Management')
 const Env_Waste = require('../models/Env_Waste')
+const Wrk_Training = require('../models/Wrk_Training')
+const Wrk_Labour_Practices = require('../models/Wrk_Labour_Practices')
+const Wrk_Ethical_Practices = require('../models/Wrk_Ethical_Practices')
+const Wrk_Governance = require("../models/Wrk_Governance")
+const Wrk_Policies = require("../models/Wrk_Policies")
+
 
 //POST controllers
 
@@ -153,6 +160,51 @@ exports.post_register = async function(req, res, next){
                 env_waste_completed
               })
 
+              //Wrk_training variables
+              var wrk_training = null
+              var wrk_training_completed = false
+
+              const newWrk_training = new Wrk_Training({
+                wrk_training,
+                wrk_training_completed
+              })
+
+              //Wrk_labour_practices variables
+              var wrk_labour_practices = null
+              var wrk_labour_practices_completed = false
+
+              const newWrk_labour_practices = new Wrk_Labour_Practices({
+                wrk_labour_practices,
+                wrk_labour_practices_completed
+              })
+
+              //Wrk_ethical_practices variables
+              var wrk_ethical_practices = null
+              var wrk_ethical_practices_completed = false
+
+              const newWrk_ethical_practices = new Wrk_Ethical_Practices({
+                wrk_ethical_practices,
+                wrk_ethical_practices_completed
+              })
+
+              //Wrk_governance variables
+              var wrk_governance = null
+              var wrk_governance_completed = false
+
+              const newWrk_governance = new Wrk_Governance({
+                wrk_governance,
+                wrk_governance_completed
+              })
+             
+              //Wrk_policies variables
+              var wrk_policies = null
+              var wrk_policies_completed = false
+
+              const newWrk_policies = new Wrk_Policies({
+                wrk_policies,
+                wrk_policies_completed
+              })              
+
               newCompanyDetails._id = savedUser._id
               newCompanyDetails.save().then(() => {
                 console.log("CompanyDetails saved!")
@@ -198,6 +250,41 @@ exports.post_register = async function(req, res, next){
               newEnv_Waste._id = savedUser._id
               newEnv_Waste.save().then(() => {
                 console.log("Env_Waste saved!")
+              }).catch((err) => {
+                console.log("Failed to save!", err)
+              })
+
+              newWrk_training._id = savedUser._id
+              newWrk_training.save().then(() => {
+                console.log("Wrk_training saved!")
+              }).catch((err) => {
+                console.log("Failed to save!", err)
+              })
+
+              newWrk_labour_practices._id = savedUser._id
+              newWrk_labour_practices.save().then(() => {
+                console.log("Wrk_labour_practice saved!")
+              }).catch((err) => {
+                console.log("Failed to save!", err)
+              })
+
+              newWrk_ethical_practices._id = savedUser._id
+              newWrk_ethical_practices.save().then(() => {
+                console.log("Wrk_ethical_practice saved!")
+              }).catch((err) => {
+                console.log("Failed to save!", err)
+              })
+
+              newWrk_governance._id = savedUser._id
+              newWrk_governance.save().then(() => {
+                console.log("Wrk_governance saved!")
+              }).catch((err) => {
+                console.log("Failed to save!", err)
+              })
+
+              newWrk_policies._id = savedUser._id
+              newWrk_policies.save().then(() => {
+                console.log("Wrk_Policies saved!")
               }).catch((err) => {
                 console.log("Failed to save!", err)
               })

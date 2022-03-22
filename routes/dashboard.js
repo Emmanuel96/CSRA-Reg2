@@ -50,4 +50,14 @@ router.put('/environment_supply_chain_management/:id', DashboardController.put_e
 
 router.put('/environment_waste/:id', DashboardController.put_environment_waste)
 
+router.put('/workplace_training/:id', DashboardController.put_workplace_training)
+
+router.put('/workplace_labour_practices/:id', DashboardController.put_workplace_labour_practices)
+
+router.put('/workplace_ethical_practises/:id', DashboardController.put_workplace_ethical_practises)
+
+router.put('/workplace_governance/:id', DashboardController.put_workplace_governance)
+
+router.put('/workplace_policies/:id', DashboardController.put_workplace_policies)
+
 module.exports = router;
