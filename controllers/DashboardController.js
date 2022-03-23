@@ -73,6 +73,31 @@ exports.get_workplace_supporting_documents = (req, res) => {
   res.render('dashboard/workplace_supporting_documents')
 }
 
+exports.get_community_engagement = (req, res) => {
+  res.render('dashboard/community_engagement')
+}
+
+exports.get_community_local_issues = (req, res) => {
+  res.render('dashboard/community_local_issues')
+}
+
+exports.get_community_wealth_creation = (req, res) => {
+  res.render('dashboard/community_wealth_creation')
+}
+
+exports.get_community_projects_and_groups = (req, res) => {
+  res.render('dashboard/community_projects_and_groups')
+}
+
+exports.get_community_education = (req, res) => {
+  res.render('dashboard/community_education')
+}
+
+exports.get_community_supporting_documents = (req, res) => {
+  res.render('dashboard/community_supporting_documents')
+}
+
+
 
 //PUT CONTROLLERS
 

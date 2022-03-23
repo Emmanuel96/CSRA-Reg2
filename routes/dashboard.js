@@ -34,6 +34,18 @@ router.get('/workplace_policies', DashboardController.get_workplace_policies);
 
 router.get('/workplace_supporting_documents', DashboardController.get_workplace_supporting_documents);
 
+router.get('/community_engagement', DashboardController.get_community_engagement);
+
+router.get('/community_local_issues', DashboardController.get_community_local_issues);
+
+router.get('/community_wealth_creation', DashboardController.get_community_wealth_creation);
+
+router.get('/community_projects_and_groups', DashboardController.get_community_projects_and_groups);
+
+router.get('/community_education', DashboardController.get_community_education);
+
+router.get('/community_supporting_documents', DashboardController.get_community_supporting_documents);
+
 //PUT ROUTES
 
 router.put('/company_details/:id', DashboardController.put_company_details)
