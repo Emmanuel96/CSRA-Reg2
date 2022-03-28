@@ -46,6 +46,18 @@ router.get('/community_education', DashboardController.get_community_education);
 
 router.get('/community_supporting_documents', DashboardController.get_community_supporting_documents);
 
+router.get('/philanthropy_charitable_involvement', DashboardController.get_philanthropy_charitable_involvement);
+
+router.get('/philanthropy_volunteering', DashboardController.get_philanthropy_volunteering);
+
+router.get('/philanthropy_pro_bono', DashboardController.get_philanthropy_pro_bono);
+
+router.get('/philanthropy_fund_raising', DashboardController.get_philanthropy_fund_raising);
+
+router.get('/philanthropy_financial_and_kind_gifts', DashboardController.get_philanthropy_financial_and_kind_gifts);
+
+router.get('/philanthropy_supporting_documents', DashboardController.get_philanthropy_supporting_documents);
+
 //PUT ROUTES
 
 router.put('/company_details/:id', DashboardController.put_company_details)

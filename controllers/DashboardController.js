@@ -97,7 +97,29 @@ exports.get_community_supporting_documents = (req, res) => {
   res.render('dashboard/community_supporting_documents')
 }
 
+exports.get_philanthropy_charitable_involvement = (req, res) => {
+  res.render('dashboard/philanthropy_charitable_involvement')
+}
 
+exports.get_philanthropy_volunteering = (req, res) => {
+  res.render('dashboard/philanthropy_volunteering')
+}
+
+exports.get_philanthropy_pro_bono = (req, res) => {
+  res.render('dashboard/philanthropy_pro_bono')
+}
+
+exports.get_philanthropy_fund_raising = (req, res) => {
+  res.render('dashboard/philanthropy_fund_raising')
+}
+
+exports.get_philanthropy_financial_and_kind_gifts = (req, res) => {
+  res.render('dashboard/philanthropy_financial_and_kind_gifts')
+}
+
+exports.get_philanthropy_supporting_documents = (req, res) => {
+  res.render('dashboard/philanthropy_supporting_documents')
+}
 
 //PUT CONTROLLERS
 
