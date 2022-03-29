@@ -60,7 +60,6 @@ const Company_Details_Schema = new mongoose.Schema({
   },
 
   company_details_completed: Boolean,
-
 });
 
 module.exports = mongoose.model('Company_Details', Company_Details_Schema);
