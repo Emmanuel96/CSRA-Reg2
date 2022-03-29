@@ -22,8 +22,13 @@ const Com_Wealth_Creation = require("../models/Com_Wealth_Creation")
 const Com_Projects_And_Groups = require("../models/Com_Projects_And_Groups")
 const Com_Education = require("../models/Com_Education")
 
+const Phil_Charitable_Involvement = require("../models/Phil_Charitable_Involvement")
+const Phil_Volunteering = require("../models/Phil_Volunteering")
+const Phil_Pro_Bono = require("../models/Phil_Pro_Bono")
+const Phil_Fund_Raising = require("../models/Phil_Fund_Raising")
+const Phil_Financial_And_Kind_Gifts = require("../models/Phil_Financial_And_Kind_Gifts")
 
-
+const Assessments_and_Tips = require("../models/Assessments_and_Tips")
 
 //POST controllers
 
@@ -259,6 +264,59 @@ exports.post_register = async function(req, res, next){
                 com_education,
                 com_education_completed
               }) 
+
+              //Phil_charitable_involvement variables
+              var phil_charitable_involvement = null
+              var phil_charitable_involvement_completed = false
+
+              const newPhil_Charitable_Involvement = new Phil_Charitable_Involvement({
+                phil_charitable_involvement,
+                phil_charitable_involvement_completed
+              }) 
+
+              //Phil_volunteering variables
+              var phil_volunteering = null
+              var phil_volunteering_completed = false
+
+              const newPhil_Volunteering = new Phil_Volunteering({
+                phil_volunteering,
+                phil_volunteering_completed
+              }) 
+
+              //Phil_pro_bono variables
+              var phil_pro_bono = null
+              var phil_pro_bono_completed = false
+
+              const newPhil_Pro_Bono = new Phil_Pro_Bono({
+                phil_pro_bono,
+                phil_pro_bono_completed
+              }) 
+
+              //Phil_fund_raising variables
+              var phil_fund_raising = null
+              var phil_fund_raising_completed = false
+
+              const newPhil_Fund_Raising = new Phil_Fund_Raising({
+                phil_fund_raising,
+                phil_fund_raising_completed
+              }) 
+
+              //Phil_financial_and_kind_gifts variables
+              var phil_financial_and_kind_gifts = null
+              var phil_financial_and_kind_gifts_completed = false
+
+              const newPhil_Financial_And_Kind_Gifts = new Phil_Financial_And_Kind_Gifts({
+                phil_financial_and_kind_gifts,
+                phil_financial_and_kind_gifts_completed
+              }) 
+
+              //Assessments_and_tips variables
+              var assessments_and_tips_completed = false
+
+              const newAssessments_and_Tips = new Assessments_and_Tips({
+                assessments_and_tips_completed
+              }) 
+
               newCompanyDetails._id = savedUser._id
               newCompanyDetails.save().then(() => {
                 console.log("CompanyDetails saved!")
@@ -374,6 +432,48 @@ exports.post_register = async function(req, res, next){
               newCom_Education._id = savedUser._id
               newCom_Education.save().then(() => {
                 console.log("Com_Education saved!")
+              }).catch((err) => {
+                console.log("Failed to save!", err)
+              })
+
+              newPhil_Charitable_Involvement._id = savedUser._id
+              newPhil_Charitable_Involvement.save().then(() => {
+                console.log("Phil_Charitable_Involvement saved!")
+              }).catch((err) => {
+                console.log("Failed to save!", err)
+              })
+
+              newPhil_Volunteering._id = savedUser._id
+              newPhil_Volunteering.save().then(() => {
+                console.log("Phil_Volunteering saved!")
+              }).catch((err) => {
+                console.log("Failed to save!", err)
+              })
+
+              newPhil_Pro_Bono._id = savedUser._id
+              newPhil_Pro_Bono.save().then(() => {
+                console.log("Phil_Pro_Bono saved!")
+              }).catch((err) => {
+                console.log("Failed to save!", err)
+              })
+
+              newPhil_Fund_Raising._id = savedUser._id
+              newPhil_Fund_Raising.save().then(() => {
+                console.log("Phil_Fund_Raising saved!")
+              }).catch((err) => {
+                console.log("Failed to save!", err)
+              })
+
+              newPhil_Financial_And_Kind_Gifts._id = savedUser._id
+              newPhil_Financial_And_Kind_Gifts.save().then(() => {
+                console.log("Phil_Financial_And_Kind_Gifts saved!")
+              }).catch((err) => {
+                console.log("Failed to save!", err)
+              })
+
+              newAssessments_and_Tips._id = savedUser._id
+              newAssessments_and_Tips.save().then(() => {
+                console.log("Assessments_and_Tips saved!")
               }).catch((err) => {
                 console.log("Failed to save!", err)
               })
