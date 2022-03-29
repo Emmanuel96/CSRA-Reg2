@@ -3,16 +3,26 @@ const User = require('../models/User');
 
 const Company_Details = require('../models/Company_Details')
 const Introduction = require('../models/Introduction')
+
 const Env_Energy = require("../models/Env_Energy")
 const Env_Natural_Resource = require("../models/Env_Natural_Resource")
 const Env_Travel = require('../models/Env_Travel')
 const Env_Supply_Chain_Management = require('../models/Env_Supply_Chain_Management')
 const Env_Waste = require('../models/Env_Waste')
+
 const Wrk_Training = require('../models/Wrk_Training')
 const Wrk_Labour_Practices = require('../models/Wrk_Labour_Practices')
 const Wrk_Ethical_Practices = require('../models/Wrk_Ethical_Practices')
 const Wrk_Governance = require("../models/Wrk_Governance")
 const Wrk_Policies = require("../models/Wrk_Policies")
+
+const Com_Engagement = require("../models/Com_Engagement")
+const Com_Local_Issues = require("../models/Com_Local_Issues")
+const Com_Wealth_Creation = require("../models/Com_Wealth_Creation")
+const Com_Projects_And_Groups = require("../models/Com_Projects_And_Groups")
+const Com_Education = require("../models/Com_Education")
+
+
 
 
 //POST controllers
@@ -203,8 +213,52 @@ exports.post_register = async function(req, res, next){
               const newWrk_policies = new Wrk_Policies({
                 wrk_policies,
                 wrk_policies_completed
-              })              
+              })      
+              
+              //Com_engagement variables
+              var com_engagement = null
+              var com_engagement_completed = false
 
+              const newCom_Engagement = new Com_Engagement({
+                com_engagement,
+                com_engagement_completed
+              }) 
+
+              //Com_local_issues variables
+              var com_local_issues = null
+              var com_local_issues_completed = false
+
+              const newCom_Local_Issues = new Com_Local_Issues({
+                com_local_issues,
+                com_local_issues_completed
+              }) 
+
+              //Com_wealth_creation variables
+              var com_wealth_creation = null
+              var com_wealth_creation_completed = false
+
+              const newCom_Wealth_Creation = new Com_Wealth_Creation({
+                com_wealth_creation,
+                com_wealth_creation_completed
+              })  
+
+              //Com_projects_and_groups variables
+              var com_projects_and_groups = null
+              var com_projects_and_groups_completed = false
+
+              const newCom_Projects_And_Groups = new Com_Projects_And_Groups({
+                com_projects_and_groups,
+                com_projects_and_groups_completed
+              }) 
+
+              //Com_education variables
+              var com_education = null
+              var com_education_completed = false
+
+              const newCom_Education = new Com_Education({
+                com_education,
+                com_education_completed
+              }) 
               newCompanyDetails._id = savedUser._id
               newCompanyDetails.save().then(() => {
                 console.log("CompanyDetails saved!")
@@ -285,6 +339,41 @@ exports.post_register = async function(req, res, next){
               newWrk_policies._id = savedUser._id
               newWrk_policies.save().then(() => {
                 console.log("Wrk_Policies saved!")
+              }).catch((err) => {
+                console.log("Failed to save!", err)
+              })
+
+              newCom_Engagement._id = savedUser._id
+              newCom_Engagement.save().then(() => {
+                console.log("Com_Engagement saved!")
+              }).catch((err) => {
+                console.log("Failed to save!", err)
+              })
+
+              newCom_Local_Issues._id = savedUser._id
+              newCom_Local_Issues.save().then(() => {
+                console.log("Com_Local_Issues saved!")
+              }).catch((err) => {
+                console.log("Failed to save!", err)
+              })
+
+              newCom_Wealth_Creation._id = savedUser._id
+              newCom_Wealth_Creation.save().then(() => {
+                console.log("Com_Wealth_Creation saved!")
+              }).catch((err) => {
+                console.log("Failed to save!", err)
+              })
+
+              newCom_Projects_And_Groups._id = savedUser._id
+              newCom_Projects_And_Groups.save().then(() => {
+                console.log("Com_Projects_And_Groups saved!")
+              }).catch((err) => {
+                console.log("Failed to save!", err)
+              })
+
+              newCom_Education._id = savedUser._id
+              newCom_Education.save().then(() => {
+                console.log("Com_Education saved!")
               }).catch((err) => {
                 console.log("Failed to save!", err)
               })
