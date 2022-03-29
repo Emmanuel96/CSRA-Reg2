@@ -1,11 +1,6 @@
 const mongoose = require('mongoose');
 
-const FormSchema = new mongoose.Schema({
-  user_id: {
-    type: Number,
-    unique: true,  
-  },
-
+const Company_Details_Schema = new mongoose.Schema({
   contact_person: {
     type: String  
   },
@@ -65,7 +60,6 @@ const FormSchema = new mongoose.Schema({
   },
 
   company_details_completed: Boolean,
-
 });
 
-module.exports = mongoose.model('Form', FormSchema);
+module.exports = mongoose.model('Company_Details', Company_Details_Schema);

@@ -34,24 +34,64 @@ router.get('/workplace_policies', DashboardController.get_workplace_policies);
 
 router.get('/workplace_supporting_documents', DashboardController.get_workplace_supporting_documents);
 
-//UPDATE ROUTES
+router.get('/community_engagement', DashboardController.get_community_engagement);
 
-router.put('/company_details', DashboardController.update_company_details);
+router.get('/community_local_issues', DashboardController.get_community_local_issues);
 
-router.put('/assessment_and_tips', DashboardController.update_assessment_and_tips);
+router.get('/community_wealth_creation', DashboardController.get_community_wealth_creation);
 
-router.put('/application_introduction', DashboardController.update_application_introduction);
+router.get('/community_projects_and_groups', DashboardController.get_community_projects_and_groups);
 
-router.put('/environment_energy', DashboardController.update_environment_energy);
+router.get('/community_education', DashboardController.get_community_education);
 
-router.put('/environment_natural_resource', DashboardController.update_environment_natural_resource);
+router.get('/community_supporting_documents', DashboardController.get_community_supporting_documents);
 
-router.put('/environment_travel', DashboardController.update_environment_travel);
+router.get('/philanthropy_charitable_involvement', DashboardController.get_philanthropy_charitable_involvement);
 
-router.put('/environment_supply_chain_management', DashboardController.update_environment_supply_chain_management);
+router.get('/philanthropy_volunteering', DashboardController.get_philanthropy_volunteering);
 
-router.put('/environment_waste', DashboardController.update_environment_waste);
+router.get('/philanthropy_pro_bono', DashboardController.get_philanthropy_pro_bono);
 
-router.put('/environment_supporting_documents', DashboardController.update_environment_supporting_documents);
+router.get('/philanthropy_fund_raising', DashboardController.get_philanthropy_fund_raising);
+
+router.get('/philanthropy_financial_and_kind_gifts', DashboardController.get_philanthropy_financial_and_kind_gifts);
+
+router.get('/philanthropy_supporting_documents', DashboardController.get_philanthropy_supporting_documents);
+
+//PUT ROUTES
+
+router.put('/company_details/:id', DashboardController.put_company_details)
+
+router.put('/application_introduction/:id', DashboardController.put_application_introduction)
+
+router.put('/environment_energy/:id', DashboardController.put_environment_energy)
+
+router.put('/environment_natural_resource/:id', DashboardController.put_environment_natural_resource)
+
+router.put('/environment_travel/:id', DashboardController.put_environment_travel)
+
+router.put('/environment_supply_chain_management/:id', DashboardController.put_environment_supply_chain_management)
+
+router.put('/environment_waste/:id', DashboardController.put_environment_waste)
+
+router.put('/workplace_training/:id', DashboardController.put_workplace_training)
+
+router.put('/workplace_labour_practices/:id', DashboardController.put_workplace_labour_practices)
+
+router.put('/workplace_ethical_practises/:id', DashboardController.put_workplace_ethical_practises)
+
+router.put('/workplace_governance/:id', DashboardController.put_workplace_governance)
+
+router.put('/workplace_policies/:id', DashboardController.put_workplace_policies)
+
+router.put('/community_engagement/:id', DashboardController.put_community_engagement)
+
+router.put('/community_local_issues/:id', DashboardController.put_community_local_issues)
+
+router.put('/community_wealth_creation/:id', DashboardController.put_community_wealth_creation)
+
+router.put('/community_projects_and_groups/:id', DashboardController.put_community_projects_and_groups)
+
+router.put('/community_education/:id', DashboardController.put_community_education)
 
 module.exports = router;
