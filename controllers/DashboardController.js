@@ -10,6 +10,11 @@ const Wrk_Labour_Practices = require('../models/Wrk_Labour_Practices')
 const Wrk_Ethical_Practices = require('../models/Wrk_Ethical_Practices')
 const Wrk_Governance = require("../models/Wrk_Governance")
 const Wrk_Policies = require("../models/Wrk_Policies")
+const Com_Engagement = require("../models/Com_Engagement")
+const Com_local_issues = require("../models/Com_Local_Issues")
+const Com_Wealth_Creation = require("../models/Com_Wealth_Creation")
+const Com_Projects_And_Groups = require("../models/Com_Projects_And_Groups")
+const Com_Education = require("../models/Com_Education")
 
 //GET CONTROLLERS
 
@@ -465,5 +470,145 @@ exports.put_workplace_policies = async function(req, res, next){
       error: error
     })
     console.log("Failed to update wrk_policies")
+  })
+}
+
+exports.put_community_engagement = async function(req, res, next){
+  var body = req.body
+
+  const com_engagement = {
+    com_engagement: body.com_engagement,
+    com_engagement_completed: true
+  }
+
+  Com_Engagement.findByIdAndUpdate(
+    req.params.id, 
+    com_engagement, 
+    {new: true, runValidators: true, context: 'query'}
+  ).then(() => {
+    res.status(200).json({
+      success: true,
+      message: "Successfully updated com_engagement"
+    })
+    console.log("Successfully updated com_engagement")
+  }).catch(error => {
+    res.status(400).json({
+      success: false,
+      message: "Failed to update com_engagement",
+      error: error
+    })
+    console.log("Failed to update com_engagement")
+  })
+}
+
+exports.put_community_local_issues = async function(req, res, next){
+  var body = req.body
+
+  const com_local_issues = {
+    com_local_issues: body.com_local_issues,
+    com_local_issues_completed: true
+  }
+
+  Com_local_issues.findByIdAndUpdate(
+    req.params.id, 
+    com_local_issues, 
+    {new: true, runValidators: true, context: 'query'}
+  ).then(() => {
+    res.status(200).json({
+      success: true,
+      message: "Successfully updated com_local_issues"
+    })
+    console.log("Successfully updated com_local_issues")
+  }).catch(error => {
+    res.status(400).json({
+      success: false,
+      message: "Failed to update com_local_issues",
+      error: error
+    })
+    console.log("Failed to update com_local_issues")
+  })
+}
+
+exports.put_community_wealth_creation = async function(req, res, next){
+  var body = req.body
+
+  const com_wealth_creation = {
+    com_wealth_creation: body.com_wealth_creation,
+    com_wealth_creation_completed: true
+  }
+
+  Com_Wealth_Creation.findByIdAndUpdate(
+    req.params.id, 
+    com_wealth_creation, 
+    {new: true, runValidators: true, context: 'query'}
+  ).then(() => {
+    res.status(200).json({
+      success: true,
+      message: "Successfully updated com_wealth_creation"
+    })
+    console.log("Successfully updated com_wealth_creation")
+  }).catch(error => {
+    res.status(400).json({
+      success: false,
+      message: "Failed to update com_wealth_creation",
+      error: error
+    })
+    console.log("Failed to update com_wealth_creation")
+  })
+}
+
+exports.put_community_projects_and_groups = async function(req, res, next){
+  var body = req.body
+
+  const com_projects_and_groups = {
+    com_projects_and_groups: body.com_projects_and_groups,
+    com_projects_and_groups_completed: true
+  }
+
+  Com_Projects_And_Groups.findByIdAndUpdate(
+    req.params.id, 
+    com_projects_and_groups, 
+    {new: true, runValidators: true, context: 'query'}
+  ).then(() => {
+    res.status(200).json({
+      success: true,
+      message: "Successfully updated com_projects_and_groups"
+    })
+    console.log("Successfully updated com_projects_and_groups")
+  }).catch(error => {
+    res.status(400).json({
+      success: false,
+      message: "Failed to update com_projects_and_groups",
+      error: error
+    })
+    console.log("Failed to update com_projects_and_groups")
+  })
+}
+
+exports.put_community_education = async function(req, res, next){
+  var body = req.body
+
+  const com_education = {
+    com_education: body.com_education,
+    com_education_completed: true
+  }
+
+  Com_Education.findByIdAndUpdate(
+    req.params.id, 
+    com_education, 
+    {new: true, runValidators: true, context: 'query'}
+  ).then(() => {
+    res.status(200).json({
+      success: true,
+      message: "Successfully updated com_education"
+    })
+    console.log("Successfully updated com_education")
+  }).catch(error => {
+    res.status(400).json({
+      success: false,
+      message: "Failed to update com_education",
+      error: error
+    })
+    console.log("Failed to update com_education")
   })
 }

@@ -84,4 +84,14 @@ router.put('/workplace_governance/:id', DashboardController.put_workplace_govern
 
 router.put('/workplace_policies/:id', DashboardController.put_workplace_policies)
 
+router.put('/community_engagement/:id', DashboardController.put_community_engagement)
+
+router.put('/community_local_issues/:id', DashboardController.put_community_local_issues)
+
+router.put('/community_wealth_creation/:id', DashboardController.put_community_wealth_creation)
+
+router.put('/community_projects_and_groups/:id', DashboardController.put_community_projects_and_groups)
+
+router.put('/community_education/:id', DashboardController.put_community_education)
+
 module.exports = router;
