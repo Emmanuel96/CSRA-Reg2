@@ -94,4 +94,16 @@ router.put('/community_projects_and_groups/:id', DashboardController.put_communi
 
 router.put('/community_education/:id', DashboardController.put_community_education)
 
+router.put('/philanthropy_charitable_involvement/:id', DashboardController.put_philanthropy_charitable_involvement)
+
+router.put('/philanthropy_volunteering/:id', DashboardController.put_philanthropy_volunteering)
+
+router.put('/philanthropy_pro_bono/:id', DashboardController.put_philanthropy_pro_bono)
+
+router.put('/philanthropy_fund_raising/:id', DashboardController.put_philanthropy_fund_raising)
+
+router.put('/philanthropy_financial_and_kind_gifts/:id', DashboardController.put_philanthropy_financial_and_kind_gifts)
+
+router.put('/assessment_and_tips/:id', DashboardController.put_assessment_and_tips)
+
 module.exports = router;

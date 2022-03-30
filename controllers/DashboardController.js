@@ -1,20 +1,30 @@
 const Company_Details = require("../models/Company_Details")
 const Introduction = require("../models/Introduction")
+
 const Env_Energy = require('../models/Env_Energy')
 const Env_Natural_Resource = require('../models/Env_Natural_Resource')
 const Env_Travel = require('../models/Env_Travel')
 const Env_Supply_Chain_Management = require('../models/Env_Supply_Chain_Management')
 const Env_Waste = require('../models/Env_Waste')
+
 const Wrk_Training = require('../models/Wrk_Training')
 const Wrk_Labour_Practices = require('../models/Wrk_Labour_Practices')
 const Wrk_Ethical_Practices = require('../models/Wrk_Ethical_Practices')
 const Wrk_Governance = require("../models/Wrk_Governance")
 const Wrk_Policies = require("../models/Wrk_Policies")
+
 const Com_Engagement = require("../models/Com_Engagement")
 const Com_local_issues = require("../models/Com_Local_Issues")
 const Com_Wealth_Creation = require("../models/Com_Wealth_Creation")
 const Com_Projects_And_Groups = require("../models/Com_Projects_And_Groups")
 const Com_Education = require("../models/Com_Education")
+
+const Phil_Charitable_Involvement = require("../models/Phil_Charitable_Involvement")
+const Phil_Volunteering = require("../models/Phil_Volunteering")
+const Phil_Pro_Bono = require("../models/Phil_Pro_Bono")
+const Phil_Fund_Raising = require("../models/Phil_Fund_Raising")
+const Phil_Financial_And_Kind_Gifts = require("../models/Phil_Financial_And_Kind_Gifts")
+const Assessments_and_Tips = require("../models/Assessments_and_Tips")
 
 //GET CONTROLLERS
 
@@ -610,5 +620,170 @@ exports.put_community_education = async function(req, res, next){
       error: error
     })
     console.log("Failed to update com_education")
+  })
+}
+
+exports.put_philanthropy_charitable_involvement = async function(req, res, next){
+  var body = req.body
+
+  const phil_charitable_involvement = {
+    phil_charitable_involvement: body.phil_charitable_involvement,
+    phil_charitable_involvement_completed: true
+  }
+
+  Phil_Charitable_Involvement.findByIdAndUpdate(
+    req.params.id, 
+    phil_charitable_involvement, 
+    {new: true, runValidators: true, context: 'query'}
+  ).then(() => {
+    res.status(200).json({
+      success: true,
+      message: "Successfully updated phil_charitable_involvement"
+    })
+    console.log("Successfully updated phil_charitable_involvement")
+  }).catch(error => {
+    res.status(400).json({
+      success: false,
+      message: "Failed to update phil_charitable_involvement",
+      error: error
+    })
+    console.log("Failed to update phil_charitable_involvement")
+  })
+}
+
+exports.put_philanthropy_volunteering = async function(req, res, next){
+  var body = req.body
+
+  const phil_volunteering = {
+    phil_volunteering: body.phil_volunteering,
+    phil_volunteering_completed: true
+  }
+
+  Phil_Volunteering.findByIdAndUpdate(
+    req.params.id, 
+    phil_volunteering, 
+    {new: true, runValidators: true, context: 'query'}
+  ).then(() => {
+    res.status(200).json({
+      success: true,
+      message: "Successfully updated phil_volunteering"
+    })
+    console.log("Successfully updated phil_volunteering")
+  }).catch(error => {
+    res.status(400).json({
+      success: false,
+      message: "Failed to update phil_volunteering",
+      error: error
+    })
+    console.log("Failed to update phil_volunteering")
+  })
+}
+
+exports.put_philanthropy_pro_bono = async function(req, res, next){
+  var body = req.body
+
+  const phil_pro_bono = {
+    phil_pro_bono: body.phil_pro_bono,
+    phil_pro_bono_completed: true
+  }
+
+  Phil_Pro_Bono.findByIdAndUpdate(
+    req.params.id, 
+    phil_pro_bono, 
+    {new: true, runValidators: true, context: 'query'}
+  ).then(() => {
+    res.status(200).json({
+      success: true,
+      message: "Successfully updated phil_pro_bono"
+    })
+    console.log("Successfully updated phil_pro_bono")
+  }).catch(error => {
+    res.status(400).json({
+      success: false,
+      message: "Failed to update phil_pro_bono",
+      error: error
+    })
+    console.log("Failed to update phil_pro_bono")
+  })
+}
+
+exports.put_philanthropy_fund_raising = async function(req, res, next){
+  var body = req.body
+
+  const phil_fund_raising = {
+    phil_fund_raising: body.phil_fund_raising,
+    phil_fund_raising_completed: true
+  }
+
+  Phil_Fund_Raising.findByIdAndUpdate(
+    req.params.id, 
+    phil_fund_raising, 
+    {new: true, runValidators: true, context: 'query'}
+  ).then(() => {
+    res.status(200).json({
+      success: true,
+      message: "Successfully updated phil_fund_raising"
+    })
+    console.log("Successfully updated phil_fund_raising")
+  }).catch(error => {
+    res.status(400).json({
+      success: false,
+      message: "Failed to update phil_fund_raising",
+      error: error
+    })
+    console.log("Failed to update phil_fund_raising")
+  })
+}
+
+exports.put_philanthropy_financial_and_kind_gifts = async function(req, res, next){
+  var body = req.body
+
+  const phil_financial_and_kind_gifts = {
+    phil_financial_and_kind_gifts: body.phil_financial_and_kind_gifts,
+    phil_financial_and_kind_gifts_completed: true
+  }
+
+  Phil_Financial_And_Kind_Gifts.findByIdAndUpdate(
+    req.params.id, 
+    phil_financial_and_kind_gifts, 
+    {new: true, runValidators: true, context: 'query'}
+  ).then(() => {
+    res.status(200).json({
+      success: true,
+      message: "Successfully updated phil_financial_and_kind_gifts"
+    })
+    console.log("Successfully updated phil_financial_and_kind_gifts")
+  }).catch(error => {
+    res.status(400).json({
+      success: false,
+      message: "Failed to update phil_financial_and_kind_gifts",
+      error: error
+    })
+    console.log("Failed to update phil_financial_and_kind_gifts")
+  })
+}
+
+exports.put_assessment_and_tips = async function(req, res, next){
+  const assessments_and_tips = {
+    assessments_and_tips_completed: true
+  }
+
+  Assessments_and_Tips.findByIdAndUpdate(
+    req.params.id, 
+    assessments_and_tips, 
+    {new: true, runValidators: true, context: 'query'}
+  ).then(() => {
+    res.status(200).json({
+      success: true,
+      message: "Successfully updated assessments_and_tips_completed"
+    })
+    console.log("Successfully updated assessments_and_tips_completed")
+  }).catch(error => {
+    res.status(400).json({
+      success: false,
+      message: "Failed to update assessments_and_tips_completed",
+      error: error
+    })
+    console.log("Failed to update assessments_and_tips_completed")
   })
 }
