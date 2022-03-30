@@ -16,7 +16,7 @@ function updateWorkPlaceLabourPractice(){
     wrk_labour_practices_completed
   }
 
-  fetch('/workplace_labour_practices/6242dcbbec4b0015492d3551', {
+  fetch('/workplace_labour_practices/624470af18e7d40db84ff6aa', {
       method: "PUT", 
       headers: {
           'Content-Type': 'application/json'

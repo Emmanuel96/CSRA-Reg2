@@ -16,7 +16,7 @@ function updateWorkPlaceEthicalPractice(){
     wrk_ethical_practices_completed
   }
 
-  fetch('/workplace_ethical_practises/6242dcbbec4b0015492d3551', {
+  fetch('/workplace_ethical_practises/624470af18e7d40db84ff6aa', {
       method: "PUT", 
       headers: {
           'Content-Type': 'application/json'

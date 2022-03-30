@@ -16,7 +16,7 @@ function updateWorkPlaceGovernance(){
     wrk_governance_completed
   }
 
-  fetch('/workplace_governance/6242dcbbec4b0015492d3551', {
+  fetch('/workplace_governance/624470af18e7d40db84ff6aa', {
       method: "PUT", 
       headers: {
           'Content-Type': 'application/json'

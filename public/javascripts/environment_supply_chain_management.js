@@ -16,7 +16,7 @@ function updateEnvironmentSupplyChain(){
     env_supply_chain_management_completed
   }
 
-  fetch('/environment_supply_chain_management/6242dcbbec4b0015492d3551', {
+  fetch('/environment_supply_chain_management/624470af18e7d40db84ff6aa', {
       method: "PUT", 
       headers: {
           'Content-Type': 'application/json'

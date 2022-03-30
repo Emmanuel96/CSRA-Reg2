@@ -16,7 +16,7 @@ function updateWorkPlacePolicies(){
     wrk_policies_completed
   }
 
-  fetch('/workplace_policies/6242dcbbec4b0015492d3551', {
+  fetch('/workplace_policies/624470af18e7d40db84ff6aa', {
       method: "PUT", 
       headers: {
           'Content-Type': 'application/json'

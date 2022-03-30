@@ -16,7 +16,7 @@ function updateWorkPlaceTraining(){
     wrk_training_completed
   }
 
-  fetch('/workplace_training/6242dcbbec4b0015492d3551', {
+  fetch('/workplace_training/624470af18e7d40db84ff6aa', {
       method: "PUT", 
       headers: {
           'Content-Type': 'application/json'

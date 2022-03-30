@@ -16,7 +16,7 @@ function updateEnvironmentNaturalResource(){
     env_natural_resource_completed
   }
 
-  fetch('/environment_natural_resource/6242dcbbec4b0015492d3551', {
+  fetch('/environment_natural_resource/624470af18e7d40db84ff6aa', {
       method: "PUT", 
       headers: {
           'Content-Type': 'application/json'

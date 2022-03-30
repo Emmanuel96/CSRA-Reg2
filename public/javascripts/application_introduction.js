@@ -16,7 +16,7 @@ function updateApplicationIntroduction(){
     introduction_completed
   }
 
-  fetch('/application_introduction/6242dcbbec4b0015492d3551', {
+  fetch('/application_introduction/624470af18e7d40db84ff6aa', {
       method: "PUT", 
       headers: {
           'Content-Type': 'application/json'

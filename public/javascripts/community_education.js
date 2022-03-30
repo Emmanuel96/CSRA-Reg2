@@ -1,10 +1,10 @@
-function updateEnvironmentTravel(){
+function updateCommunityEducation(){
   event.preventDefault(); 
 
-  var env_travel = document.getElementById('env_travel').value;
-  var env_travel_completed = true
+  var com_education = document.getElementById('com_education_textarea').value;
+  var com_education_completed = true
 
-  if(!env_travel){
+  if(!com_education){
     return Swal.fire({
       title: "Please complete text field",
       confirmButtonColor: '#00a19a'
@@ -12,11 +12,11 @@ function updateEnvironmentTravel(){
   }
   
   var data = {
-    env_travel,
-    env_travel_completed
+    com_education,
+    com_education_completed
   }
 
-  fetch('/environment_travel/624470af18e7d40db84ff6aa', {
+  fetch('/community_education/624470af18e7d40db84ff6aa', {
       method: "PUT", 
       headers: {
           'Content-Type': 'application/json'
@@ -27,10 +27,10 @@ function updateEnvironmentTravel(){
   .then(data => {
       if(data.success){
         Swal.fire({
-          title: "Successfully submitted Environment Travel",
+          title: "Successfully submitted Community Education",
           confirmButtonColor: '#00a19a'
         }).then(function(){
-          window.location.href = "/environment_supply_chain_management"
+          window.location.href = "/community_supporting_documents"
         });
       }else{
         Swal.fire({
