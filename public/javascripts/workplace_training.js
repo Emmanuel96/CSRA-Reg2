@@ -1,3 +1,15 @@
+function getWrkTraining(){
+  var docData = ""
+
+  axios.get('/workplace_training/624470af18e7d40db84ff6aa').then(result => {
+    docData = result.data
+    console.log(docData)
+  }).then(() => {
+    document.getElementById('wrk_training').value = docData.wrk_training
+  })
+}
+getWrkTraining()
+
 function updateWorkPlaceTraining(){
   event.preventDefault(); 
 

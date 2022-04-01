@@ -1,3 +1,15 @@
+function getWrkPolicies(){
+  var docData = ""
+
+  axios.get('/workplace_policies/624470af18e7d40db84ff6aa').then(result => {
+    docData = result.data
+    console.log(docData)
+  }).then(() => {
+    document.getElementById('wrk_policies').value = docData.wrk_policies
+  })
+}
+getWrkPolicies()
+
 function updateWorkPlacePolicies(){
   event.preventDefault(); 
 

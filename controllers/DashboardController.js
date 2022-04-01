@@ -831,3 +831,33 @@ exports.get_environment_waste_data = async function(req, res, next){
     res.status(200).json(data)
   }).catch(err => console.log("Error: ", err))
 }
+
+exports.get_workplace_training_data = async function(req, res, next){
+  Wrk_Training.findById(req.params.id).then(data => {
+    res.status(200).json(data)
+  }).catch(err => console.log("Error: ", err))
+}
+
+exports.get_workplace_labour_practices_data = async function(req, res, next){
+  Wrk_Labour_Practices.findById(req.params.id).then(data => {
+    res.status(200).json(data)
+  }).catch(err => console.log("Error: ", err))
+}
+
+exports.get_workplace_ethical_practises_data = async function(req, res, next){
+  Wrk_Ethical_Practices.findById(req.params.id).then(data => {
+    res.status(200).json(data)
+  }).catch(err => console.log("Error: ", err))
+}
+
+exports.get_workplace_governance_data = async function(req, res, next){
+  Wrk_Governance.findById(req.params.id).then(data => {
+    res.status(200).json(data)
+  }).catch(err => console.log("Error: ", err))
+}
+
+exports.get_workplace_policies_data = async function(req, res, next){
+  Wrk_Policies.findById(req.params.id).then(data => {
+    res.status(200).json(data)
+  }).catch(err => console.log("Error: ", err))
+}

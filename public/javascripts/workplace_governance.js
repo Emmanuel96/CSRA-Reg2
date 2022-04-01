@@ -1,3 +1,15 @@
+function getWrkGovernance(){
+  var docData = ""
+
+  axios.get('/workplace_governance/624470af18e7d40db84ff6aa').then(result => {
+    docData = result.data
+    console.log(docData)
+  }).then(() => {
+    document.getElementById('wrk_governance_textarea').value = docData.wrk_governance
+  })
+}
+getWrkGovernance()
+
 function updateWorkPlaceGovernance(){
   event.preventDefault(); 
 

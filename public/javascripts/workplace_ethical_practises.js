@@ -1,3 +1,15 @@
+function getWrkEthical(){
+  var docData = ""
+
+  axios.get('/workplace_ethical_practises/624470af18e7d40db84ff6aa').then(result => {
+    docData = result.data
+    console.log(docData)
+  }).then(() => {
+    document.getElementById('wrk_ethical_practice_textarea').value = docData.wrk_ethical_practices
+  })
+}
+getWrkEthical()
+
 function updateWorkPlaceEthicalPractice(){
   event.preventDefault(); 
 

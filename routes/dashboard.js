@@ -122,4 +122,14 @@ router.get('/environment_supply_chain_management/:id', DashboardController.get_e
 
 router.get('/environment_waste/:id', DashboardController.get_environment_waste_data)
 
+router.get('/workplace_training/:id', DashboardController.get_workplace_training_data)
+
+router.get('/workplace_labour_practices/:id', DashboardController.get_workplace_labour_practices_data)
+
+router.get('/workplace_ethical_practises/:id', DashboardController.get_workplace_ethical_practises_data)
+
+router.get('/workplace_governance/:id', DashboardController.get_workplace_governance_data)
+
+router.get('/workplace_policies/:id', DashboardController.get_workplace_policies_data)
+
 module.exports = router;
