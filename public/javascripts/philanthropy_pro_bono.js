@@ -1,3 +1,15 @@
+function getPhilProBono(){
+  var docData = ""
+
+  axios.get('/philanthropy_pro_bono/624470af18e7d40db84ff6aa').then(result => {
+    docData = result.data
+    console.log(docData)
+  }).then(() => {
+    document.getElementById('phil_probono_textarea').value = docData.phil_pro_bono
+  })
+}
+getPhilProBono()
+
 function updatePhilProBono(){
   event.preventDefault(); 
 

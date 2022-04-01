@@ -1,3 +1,15 @@
+function getPhilVolunteering(){
+  var docData = ""
+
+  axios.get('/philanthropy_volunteering/624470af18e7d40db84ff6aa').then(result => {
+    docData = result.data
+    console.log(docData)
+  }).then(() => {
+    document.getElementById('phil_volunteering_textarea').value = docData.phil_volunteering
+  })
+}
+getPhilVolunteering()
+
 function updatePhilVolunteering(){
   event.preventDefault(); 
 

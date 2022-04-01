@@ -1,3 +1,15 @@
+function getPhilCharitable(){
+  var docData = ""
+
+  axios.get('/philanthropy_charitable_involvement/624470af18e7d40db84ff6aa').then(result => {
+    docData = result.data
+    console.log(docData)
+  }).then(() => {
+    document.getElementById('charitable_inv').value = docData.phil_charitable_involvement
+  })
+}
+getPhilCharitable()
+
 function updatePhilCharitableInv(){
   event.preventDefault(); 
 

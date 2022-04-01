@@ -892,3 +892,33 @@ exports.get_community_education_data = async function(req, res, next){
     res.status(200).json(data)
   }).catch(err => console.log("Error: ", err))
 }
+
+exports.get_philanthropy_charitable_involvement_data = async function(req, res, next){
+  Phil_Charitable_Involvement.findById(req.params.id).then(data => {
+    res.status(200).json(data)
+  }).catch(err => console.log("Error: ", err))
+}
+
+exports.get_philanthropy_volunteering_data = async function(req, res, next){
+  Phil_Volunteering.findById(req.params.id).then(data => {
+    res.status(200).json(data)
+  }).catch(err => console.log("Error: ", err))
+}
+
+exports.get_philanthropy_pro_bono_data = async function(req, res, next){
+  Phil_Pro_Bono.findById(req.params.id).then(data => {
+    res.status(200).json(data)
+  }).catch(err => console.log("Error: ", err))
+}
+
+exports.get_philanthropy_fund_raising_data = async function(req, res, next){
+  Phil_Fund_Raising.findById(req.params.id).then(data => {
+    res.status(200).json(data)
+  }).catch(err => console.log("Error: ", err))
+}
+
+exports.get_philanthropy_financial_and_kind_gifts_data = async function(req, res, next){
+  Phil_Financial_And_Kind_Gifts.findById(req.params.id).then(data => {
+    res.status(200).json(data)
+  }).catch(err => console.log("Error: ", err))
+}

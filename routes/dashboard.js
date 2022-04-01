@@ -142,4 +142,14 @@ router.get('/community_projects_and_groups/:id', DashboardController.get_communi
 
 router.get('/community_education/:id', DashboardController.get_community_education_data)
 
+router.get('/philanthropy_charitable_involvement/:id', DashboardController.get_philanthropy_charitable_involvement_data)
+
+router.get('/philanthropy_volunteering/:id', DashboardController.get_philanthropy_volunteering_data)
+
+router.get('/philanthropy_pro_bono/:id', DashboardController.get_philanthropy_pro_bono_data)
+
+router.get('/philanthropy_fund_raising/:id', DashboardController.get_philanthropy_fund_raising_data)
+
+router.get('/philanthropy_financial_and_kind_gifts/:id', DashboardController.get_philanthropy_financial_and_kind_gifts_data)
+
 module.exports = router;

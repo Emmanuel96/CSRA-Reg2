@@ -1,3 +1,15 @@
+function getPhilFinancial(){
+  var docData = ""
+
+  axios.get('/philanthropy_financial_and_kind_gifts/624470af18e7d40db84ff6aa').then(result => {
+    docData = result.data
+    console.log(docData)
+  }).then(() => {
+    document.getElementById('phil_financial_textarea').value = docData.phil_financial_and_kind_gifts
+  })
+}
+getPhilFinancial()
+
 function updatePhilFinancial(){
   event.preventDefault(); 
 
