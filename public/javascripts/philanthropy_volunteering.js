@@ -1,22 +1,22 @@
-function getEnvSupplyChain(){
+function getPhilVolunteering(){
   var docData = ""
 
-  axios.get('/environment_supply_chain_management/624470af18e7d40db84ff6aa').then(result => {
+  axios.get('/philanthropy_volunteering/624470af18e7d40db84ff6aa').then(result => {
     docData = result.data
     console.log(docData)
   }).then(() => {
-    document.getElementById('env_supply_chain').value = docData.env_supply_chain_management
+    document.getElementById('phil_volunteering_textarea').value = docData.phil_volunteering
   })
 }
-getEnvSupplyChain()
+getPhilVolunteering()
 
-function updateEnvironmentSupplyChain(){
+function updatePhilVolunteering(){
   event.preventDefault(); 
 
-  var env_supply_chain_management = document.getElementById('env_supply_chain').value;
-  var env_supply_chain_management_completed = true
+  var phil_volunteering = document.getElementById('phil_volunteering_textarea').value;
+  var phil_volunteering_completed = true
 
-  if(!env_supply_chain_management){
+  if(!phil_volunteering){
     return Swal.fire({
       title: "Please complete text field",
       confirmButtonColor: '#00a19a'
@@ -24,11 +24,11 @@ function updateEnvironmentSupplyChain(){
   }
   
   var data = {
-    env_supply_chain_management,
-    env_supply_chain_management_completed
+    phil_volunteering,
+    phil_volunteering_completed
   }
 
-  fetch('/environment_supply_chain_management/624470af18e7d40db84ff6aa', {
+  fetch('/philanthropy_volunteering/624470af18e7d40db84ff6aa', {
       method: "PUT", 
       headers: {
           'Content-Type': 'application/json'
@@ -39,10 +39,10 @@ function updateEnvironmentSupplyChain(){
   .then(data => {
       if(data.success){
         Swal.fire({
-          title: "Successfully submitted Environment Supply Chain Management",
+          title: "Successfully submitted Philanthropy Volunteering",
           confirmButtonColor: '#00a19a'
         }).then(function(){
-          window.location.href = "/environment_waste"
+          window.location.href = "/philanthropy_pro_bono"
         });
       }else{
         Swal.fire({

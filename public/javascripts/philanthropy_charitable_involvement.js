@@ -1,22 +1,22 @@
-function getEnvSupplyChain(){
+function getPhilCharitable(){
   var docData = ""
 
-  axios.get('/environment_supply_chain_management/624470af18e7d40db84ff6aa').then(result => {
+  axios.get('/philanthropy_charitable_involvement/624470af18e7d40db84ff6aa').then(result => {
     docData = result.data
     console.log(docData)
   }).then(() => {
-    document.getElementById('env_supply_chain').value = docData.env_supply_chain_management
+    document.getElementById('charitable_inv').value = docData.phil_charitable_involvement
   })
 }
-getEnvSupplyChain()
+getPhilCharitable()
 
-function updateEnvironmentSupplyChain(){
+function updatePhilCharitableInv(){
   event.preventDefault(); 
 
-  var env_supply_chain_management = document.getElementById('env_supply_chain').value;
-  var env_supply_chain_management_completed = true
+  var phil_charitable_involvement = document.getElementById('charitable_inv').value;
+  var phil_charitable_involvement_completed = true
 
-  if(!env_supply_chain_management){
+  if(!phil_charitable_involvement){
     return Swal.fire({
       title: "Please complete text field",
       confirmButtonColor: '#00a19a'
@@ -24,11 +24,11 @@ function updateEnvironmentSupplyChain(){
   }
   
   var data = {
-    env_supply_chain_management,
-    env_supply_chain_management_completed
+    phil_charitable_involvement,
+    phil_charitable_involvement_completed
   }
 
-  fetch('/environment_supply_chain_management/624470af18e7d40db84ff6aa', {
+  fetch('/philanthropy_charitable_involvement/624470af18e7d40db84ff6aa', {
       method: "PUT", 
       headers: {
           'Content-Type': 'application/json'
@@ -39,10 +39,10 @@ function updateEnvironmentSupplyChain(){
   .then(data => {
       if(data.success){
         Swal.fire({
-          title: "Successfully submitted Environment Supply Chain Management",
+          title: "Successfully submitted Philanthropy Charitable Involvement",
           confirmButtonColor: '#00a19a'
         }).then(function(){
-          window.location.href = "/environment_waste"
+          window.location.href = "/philanthropy_volunteering"
         });
       }else{
         Swal.fire({

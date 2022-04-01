@@ -1,3 +1,15 @@
+function getEnvTravel(){
+  var docData = ""
+
+  axios.get('/environment_travel/624470af18e7d40db84ff6aa').then(result => {
+    docData = result.data
+    console.log(docData)
+  }).then(() => {
+    document.getElementById('env_travel').value = docData.env_travel
+  })
+}
+getEnvTravel()
+
 function updateEnvironmentTravel(){
   event.preventDefault(); 
 
@@ -16,7 +28,7 @@ function updateEnvironmentTravel(){
     env_travel_completed
   }
 
-  fetch('/environment_travel/6242dcbbec4b0015492d3551', {
+  fetch('/environment_travel/624470af18e7d40db84ff6aa', {
       method: "PUT", 
       headers: {
           'Content-Type': 'application/json'

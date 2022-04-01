@@ -1,3 +1,15 @@
+function getWrkLabour(){
+  var docData = ""
+
+  axios.get('/workplace_labour_practices/624470af18e7d40db84ff6aa').then(result => {
+    docData = result.data
+    console.log(docData)
+  }).then(() => {
+    document.getElementById('wrk_labour_practices').value = docData.wrk_labour_practices
+  })
+}
+getWrkLabour()
+
 function updateWorkPlaceLabourPractice(){
   event.preventDefault(); 
 
@@ -16,7 +28,7 @@ function updateWorkPlaceLabourPractice(){
     wrk_labour_practices_completed
   }
 
-  fetch('/workplace_labour_practices/6242dcbbec4b0015492d3551', {
+  fetch('/workplace_labour_practices/624470af18e7d40db84ff6aa', {
       method: "PUT", 
       headers: {
           'Content-Type': 'application/json'

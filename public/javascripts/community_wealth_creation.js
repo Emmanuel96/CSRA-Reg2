@@ -1,22 +1,22 @@
-function getEnvSupplyChain(){
+function getComWealthCreation(){
   var docData = ""
 
-  axios.get('/environment_supply_chain_management/624470af18e7d40db84ff6aa').then(result => {
+  axios.get('/community_wealth_creation/624470af18e7d40db84ff6aa').then(result => {
     docData = result.data
     console.log(docData)
   }).then(() => {
-    document.getElementById('env_supply_chain').value = docData.env_supply_chain_management
+    document.getElementById('com_wealth_creation_textarea').value = docData.com_wealth_creation
   })
 }
-getEnvSupplyChain()
+getComWealthCreation()
 
-function updateEnvironmentSupplyChain(){
+function updateCommunityWealthCreation(){
   event.preventDefault(); 
 
-  var env_supply_chain_management = document.getElementById('env_supply_chain').value;
-  var env_supply_chain_management_completed = true
+  var com_wealth_creation = document.getElementById('com_wealth_creation_textarea').value;
+  var com_wealth_creation_completed = true
 
-  if(!env_supply_chain_management){
+  if(!com_wealth_creation){
     return Swal.fire({
       title: "Please complete text field",
       confirmButtonColor: '#00a19a'
@@ -24,11 +24,11 @@ function updateEnvironmentSupplyChain(){
   }
   
   var data = {
-    env_supply_chain_management,
-    env_supply_chain_management_completed
+    com_wealth_creation,
+    com_wealth_creation_completed
   }
 
-  fetch('/environment_supply_chain_management/624470af18e7d40db84ff6aa', {
+  fetch('/community_wealth_creation/624470af18e7d40db84ff6aa', {
       method: "PUT", 
       headers: {
           'Content-Type': 'application/json'
@@ -39,10 +39,10 @@ function updateEnvironmentSupplyChain(){
   .then(data => {
       if(data.success){
         Swal.fire({
-          title: "Successfully submitted Environment Supply Chain Management",
+          title: "Successfully submitted Community Wealth Creation",
           confirmButtonColor: '#00a19a'
         }).then(function(){
-          window.location.href = "/environment_waste"
+          window.location.href = "/community_projects_and_groups"
         });
       }else{
         Swal.fire({

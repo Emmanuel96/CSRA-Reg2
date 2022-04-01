@@ -55,8 +55,7 @@
             </div>  
 
             <form class="pt-5">
-              <textarea class="p-8 max-h-96 text-justify resize-y h-40 w-full border border-[#464343]">
-              </textarea>
+              <textarea id="com_wealth_creation_textarea" class="p-8 max-h-96 text-justify resize-y h-40 w-full border border-[#464343]"></textarea>
             </form>
           </div>
 
@@ -65,13 +64,15 @@
               <a href="./community_local_issues">Previous Step</a>
             </button>
 
-            <button class="py-2 px-3 hover:bg-[#03857e] rounded-md shadow-lg bg-[#00A19A] transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:animate-none animate-bounce duration-300">
-              <a href="./community_projects_and_groups">Next Step</a>
+            <button onclick="updateCommunityWealthCreation()" class="py-2 px-3 hover:bg-[#03857e] rounded-md shadow-lg bg-[#00A19A] transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:animate-none animate-bounce duration-300">
+              Submit
             </button>
           </div>
         </div>  
       </div>  
     </div>  
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="/javascripts/community_wealth_creation.js"></script>
   </body>   
 </html> 

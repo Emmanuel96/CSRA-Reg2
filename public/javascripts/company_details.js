@@ -1,3 +1,38 @@
+function getCompanyDetails(){
+  var docData = ""
+
+  axios.get('/company_details/624470af18e7d40db84ff6aa').then(result => {
+    docData = result.data
+    console.log(docData)
+  }).then(() => {
+    document.getElementById("contact_person").value = docData.contact_person;
+    document.getElementById("organisation_name").value = docData.organisation_name;
+    document.getElementById("organisation_address").value = docData.organisation_address;
+    document.getElementById("organisation_nationality").value = docData.organisation_nationality;
+    document.getElementById("postal_code").value = docData.postal_code;
+    document.getElementById("email_address").value = docData.email_address;
+    document.getElementById("mobile_number").value = docData.mobile_number;
+    document.getElementById("telephone_number").value = docData.telephone_number;
+
+    var orgSizeRadios = document.getElementsByName('orgSize')
+
+    var orgTurnOverRadios = document.getElementsByName('turnover');
+
+    for (var radio of orgSizeRadios){
+      if(radio.value === docData.organisation_size){
+        radio.checked = true
+      }
+    }
+
+    for (var radio of orgTurnOverRadios){
+      if(radio.value === docData.organisation_turnover){
+        radio.checked = true
+      }
+    }
+  })
+}
+getCompanyDetails()
+
 function updateCompanyDetails(){
   event.preventDefault(); 
 
@@ -34,31 +69,30 @@ function updateCompanyDetails(){
       title: "Please complete all input fields",
       confirmButtonColor: '#00a19a'
     })
-  }
+  }else{
+    var data = {
+      contact_person,
+      organisation_name,
+      organisation_address,
+      organisation_nationality,
+      postal_code,
+      email_address,
+      mobile_number,
+      telephone_number,
+      organisation_size,
+      organisation_turnover,
+      company_details_completed
+    }
   
-  var data = {
-    contact_person,
-    organisation_name,
-    organisation_address,
-    organisation_nationality,
-    postal_code,
-    email_address,
-    mobile_number,
-    telephone_number,
-    organisation_size,
-    organisation_turnover,
-    company_details_completed
-  }
-
-  fetch('/company_details/6242dcbbec4b0015492d3551', {
-      method: "PUT", 
-      headers: {
-          'Content-Type': 'application/json'
-      }, 
-      body: JSON.stringify(data)
-  })
-  .then(response => response.json())
-  .then(data => {
+    fetch('/company_details/624470af18e7d40db84ff6aa', {
+        method: "PUT", 
+        headers: {
+            'Content-Type': 'application/json'
+        }, 
+        body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(data => {
       if(data.success){
         Swal.fire({
           title: "Successfully submitted Company Details",
@@ -72,5 +106,6 @@ function updateCompanyDetails(){
           confirmButtonColor: '#00a19a'
         })              
       }
-  })
+    })  
+  }
 }

@@ -1,3 +1,15 @@
+function getAppIntro(){
+  var docData = ""
+
+  axios.get('/application_introduction/624470af18e7d40db84ff6aa').then(result => {
+    docData = result.data
+    console.log(docData)
+  }).then(() => {
+    document.getElementById('introduction_textarea').value = docData.introduction
+  })
+}
+getAppIntro()
+
 function updateApplicationIntroduction(){
   event.preventDefault(); 
 
@@ -16,7 +28,7 @@ function updateApplicationIntroduction(){
     introduction_completed
   }
 
-  fetch('/application_introduction/6242dcbbec4b0015492d3551', {
+  fetch('/application_introduction/624470af18e7d40db84ff6aa', {
       method: "PUT", 
       headers: {
           'Content-Type': 'application/json'
