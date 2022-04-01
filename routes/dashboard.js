@@ -132,4 +132,14 @@ router.get('/workplace_governance/:id', DashboardController.get_workplace_govern
 
 router.get('/workplace_policies/:id', DashboardController.get_workplace_policies_data)
 
+router.get('/community_engagement/:id', DashboardController.get_community_engagement_data)
+
+router.get('/community_local_issues/:id', DashboardController.get_community_local_issues_data)
+
+router.get('/community_wealth_creation/:id', DashboardController.get_community_wealth_creation_data)
+
+router.get('/community_projects_and_groups/:id', DashboardController.get_community_projects_and_groups_data)
+
+router.get('/community_education/:id', DashboardController.get_community_education_data)
+
 module.exports = router;

@@ -25,6 +25,7 @@ const Phil_Pro_Bono = require("../models/Phil_Pro_Bono")
 const Phil_Fund_Raising = require("../models/Phil_Fund_Raising")
 const Phil_Financial_And_Kind_Gifts = require("../models/Phil_Financial_And_Kind_Gifts")
 const Assessments_and_Tips = require("../models/Assessments_and_Tips")
+const Com_Local_Issues = require("../models/Com_Local_Issues")
 
 //GET PAGES CONTROLLERS
 
@@ -858,6 +859,36 @@ exports.get_workplace_governance_data = async function(req, res, next){
 
 exports.get_workplace_policies_data = async function(req, res, next){
   Wrk_Policies.findById(req.params.id).then(data => {
+    res.status(200).json(data)
+  }).catch(err => console.log("Error: ", err))
+}
+
+exports.get_community_engagement_data = async function(req, res, next){
+  Com_Engagement.findById(req.params.id).then(data => {
+    res.status(200).json(data)
+  }).catch(err => console.log("Error: ", err))
+}
+
+exports.get_community_local_issues_data = async function(req, res, next){
+  Com_Local_Issues.findById(req.params.id).then(data => {
+    res.status(200).json(data)
+  }).catch(err => console.log("Error: ", err))
+}
+
+exports.get_community_wealth_creation_data = async function(req, res, next){
+  Com_Wealth_Creation.findById(req.params.id).then(data => {
+    res.status(200).json(data)
+  }).catch(err => console.log("Error: ", err))
+}
+
+exports.get_community_projects_and_groups_data = async function(req, res, next){
+  Com_Projects_And_Groups.findById(req.params.id).then(data => {
+    res.status(200).json(data)
+  }).catch(err => console.log("Error: ", err))
+}
+
+exports.get_community_education_data = async function(req, res, next){
+  Com_Education.findById(req.params.id).then(data => {
     res.status(200).json(data)
   }).catch(err => console.log("Error: ", err))
 }

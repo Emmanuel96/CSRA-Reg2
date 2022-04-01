@@ -1,3 +1,15 @@
+function getComWealthCreation(){
+  var docData = ""
+
+  axios.get('/community_wealth_creation/624470af18e7d40db84ff6aa').then(result => {
+    docData = result.data
+    console.log(docData)
+  }).then(() => {
+    document.getElementById('com_wealth_creation_textarea').value = docData.com_wealth_creation
+  })
+}
+getComWealthCreation()
+
 function updateCommunityWealthCreation(){
   event.preventDefault(); 
 

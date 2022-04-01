@@ -1,3 +1,15 @@
+function getComEducation(){
+  var docData = ""
+
+  axios.get('/community_education/624470af18e7d40db84ff6aa').then(result => {
+    docData = result.data
+    console.log(docData)
+  }).then(() => {
+    document.getElementById('com_education_textarea').value = docData.com_education
+  })
+}
+getComEducation()
+
 function updateCommunityEducation(){
   event.preventDefault(); 
 

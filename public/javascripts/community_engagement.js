@@ -1,3 +1,15 @@
+function getComEngagement(){
+  var docData = ""
+
+  axios.get('/community_engagement/624470af18e7d40db84ff6aa').then(result => {
+    docData = result.data
+    console.log(docData)
+  }).then(() => {
+    document.getElementById('com_engagement_textarea').value = docData.com_engagement
+  })
+}
+getComEngagement()
+
 function updateCommunityEngagement(){
   event.preventDefault(); 
 

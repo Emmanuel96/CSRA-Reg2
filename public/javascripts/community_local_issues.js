@@ -1,3 +1,15 @@
+function getComLocalIssues(){
+  var docData = ""
+
+  axios.get('/community_local_issues/624470af18e7d40db84ff6aa').then(result => {
+    docData = result.data
+    console.log(docData)
+  }).then(() => {
+    document.getElementById('com_local_issues_textarea').value = docData.com_local_issues
+  })
+}
+getComLocalIssues()
+
 function updateCommunityLocalIssues(){
   event.preventDefault(); 
 

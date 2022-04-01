@@ -1,3 +1,15 @@
+function getComProjects(){
+  var docData = ""
+
+  axios.get('/community_projects_and_groups/624470af18e7d40db84ff6aa').then(result => {
+    docData = result.data
+    console.log(docData)
+  }).then(() => {
+    document.getElementById('com_projects_textarea').value = docData.com_projects_and_groups
+  })
+}
+getComProjects()
+
 function updateCommunityProjects(){
   event.preventDefault(); 
 
