@@ -1,3 +1,15 @@
+function getEnvWaste(){
+  var docData = ""
+
+  axios.get('/environment_waste/624470af18e7d40db84ff6aa').then(result => {
+    docData = result.data
+    console.log(docData)
+  }).then(() => {
+    document.getElementById('env_waste').value = docData.env_waste
+  })
+}
+getEnvWaste()
+
 function updateEnvironmentWaste(){
   event.preventDefault(); 
 

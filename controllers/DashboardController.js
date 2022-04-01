@@ -795,3 +795,39 @@ exports.get_company_details_data = async function(req, res, next){
     res.status(200).json(data)
   }).catch(err => console.log("Error: ", err))
 }
+
+exports.get_application_introduction_data = async function(req, res, next){
+  Introduction.findById(req.params.id).then(data => {
+    res.status(200).json(data)
+  }).catch(err => console.log("Error: ", err))
+}
+
+exports.get_environment_energy_data = async function(req, res, next){
+  Env_Energy.findById(req.params.id).then(data => {
+    res.status(200).json(data)
+  }).catch(err => console.log("Error: ", err))
+}
+
+exports.get_environment_natural_resource_data = async function(req, res, next){
+  Env_Natural_Resource.findById(req.params.id).then(data => {
+    res.status(200).json(data)
+  }).catch(err => console.log("Error: ", err))
+}
+
+exports.get_environment_travel_data = async function(req, res, next){
+  Env_Travel.findById(req.params.id).then(data => {
+    res.status(200).json(data)
+  }).catch(err => console.log("Error: ", err))
+}
+
+exports.get_environment_supply_chain_management_data = async function(req, res, next){
+  Env_Supply_Chain_Management.findById(req.params.id).then(data => {
+    res.status(200).json(data)
+  }).catch(err => console.log("Error: ", err))
+}
+
+exports.get_environment_waste_data = async function(req, res, next){
+  Env_Waste.findById(req.params.id).then(data => {
+    res.status(200).json(data)
+  }).catch(err => console.log("Error: ", err))
+}

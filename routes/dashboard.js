@@ -110,4 +110,16 @@ router.put('/assessment_and_tips/:id', DashboardController.put_assessment_and_ti
 
 router.get('/company_details/:id', DashboardController.get_company_details_data)
 
+router.get('/application_introduction/:id', DashboardController.get_application_introduction_data)
+
+router.get('/environment_energy/:id', DashboardController.get_environment_energy_data)
+
+router.get('/environment_natural_resource/:id', DashboardController.get_environment_natural_resource_data)
+
+router.get('/environment_travel/:id', DashboardController.get_environment_travel_data)
+
+router.get('/environment_supply_chain_management/:id', DashboardController.get_environment_supply_chain_management_data)
+
+router.get('/environment_waste/:id', DashboardController.get_environment_waste_data)
+
 module.exports = router;
