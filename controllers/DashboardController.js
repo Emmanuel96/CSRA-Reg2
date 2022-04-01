@@ -26,7 +26,7 @@ const Phil_Fund_Raising = require("../models/Phil_Fund_Raising")
 const Phil_Financial_And_Kind_Gifts = require("../models/Phil_Financial_And_Kind_Gifts")
 const Assessments_and_Tips = require("../models/Assessments_and_Tips")
 
-//GET CONTROLLERS
+//GET PAGES CONTROLLERS
 
 exports.get_company_details = (req, res) => {
   res.render('dashboard/company_details')
@@ -786,4 +786,12 @@ exports.put_assessment_and_tips = async function(req, res, next){
     })
     console.log("Failed to update assessments_and_tips_completed")
   })
+}
+
+// GET PAGES DATA CONTROLLERS
+
+exports.get_company_details_data = async function(req, res, next){
+  Company_Details.findById(req.params.id).then(data => {
+    res.status(200).json(data)
+  }).catch(err => console.log("Error: ", err))
 }

@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const DashboardController = require('../controllers/DashboardController');
 
-//GET ROUTES
+//GET PAGES ROUTES
 
 router.get('/company_details', DashboardController.get_company_details);
 
@@ -105,5 +105,9 @@ router.put('/philanthropy_fund_raising/:id', DashboardController.put_philanthrop
 router.put('/philanthropy_financial_and_kind_gifts/:id', DashboardController.put_philanthropy_financial_and_kind_gifts)
 
 router.put('/assessment_and_tips/:id', DashboardController.put_assessment_and_tips)
+
+//GET PAGES DATA ROUTES
+
+router.get('/company_details/:id', DashboardController.get_company_details_data)
 
 module.exports = router;
