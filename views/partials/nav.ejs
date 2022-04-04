@@ -12,13 +12,13 @@
     </div>
     <nav :class="{'block': open, 'hidden': !open}" class="flex-grow md:block md:pt-2 px-4 md:px-0 pb-4 md:mb-5 ">
       <a class="clear-left block px-4 py-2 md:mb-4 hover:shadow-lg mt-2 text-sm font-semibold text-gray-900 rounded-lg hover:text-gray-900 hover:bg-gray-200" href="./company_details">COMPANY DETAILS 
-        <span class="float-right mt-1">
+        <span id="company_details_tick" class="float-right hidden mt-1">
           <img class="w-3" src="/assets/images/completed.png" alt="completed tick" />
         </span>
       </a>
 
       <a class="clear-left  block px-4 py-2 mt-2 md:mb-4 hover:shadow-lg text-sm font-semibold text-gray-900 bg-transparent rounded-lg hover:text-gray-900 hover:bg-gray-200" href="./application_introduction">INTRODUCTION
-        <span class="float-right">
+        <span id="introduction_tick" class="float-right hidden">
           <img class="w-3 pt-1" src="/assets/images/completed.png" alt="completed tick" />
         </span>
       </a>
@@ -26,7 +26,7 @@
       <div @click.away="open = false" class="relative md:mb-4 hover:shadow-lg z-30" x-data="{ open: false }">
         <button @click="open = !open" class="clear-left flex flex-row items-center text-[#302f2f] w-full px-4 py-2 mt-2 text-sm font-semibold text-left bg-transparent rounded-lg md:block hover:text-gray-900 hover:bg-gray-200 ">
           <span>ENVIRONMENT</span>
-          <span class="float-right">
+          <span id="environment_tick" class="hidden float-right">
             <img class="w-3 pt-1" src="/assets/images/completed.png" alt="completed tick" />
           </span>
           <svg fill="currentColor" viewBox="0 0 20 20" :class="{'rotate-180': open, 'rotate-0': !open}" class="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
@@ -46,7 +46,7 @@
       <div @click.away="open = false" class="relative md:mb-4 hover:shadow-lg z-20" x-data="{ open: false }">
         <button @click="open = !open" class="clear-left flex flex-row items-center w-full text-[#302f2f] px-4 py-2 mt-2 text-sm font-semibold text-left bg-transparent rounded-lg md:block hover:text-gray-900 hover:bg-gray-200 ">
           <span>WORKPLACE</span>
-          <span class="float-right">
+          <span id="workplace_tick" class="hidden float-right">
             <img class="w-3 pt-1" src="/assets/images/completed.png" alt="completed tick" />
           </span>
           <svg fill="currentColor" viewBox="0 0 20 20" :class="{'rotate-180': open, 'rotate-0': !open}" class="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
@@ -122,5 +122,95 @@
         link.classList.add('active');
       }
     })
+
+    var company_details_completed = null
+    var introduction_completed = null
+
+    var env_part_one_completed = null
+    var env_part_two_completed = null
+    var env_part_three_completed = null
+    var env_part_four_completed = null
+    var env_part_five_completed = null
+    var environment_completed = false
+
+    var wrk_part_one_completed = null
+    var wrk_part_two_completed = null
+    var wrk_part_three_completed = null
+    var wrk_part_four_completed = null
+    var wrk_part_five_completed = null
+    var workplace_completed = false
+
+    var com_part_one_completed = null
+    var com_part_two_completed = null
+    var com_part_three_completed = null
+    var com_part_four_completed = null
+    var com_part_five_completed = null
+    var community_completed = false
+
+    var phil_part_one_completed = null
+    var phil_part_two_completed = null
+    var phil_part_three_completed = null
+    var phil_part_four_completed = null
+    var phil_part_five_completed = null
+    var philanthropy_completed = false
+
+    function getCompletedStatus(){
+      var userID = '624470af18e7d40db84ff6aa'
+
+      axios.get(`/company_details/${userID}`).then((result) => {
+        company_details_completed = result.data.company_details_completed
+        var company_details_tick = document.getElementById("company_details_tick")
+        if(company_details_completed){
+          company_details_tick.classList.remove("hidden");
+        }
+      })
+
+      axios.get(`/application_introduction/${userID}`).then((result) => {
+        introduction_completed = result.data.introduction_completed
+        var introduction_tick = document.getElementById("introduction_tick")
+        if(introduction_completed){
+          introduction_tick.classList.remove("hidden");
+        }
+      })
+
+      //sets env_part_one to whatever value env_energy is in the database
+      axios.get(`/environment_energy/${userID}`).then((result) => {
+        env_part_one_completed = result.data.env_energy_completed
+      })
+
+      //sets env_part_two to whatever value env_n_resource is in the database
+      axios.get(`/environment_natural_resource/${userID}`).then((result) => {
+        env_part_two_completed = result.data.env_natural_resource_completed
+      })
+
+      //sets env_part_three to whatever value env_travel is in the database
+      axios.get(`/environment_travel/${userID}`).then((result) => {
+        env_part_three_completed = result.data.env_travel_completed
+      })
+      
+      //sets env_part_four to whatever value env_chain_maangement is in the database
+      axios.get(`/environment_supply_chain_management/${userID}`).then((result) => {
+        env_part_four_completed = result.data.env_supply_chain_management_completed
+      })
+
+      //sets env_part_five to whatever value env_waste is in the database
+      axios.get(`/environment_waste/${userID}`).then((result) => {
+        env_part_five_completed = result.data.env_waste_completed
+      }).then(() => {
+        if(
+            env_part_one_completed === true && env_part_two_completed === true && env_part_three_completed === true && env_part_four_completed === true && env_part_five_completed === true
+          ){
+            environment_completed = true
+          }else{
+            environment_completed = false
+          }
+      }).then(() => {
+        var environment_tick = document.getElementById("environment_tick")
+        if(environment_completed){
+          environment_tick.classList.remove("hidden");
+        }
+      })
+    }
+    getCompletedStatus()    
   </script>
 </div>

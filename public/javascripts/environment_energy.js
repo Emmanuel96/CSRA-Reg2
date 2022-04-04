@@ -3,7 +3,6 @@ function getEnvEnergy(){
 
   axios.get('/environment_energy/624470af18e7d40db84ff6aa').then(result => {
     docData = result.data
-    console.log(docData)
   }).then(() => {
     document.getElementById('env_energy_textarea').value = docData.env_energy
   })

@@ -3,7 +3,6 @@ function getEnvTravel(){
 
   axios.get('/environment_travel/624470af18e7d40db84ff6aa').then(result => {
     docData = result.data
-    console.log(docData)
   }).then(() => {
     document.getElementById('env_travel').value = docData.env_travel
   })

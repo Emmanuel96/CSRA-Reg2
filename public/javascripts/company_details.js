@@ -3,7 +3,6 @@ function getCompanyDetails(){
 
   axios.get('/company_details/624470af18e7d40db84ff6aa').then(result => {
     docData = result.data
-    console.log(docData)
   }).then(() => {
     document.getElementById("contact_person").value = docData.contact_person;
     document.getElementById("organisation_name").value = docData.organisation_name;

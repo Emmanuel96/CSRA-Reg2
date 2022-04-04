@@ -3,7 +3,6 @@ function getEnvNatural(){
 
   axios.get('/environment_natural_resource/624470af18e7d40db84ff6aa').then(result => {
     docData = result.data
-    console.log(docData)
   }).then(() => {
     document.getElementById('env_natural_resource').value = docData.env_natural_resource
   })

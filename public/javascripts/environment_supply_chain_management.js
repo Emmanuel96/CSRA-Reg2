@@ -3,7 +3,6 @@ function getEnvSupplyChain(){
 
   axios.get('/environment_supply_chain_management/624470af18e7d40db84ff6aa').then(result => {
     docData = result.data
-    console.log(docData)
   }).then(() => {
     document.getElementById('env_supply_chain').value = docData.env_supply_chain_management
   })

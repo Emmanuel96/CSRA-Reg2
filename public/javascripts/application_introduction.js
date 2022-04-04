@@ -3,7 +3,6 @@ function getAppIntro(){
 
   axios.get('/application_introduction/624470af18e7d40db84ff6aa').then(result => {
     docData = result.data
-    console.log(docData)
   }).then(() => {
     document.getElementById('introduction_textarea').value = docData.introduction
   })
