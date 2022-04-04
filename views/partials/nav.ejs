@@ -123,39 +123,11 @@
       }
     })
 
-    var company_details_completed = null
-    var introduction_completed = null
+    var userID = '624470af18e7d40db84ff6aa'
 
-    var env_part_one_completed = null
-    var env_part_two_completed = null
-    var env_part_three_completed = null
-    var env_part_four_completed = null
-    var env_part_five_completed = null
-    var environment_completed = false
-
-    var wrk_part_one_completed = null
-    var wrk_part_two_completed = null
-    var wrk_part_three_completed = null
-    var wrk_part_four_completed = null
-    var wrk_part_five_completed = null
-    var workplace_completed = false
-
-    var com_part_one_completed = null
-    var com_part_two_completed = null
-    var com_part_three_completed = null
-    var com_part_four_completed = null
-    var com_part_five_completed = null
-    var community_completed = false
-
-    var phil_part_one_completed = null
-    var phil_part_two_completed = null
-    var phil_part_three_completed = null
-    var phil_part_four_completed = null
-    var phil_part_five_completed = null
-    var philanthropy_completed = false
-
-    function getCompletedStatus(){
-      var userID = '624470af18e7d40db84ff6aa'
+    function getStatus(){
+      var company_details_completed = null
+      var introduction_completed = null
 
       axios.get(`/company_details/${userID}`).then((result) => {
         company_details_completed = result.data.company_details_completed
@@ -172,6 +144,16 @@
           introduction_tick.classList.remove("hidden");
         }
       })
+    }
+    getStatus()    
+
+    function getEnvironmentStatus(){
+      var env_part_one_completed = null
+      var env_part_two_completed = null
+      var env_part_three_completed = null
+      var env_part_four_completed = null
+      var env_part_five_completed = null
+      var environment_completed = false
 
       //sets env_part_one to whatever value env_energy is in the database
       axios.get(`/environment_energy/${userID}`).then((result) => {
@@ -211,6 +193,68 @@
         }
       })
     }
-    getCompletedStatus()    
+    getEnvironmentStatus()
+
+    function getWorkplaceStatus(){
+      var wrk_part_one_completed = null
+      var wrk_part_two_completed = null
+      var wrk_part_three_completed = null
+      var wrk_part_four_completed = null
+      var wrk_part_five_completed = null
+      var workplace_completed = false
+
+      //sets wrk_part_one to whatever value wrk_training is in the database
+      axios.get(`/workplace_training/${userID}`).then((result) => {
+        wrk_part_one_completed = result.data.wrk_training_completed
+      })
+
+      //sets wrk_part_two to whatever value wrk_l_practises is in the database
+      axios.get(`/workplace_labour_practices/${userID}`).then((result) => {
+        wrk_part_two_completed = result.data.wrk_labour_practices_completed
+      })
+
+      //sets wrk_part_three to whatever value wrk_ethical_practises is in the database
+      axios.get(`/workplace_ethical_practises/${userID}`).then((result) => {
+        wrk_part_three_completed = result.data.wrk_ethical_practices_completed
+      })
+      
+      //sets wrk_part_four to whatever value wrk_governance is in the database
+      axios.get(`/workplace_governance/${userID}`).then((result) => {
+        wrk_part_four_completed = result.data.wrk_governance_completed
+      })
+
+      //sets wrk_part_five to whatever value wrk_policies is in the database
+      axios.get(`/workplace_policies/${userID}`).then((result) => {
+        wrk_part_five_completed = result.data.wrk_policies_completed
+      }).then(() => {
+        if(
+            wrk_part_one_completed === true && wrk_part_two_completed === true && wrk_part_three_completed === true && wrk_part_four_completed === true && wrk_part_five_completed === true
+          ){
+            workplace_completed = true
+          }else{
+            workplace_completed = false
+          }
+      }).then(() => {
+        var workplace_tick = document.getElementById("workplace_tick")
+        if(workplace_completed){
+          workplace_tick.classList.remove("hidden");
+        }
+      })  
+    }
+    getWorkplaceStatus()
+
+    // var com_part_one_completed = null
+    // var com_part_two_completed = null
+    // var com_part_three_completed = null
+    // var com_part_four_completed = null
+    // var com_part_five_completed = null
+    // var community_completed = false
+
+    // var phil_part_one_completed = null
+    // var phil_part_two_completed = null
+    // var phil_part_three_completed = null
+    // var phil_part_four_completed = null
+    // var phil_part_five_completed = null
+    // var philanthropy_completed = false
   </script>
 </div>
