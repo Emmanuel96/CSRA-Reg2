@@ -1,5 +1,6 @@
 const Company_Details = require("../models/Company_Details")
 const Introduction = require("../models/Introduction")
+const Assessments_and_Tips = require("../models/Assessments_and_Tips")
 
 const Env_Energy = require('../models/Env_Energy')
 const Env_Natural_Resource = require('../models/Env_Natural_Resource')
@@ -14,7 +15,7 @@ const Wrk_Governance = require("../models/Wrk_Governance")
 const Wrk_Policies = require("../models/Wrk_Policies")
 
 const Com_Engagement = require("../models/Com_Engagement")
-const Com_local_issues = require("../models/Com_Local_Issues")
+const Com_Local_Issues = require("../models/Com_Local_Issues")
 const Com_Wealth_Creation = require("../models/Com_Wealth_Creation")
 const Com_Projects_And_Groups = require("../models/Com_Projects_And_Groups")
 const Com_Education = require("../models/Com_Education")
@@ -24,8 +25,6 @@ const Phil_Volunteering = require("../models/Phil_Volunteering")
 const Phil_Pro_Bono = require("../models/Phil_Pro_Bono")
 const Phil_Fund_Raising = require("../models/Phil_Fund_Raising")
 const Phil_Financial_And_Kind_Gifts = require("../models/Phil_Financial_And_Kind_Gifts")
-const Assessments_and_Tips = require("../models/Assessments_and_Tips")
-const Com_Local_Issues = require("../models/Com_Local_Issues")
 
 //GET Environment section as a single document controller
 
@@ -120,6 +119,39 @@ exports.get_communities = (req, res) => {
             communities.push(education)
           })
           .then(() => res.json(communities))
+        })
+      })
+    })
+  })
+}
+
+//GET Philanthropy section as a single document controller
+
+exports.get_philanthropy = (req, res) => {
+  const id = req.params.id;
+
+  const philanthropy = [];
+
+  Phil_Charitable_Involvement.findById(id).then(charity => {
+    philanthropy.push(charity)
+  })
+  .then(() => {
+    Phil_Volunteering.findById(id).then(volunteering => {
+      philanthropy.push(volunteering)
+    })
+    .then(() => {
+      Phil_Pro_Bono.findById(id).then(probono => {
+        philanthropy.push(probono)
+      })
+      .then(() => {
+        Phil_Fund_Raising.findById(id).then(funds => {
+          philanthropy.push(funds)
+        })
+        .then(() => {
+          Phil_Financial_And_Kind_Gifts.findById(id).then(gifts => {
+            philanthropy.push(gifts)
+          })
+          .then(() => res.json(philanthropy))
         })
       })
     })
@@ -1018,6 +1050,12 @@ exports.get_philanthropy_fund_raising_data = async function(req, res, next){
 
 exports.get_philanthropy_financial_and_kind_gifts_data = async function(req, res, next){
   Phil_Financial_And_Kind_Gifts.findById(req.params.id).then(data => {
+    res.status(200).json(data)
+  }).catch(err => console.log("Error: ", err))
+}
+
+exports.get_assessment_and_tips_data = async function(req, res, next){
+  Assessments_and_Tips.findById(req.params.id).then(data => {
     res.status(200).json(data)
   }).catch(err => console.log("Error: ", err))
 }

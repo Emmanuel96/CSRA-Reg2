@@ -14,6 +14,10 @@ router.get('/api/workplaces/:id', DashboardController.get_workplaces)
 
 router.get('/api/communities/:id', DashboardController.get_communities)
 
+//GET Philanthropy section route
+
+router.get('/api/philanthropy/:id', DashboardController.get_philanthropy)
+
 //GET PAGES ROUTES
 
 router.get('/company_details', DashboardController.get_company_details);
@@ -163,5 +167,7 @@ router.get('/philanthropy_pro_bono/:id', DashboardController.get_philanthropy_pr
 router.get('/philanthropy_fund_raising/:id', DashboardController.get_philanthropy_fund_raising_data)
 
 router.get('/philanthropy_financial_and_kind_gifts/:id', DashboardController.get_philanthropy_financial_and_kind_gifts_data)
+
+router.get('/assessment_and_tips/:id', DashboardController.get_assessment_and_tips_data)
 
 module.exports = router;
