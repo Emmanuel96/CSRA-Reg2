@@ -2,6 +2,18 @@ const express = require('express');
 const router = express.Router();
 const DashboardController = require('../controllers/DashboardController');
 
+//GET Environment section route
+
+router.get('/api/environments/:id', DashboardController.get_environments)
+
+//GET Workplaces section route
+
+router.get('/api/workplaces/:id', DashboardController.get_workplaces)
+
+//GET Community section route
+
+router.get('/api/communities/:id', DashboardController.get_communities)
+
 //GET PAGES ROUTES
 
 router.get('/company_details', DashboardController.get_company_details);

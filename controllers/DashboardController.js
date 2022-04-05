@@ -27,6 +27,105 @@ const Phil_Financial_And_Kind_Gifts = require("../models/Phil_Financial_And_Kind
 const Assessments_and_Tips = require("../models/Assessments_and_Tips")
 const Com_Local_Issues = require("../models/Com_Local_Issues")
 
+//GET Environment section as a single document controller
+
+exports.get_environments = (req, res) => {
+  const id = req.params.id;
+
+  const environments = [];
+
+  Env_Energy.findById(id).then(energy => {
+    environments.push(energy)
+  })
+  .then(() => {
+    Env_Natural_Resource.findById(id).then(resource => {
+      environments.push(resource)
+    })
+    .then(() => {
+      Env_Travel.findById(id).then(travel => {
+        environments.push(travel)
+      })
+      .then(() => {
+        Env_Supply_Chain_Management.findById(id).then(chain => {
+          environments.push(chain)
+        })
+        .then(() => {
+          Env_Waste.findById(id).then(waste => {
+            environments.push(waste)
+          })
+          .then(() => res.json(environments))
+        })
+      })
+    })
+  })
+}
+
+//GET Workplace section as a single document controller
+
+exports.get_workplaces = (req, res) => {
+  const id = req.params.id;
+
+  const workplaces = [];
+
+  Wrk_Training.findById(id).then(training => {
+    workplaces.push(training)
+  })
+  .then(() => {
+    Wrk_Labour_Practices.findById(id).then(labour => {
+      workplaces.push(labour)
+    })
+    .then(() => {
+      Wrk_Ethical_Practices.findById(id).then(ethical => {
+        workplaces.push(ethical)
+      })
+      .then(() => {
+        Wrk_Governance.findById(id).then(governance => {
+          workplaces.push(governance)
+        })
+        .then(() => {
+          Wrk_Policies.findById(id).then(policies => {
+            workplaces.push(policies)
+          })
+          .then(() => res.json(workplaces))
+        })
+      })
+    })
+  })
+}
+
+//GET Community section as a single document controller
+
+exports.get_communities = (req, res) => {
+  const id = req.params.id;
+
+  const communities = [];
+
+  Com_Engagement.findById(id).then(engagement => {
+    communities.push(engagement)
+  })
+  .then(() => {
+    Com_Local_Issues.findById(id).then(local => {
+      communities.push(local)
+    })
+    .then(() => {
+      Com_Wealth_Creation.findById(id).then(wealth => {
+        communities.push(wealth)
+      })
+      .then(() => {
+        Com_Projects_And_Groups.findById(id).then(groups => {
+          communities.push(groups)
+        })
+        .then(() => {
+          Com_Education.findById(id).then(education => {
+            communities.push(education)
+          })
+          .then(() => res.json(communities))
+        })
+      })
+    })
+  })
+}
+
 //GET PAGES CONTROLLERS
 
 exports.get_company_details = (req, res) => {
