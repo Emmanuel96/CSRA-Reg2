@@ -194,7 +194,7 @@
         env_part_five_completed = environmentsDoc[4].env_waste_completed;
       }).then(() => {
         if(
-            env_part_one_completed === true && env_part_two_completed === true && env_part_three_completed === true && env_part_four_completed === true && env_part_five_completed === true
+            env_part_one_completed && env_part_two_completed && env_part_three_completed && env_part_four_completed && env_part_five_completed
           ){
             environment_completed = true
           }else{
@@ -205,7 +205,7 @@
         if(environment_completed){
           environment_tick.classList.remove("hidden");
         }
-      })
+      }).then(() => run())
     }
 
     function getWorkplaceStatus(){
@@ -223,7 +223,7 @@
         wrk_part_five_completed = workplacesDoc[4].wrk_policies_completed;
       }).then(() => {
         if(
-            wrk_part_one_completed === true && wrk_part_two_completed === true && wrk_part_three_completed === true && wrk_part_four_completed === true && wrk_part_five_completed === true
+            wrk_part_one_completed && wrk_part_two_completed && wrk_part_three_completed && wrk_part_four_completed && wrk_part_five_completed
           ){
             workplace_completed = true
           }else{
@@ -234,7 +234,7 @@
         if(workplace_completed){
           workplace_tick.classList.remove("hidden");
         }
-      })
+      }).then(() => run())
     }
 
     function getCommunityStatus(){
@@ -252,7 +252,7 @@
         com_part_five_completed = communityDoc[4].com_education_completed;
       }).then(() => {
         if(
-            com_part_one_completed === true && com_part_two_completed === true && com_part_three_completed === true && com_part_four_completed === true && com_part_five_completed === true
+            com_part_one_completed && com_part_two_completed && com_part_three_completed && com_part_four_completed && com_part_five_completed
           ){
             community_completed = true
           }else{
@@ -263,7 +263,7 @@
         if(community_completed){
           community_tick.classList.remove("hidden");
         }
-      })
+      }).then(() => run())
     }
 
     function getPhilanthropyStatus(){
@@ -281,7 +281,7 @@
         phil_part_five_completed = philanthropyDoc[4].phil_financial_and_kind_gifts_completed;
       }).then(() => {
         if(
-          phil_part_one_completed === true && phil_part_two_completed === true && phil_part_three_completed === true && phil_part_four_completed === true && phil_part_five_completed === true
+          phil_part_one_completed && phil_part_two_completed && phil_part_three_completed && phil_part_four_completed && phil_part_five_completed
           ){
             philanthropy_completed = true
           }else{
@@ -292,7 +292,7 @@
         if(philanthropy_completed){
           philanthropy_tick.classList.remove("hidden");
         }
-      })
+      }).then(() => run())
     }
     
     function getAssesmentStatus(){
@@ -302,13 +302,13 @@
         if(assessment_and_tips){
           assessment_tick.classList.remove("hidden");
         }
-      })
+      }).then(() => run())
     }
-
+    
     function run(){
       if(company_details_completed && introduction_completed && assessment_and_tips && environment_completed && workplace_completed && community_completed && philanthropy_completed){
         finish_tick.classList.remove("hidden");
-      }else{setTimeout(() => run(), 500)}
+      }
     }
 
     getCompanyDetailsAndIntroStatus() 
@@ -317,6 +317,5 @@
     getCommunityStatus()
     getPhilanthropyStatus()
     getAssesmentStatus()
-    run()
   </script>
 </div>
