@@ -1,9 +1,10 @@
+const ID = sessionStorage.getItem("csra_user");
+
 function getPhilFinancial(){
   var docData = ""
 
-  axios.get('/philanthropy_financial_and_kind_gifts/624470af18e7d40db84ff6aa').then(result => {
+  axios.get(`/philanthropy_financial_and_kind_gifts/${ID}`).then(result => {
     docData = result.data
-    console.log(docData)
   }).then(() => {
     document.getElementById('phil_financial_textarea').value = docData.phil_financial_and_kind_gifts
   })
@@ -28,7 +29,7 @@ function updatePhilFinancial(){
     phil_financial_and_kind_gifts_completed
   }
 
-  fetch('/philanthropy_financial_and_kind_gifts/624470af18e7d40db84ff6aa', {
+  fetch(`/philanthropy_financial_and_kind_gifts/${ID}`, {
       method: "PUT", 
       headers: {
           'Content-Type': 'application/json'

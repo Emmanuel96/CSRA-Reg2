@@ -1,7 +1,9 @@
+const ID = sessionStorage.getItem("csra_user");
+
 function getEnvSupplyChain(){
   var docData = ""
 
-  axios.get('/environment_supply_chain_management/624470af18e7d40db84ff6aa').then(result => {
+  axios.get(`/environment_supply_chain_management/${ID}`).then(result => {
     docData = result.data
   }).then(() => {
     document.getElementById('env_supply_chain').value = docData.env_supply_chain_management
@@ -27,7 +29,7 @@ function updateEnvironmentSupplyChain(){
     env_supply_chain_management_completed
   }
 
-  fetch('/environment_supply_chain_management/624470af18e7d40db84ff6aa', {
+  fetch(`/environment_supply_chain_management/${ID}`, {
       method: "PUT", 
       headers: {
           'Content-Type': 'application/json'

@@ -16,22 +16,23 @@ function loginSubmit(event){
     fetch('/login', {
         method: "POST", 
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
         }, 
         body: JSON.stringify(data)
-    })
-    .then(response => response.json())
-    .then(data => {
-        if(data.success){
-            window.location.href = "/company_details"
-        }else{
-            Swal.fire({
-                title: data.message,
-                confirmButtonColor: '#00a19a'
-            })
-                
-        }
-    })
+    }).then((messages) => {
+        console.log(messages.error)
+    }) 
+    // .then(messages => {
+    //     if(messages.error){
+            // Swal.fire({
+            //     title: messages.error,
+            //     confirmButtonColor: '#00a19a'
+            // })
+    //     }else{
+    //         window.location.href = "/company_details"
+    //     }
+    // })
 }
 
 var login_form = $('#login_form');

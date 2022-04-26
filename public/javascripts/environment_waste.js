@@ -1,7 +1,9 @@
+const ID = sessionStorage.getItem("csra_user");
+
 function getEnvWaste(){
   var docData = ""
 
-  axios.get('/environment_waste/624470af18e7d40db84ff6aa').then(result => {
+  axios.get(`/environment_waste/${ID}`).then(result => {
     docData = result.data
   }).then(() => {
     document.getElementById('env_waste').value = docData.env_waste
@@ -27,7 +29,7 @@ function updateEnvironmentWaste(){
     env_waste_completed
   }
 
-  fetch('/environment_waste/624470af18e7d40db84ff6aa', {
+  fetch(`/environment_waste/${ID}`, {
       method: "PUT", 
       headers: {
           'Content-Type': 'application/json'

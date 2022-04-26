@@ -1,9 +1,10 @@
+const ID = sessionStorage.getItem("csra_user");
+
 function getPhilProBono(){
   var docData = ""
 
-  axios.get('/philanthropy_pro_bono/624470af18e7d40db84ff6aa').then(result => {
+  axios.get(`/philanthropy_pro_bono/${ID}`).then(result => {
     docData = result.data
-    console.log(docData)
   }).then(() => {
     document.getElementById('phil_probono_textarea').value = docData.phil_pro_bono
   })
@@ -28,7 +29,7 @@ function updatePhilProBono(){
     phil_pro_bono_completed
   }
 
-  fetch('/philanthropy_pro_bono/624470af18e7d40db84ff6aa', {
+  fetch(`/philanthropy_pro_bono/${ID}`, {
       method: "PUT", 
       headers: {
           'Content-Type': 'application/json'

@@ -1,7 +1,9 @@
+const ID = sessionStorage.getItem("csra_user");
+
 function getAppIntro(){
   var docData = ""
 
-  axios.get('/application_introduction/624470af18e7d40db84ff6aa').then(result => {
+  axios.get(`/application_introduction/${ID}`).then(result => {
     docData = result.data
   }).then(() => {
     document.getElementById('introduction_textarea').value = docData.introduction
@@ -27,7 +29,7 @@ function updateApplicationIntroduction(){
     introduction_completed
   }
 
-  fetch('/application_introduction/624470af18e7d40db84ff6aa', {
+  fetch(`/application_introduction/${ID}`, {
       method: "PUT", 
       headers: {
           'Content-Type': 'application/json'

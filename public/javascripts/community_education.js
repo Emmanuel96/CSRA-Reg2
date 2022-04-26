@@ -1,9 +1,10 @@
+const ID = sessionStorage.getItem("csra_user");
+
 function getComEducation(){
   var docData = ""
 
-  axios.get('/community_education/624470af18e7d40db84ff6aa').then(result => {
+  axios.get(`/community_education/${ID}`).then(result => {
     docData = result.data
-    console.log(docData)
   }).then(() => {
     document.getElementById('com_education_textarea').value = docData.com_education
   })
@@ -28,7 +29,7 @@ function updateCommunityEducation(){
     com_education_completed
   }
 
-  fetch('/community_education/624470af18e7d40db84ff6aa', {
+  fetch(`/community_education/${ID}`, {
       method: "PUT", 
       headers: {
           'Content-Type': 'application/json'

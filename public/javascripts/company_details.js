@@ -1,7 +1,18 @@
+function sessionOp(){
+  const user_ID = window.location.href.split('#')[1]
+
+  if(user_ID !== undefined){
+    return window.sessionStorage.setItem("csra_user", user_ID);
+  }
+}
+sessionOp()
+
+const ID = sessionStorage.getItem("csra_user");
+
 function getCompanyDetails(){
   var docData = ""
 
-  axios.get('/company_details/624470af18e7d40db84ff6aa').then(result => {
+  axios.get(`/company_details/${ID}`).then(result => {
     docData = result.data
   }).then(() => {
     document.getElementById("contact_person").value = docData.contact_person;
@@ -83,7 +94,7 @@ function updateCompanyDetails(){
       company_details_completed
     }
   
-    fetch('/company_details/624470af18e7d40db84ff6aa', {
+    fetch(`/company_details/${ID}`, {
         method: "PUT", 
         headers: {
             'Content-Type': 'application/json'

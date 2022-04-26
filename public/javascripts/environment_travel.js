@@ -1,7 +1,9 @@
+const ID = sessionStorage.getItem("csra_user");
+
 function getEnvTravel(){
   var docData = ""
 
-  axios.get('/environment_travel/624470af18e7d40db84ff6aa').then(result => {
+  axios.get(`/environment_travel/${ID}`).then(result => {
     docData = result.data
   }).then(() => {
     document.getElementById('env_travel').value = docData.env_travel
@@ -27,7 +29,7 @@ function updateEnvironmentTravel(){
     env_travel_completed
   }
 
-  fetch('/environment_travel/624470af18e7d40db84ff6aa', {
+  fetch(`/environment_travel/${ID}`, {
       method: "PUT", 
       headers: {
           'Content-Type': 'application/json'

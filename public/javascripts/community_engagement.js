@@ -1,9 +1,10 @@
+const ID = sessionStorage.getItem("csra_user");
+
 function getComEngagement(){
   var docData = ""
 
-  axios.get('/community_engagement/624470af18e7d40db84ff6aa').then(result => {
+  axios.get(`/community_engagement/${ID}`).then(result => {
     docData = result.data
-    console.log(docData)
   }).then(() => {
     document.getElementById('com_engagement_textarea').value = docData.com_engagement
   })
@@ -28,7 +29,7 @@ function updateCommunityEngagement(){
     com_engagement_completed
   }
 
-  fetch('/community_engagement/624470af18e7d40db84ff6aa', {
+  fetch(`/community_engagement/${ID}`, {
       method: "PUT", 
       headers: {
           'Content-Type': 'application/json'

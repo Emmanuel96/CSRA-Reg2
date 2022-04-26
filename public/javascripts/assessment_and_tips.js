@@ -1,7 +1,9 @@
+const ID = sessionStorage.getItem("csra_user");
+
 function updateAssessments(){
   event.preventDefault(); 
 
-  fetch('/assessment_and_tips/624470af18e7d40db84ff6aa', {
+  fetch(`/assessment_and_tips/${ID}`, {
       method: "PUT", 
       headers: {
           'Content-Type': 'application/json'
@@ -14,7 +16,9 @@ function updateAssessments(){
           title: "Thank You For Your Application!",
           confirmButtonColor: '#00a19a'
         }).then(function(){
-          window.location.href = "/login"
+          fetch(`/logout`, {
+            method: "DELETE"
+          }).then(() => window.location.href = '/login')
         });
       }else{
         Swal.fire({

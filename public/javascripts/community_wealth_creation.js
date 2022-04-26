@@ -1,9 +1,10 @@
+const ID = sessionStorage.getItem("csra_user");
+
 function getComWealthCreation(){
   var docData = ""
 
-  axios.get('/community_wealth_creation/624470af18e7d40db84ff6aa').then(result => {
+  axios.get(`/community_wealth_creation/${ID}`).then(result => {
     docData = result.data
-    console.log(docData)
   }).then(() => {
     document.getElementById('com_wealth_creation_textarea').value = docData.com_wealth_creation
   })
@@ -28,7 +29,7 @@ function updateCommunityWealthCreation(){
     com_wealth_creation_completed
   }
 
-  fetch('/community_wealth_creation/624470af18e7d40db84ff6aa', {
+  fetch(`/community_wealth_creation/${ID}`, {
       method: "PUT", 
       headers: {
           'Content-Type': 'application/json'

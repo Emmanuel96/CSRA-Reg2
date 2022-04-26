@@ -15,7 +15,7 @@ const Wrk_Governance = require("../models/Wrk_Governance")
 const Wrk_Policies = require("../models/Wrk_Policies")
 
 const Com_Engagement = require("../models/Com_Engagement")
-const Com_Local_Issues = require("../models/Com_Local_Issues")
+const Com_local_issues = require("../models/Com_Local_Issues")
 const Com_Wealth_Creation = require("../models/Com_Wealth_Creation")
 const Com_Projects_And_Groups = require("../models/Com_Projects_And_Groups")
 const Com_Education = require("../models/Com_Education")
@@ -103,7 +103,7 @@ exports.get_communities = (req, res) => {
     communities.push(engagement)
   })
   .then(() => {
-    Com_Local_Issues.findById(id).then(local => {
+    Com_local_issues.findById(id).then(local => {
       communities.push(local)
     })
     .then(() => {
@@ -165,7 +165,8 @@ exports.get_company_details = (req, res) => {
 }
 
 exports.get_application_introduction = (req, res) => {
-  res.render('dashboard/application_introduction')
+  res.render('dashboard/application_introduction'
+  )
 }
 
 exports.get_environment_energy = (req, res) => {
@@ -1001,7 +1002,7 @@ exports.get_community_engagement_data = async function(req, res, next){
 }
 
 exports.get_community_local_issues_data = async function(req, res, next){
-  Com_Local_Issues.findById(req.params.id).then(data => {
+  Com_local_issues.findById(req.params.id).then(data => {
     res.status(200).json(data)
   }).catch(err => console.log("Error: ", err))
 }

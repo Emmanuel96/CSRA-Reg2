@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const checkAuthenticated = require('../passport/checkAuthenticated')
 const DashboardController = require('../controllers/DashboardController');
 
 //GET Environment section route
@@ -20,59 +21,59 @@ router.get('/api/philanthropy/:id', DashboardController.get_philanthropy)
 
 //GET PAGES ROUTES
 
-router.get('/company_details', DashboardController.get_company_details);
+router.get('/company_details', checkAuthenticated, DashboardController.get_company_details);
 
-router.get('/assessment_and_tips', DashboardController.get_assessment_and_tips);
+router.get('/assessment_and_tips', checkAuthenticated, DashboardController.get_assessment_and_tips);
 
-router.get('/application_introduction', DashboardController.get_application_introduction);
+router.get('/application_introduction', checkAuthenticated, DashboardController.get_application_introduction);
 
-router.get('/environment_energy', DashboardController.get_environment_energy);
+router.get('/environment_energy', checkAuthenticated, DashboardController.get_environment_energy);
 
-router.get('/environment_natural_resource', DashboardController.get_environment_natural_resource);
+router.get('/environment_natural_resource', checkAuthenticated, DashboardController.get_environment_natural_resource);
 
-router.get('/environment_travel', DashboardController.get_environment_travel);
+router.get('/environment_travel', checkAuthenticated, DashboardController.get_environment_travel);
 
-router.get('/environment_supply_chain_management', DashboardController.get_environment_supply_chain_management);
+router.get('/environment_supply_chain_management', checkAuthenticated, DashboardController.get_environment_supply_chain_management);
 
-router.get('/environment_waste', DashboardController.get_environment_waste);
+router.get('/environment_waste', checkAuthenticated, DashboardController.get_environment_waste);
 
-router.get('/environment_supporting_documents', DashboardController.get_environment_supporting_documents);
+router.get('/environment_supporting_documents', checkAuthenticated, DashboardController.get_environment_supporting_documents);
 
-router.get('/workplace_training', DashboardController.get_workplace_training);
+router.get('/workplace_training', checkAuthenticated, DashboardController.get_workplace_training);
 
-router.get('/workplace_labour_practices', DashboardController.get_workplace_labour_practices);
+router.get('/workplace_labour_practices', checkAuthenticated, DashboardController.get_workplace_labour_practices);
 
-router.get('/workplace_ethical_practises', DashboardController.get_workplace_ethical_practises);
+router.get('/workplace_ethical_practises', checkAuthenticated, DashboardController.get_workplace_ethical_practises);
 
-router.get('/workplace_governance', DashboardController.get_workplace_governance);
+router.get('/workplace_governance', checkAuthenticated, DashboardController.get_workplace_governance);
 
-router.get('/workplace_policies', DashboardController.get_workplace_policies);
+router.get('/workplace_policies', checkAuthenticated, DashboardController.get_workplace_policies);
 
-router.get('/workplace_supporting_documents', DashboardController.get_workplace_supporting_documents);
+router.get('/workplace_supporting_documents', checkAuthenticated, DashboardController.get_workplace_supporting_documents);
 
-router.get('/community_engagement', DashboardController.get_community_engagement);
+router.get('/community_engagement', checkAuthenticated, DashboardController.get_community_engagement);
 
-router.get('/community_local_issues', DashboardController.get_community_local_issues);
+router.get('/community_local_issues', checkAuthenticated, DashboardController.get_community_local_issues);
 
-router.get('/community_wealth_creation', DashboardController.get_community_wealth_creation);
+router.get('/community_wealth_creation', checkAuthenticated, DashboardController.get_community_wealth_creation);
 
-router.get('/community_projects_and_groups', DashboardController.get_community_projects_and_groups);
+router.get('/community_projects_and_groups', checkAuthenticated, DashboardController.get_community_projects_and_groups);
 
-router.get('/community_education', DashboardController.get_community_education);
+router.get('/community_education', checkAuthenticated, DashboardController.get_community_education);
 
-router.get('/community_supporting_documents', DashboardController.get_community_supporting_documents);
+router.get('/community_supporting_documents', checkAuthenticated, DashboardController.get_community_supporting_documents);
 
-router.get('/philanthropy_charitable_involvement', DashboardController.get_philanthropy_charitable_involvement);
+router.get('/philanthropy_charitable_involvement', checkAuthenticated, DashboardController.get_philanthropy_charitable_involvement);
 
-router.get('/philanthropy_volunteering', DashboardController.get_philanthropy_volunteering);
+router.get('/philanthropy_volunteering', checkAuthenticated, DashboardController.get_philanthropy_volunteering);
 
-router.get('/philanthropy_pro_bono', DashboardController.get_philanthropy_pro_bono);
+router.get('/philanthropy_pro_bono', checkAuthenticated, DashboardController.get_philanthropy_pro_bono);
 
-router.get('/philanthropy_fund_raising', DashboardController.get_philanthropy_fund_raising);
+router.get('/philanthropy_fund_raising', checkAuthenticated, DashboardController.get_philanthropy_fund_raising);
 
-router.get('/philanthropy_financial_and_kind_gifts', DashboardController.get_philanthropy_financial_and_kind_gifts);
+router.get('/philanthropy_financial_and_kind_gifts', checkAuthenticated, DashboardController.get_philanthropy_financial_and_kind_gifts);
 
-router.get('/philanthropy_supporting_documents', DashboardController.get_philanthropy_supporting_documents);
+router.get('/philanthropy_supporting_documents', checkAuthenticated, DashboardController.get_philanthropy_supporting_documents);
 
 //PUT ROUTES
 

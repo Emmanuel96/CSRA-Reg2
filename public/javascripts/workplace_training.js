@@ -1,9 +1,10 @@
+const ID = sessionStorage.getItem("csra_user");
+
 function getWrkTraining(){
   var docData = ""
 
-  axios.get('/workplace_training/624470af18e7d40db84ff6aa').then(result => {
+  axios.get(`/workplace_training/${ID}`).then(result => {
     docData = result.data
-    console.log(docData)
   }).then(() => {
     document.getElementById('wrk_training').value = docData.wrk_training
   })
@@ -28,7 +29,7 @@ function updateWorkPlaceTraining(){
     wrk_training_completed
   }
 
-  fetch('/workplace_training/624470af18e7d40db84ff6aa', {
+  fetch(`/workplace_training/${ID}`, {
       method: "PUT", 
       headers: {
           'Content-Type': 'application/json'

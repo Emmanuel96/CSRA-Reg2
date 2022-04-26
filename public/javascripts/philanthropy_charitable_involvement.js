@@ -1,9 +1,10 @@
+const ID = sessionStorage.getItem("csra_user");
+
 function getPhilCharitable(){
   var docData = ""
 
-  axios.get('/philanthropy_charitable_involvement/624470af18e7d40db84ff6aa').then(result => {
+  axios.get(`/philanthropy_charitable_involvement/${ID}`).then(result => {
     docData = result.data
-    console.log(docData)
   }).then(() => {
     document.getElementById('charitable_inv').value = docData.phil_charitable_involvement
   })
@@ -28,7 +29,7 @@ function updatePhilCharitableInv(){
     phil_charitable_involvement_completed
   }
 
-  fetch('/philanthropy_charitable_involvement/624470af18e7d40db84ff6aa', {
+  fetch(`/philanthropy_charitable_involvement/${ID}`, {
       method: "PUT", 
       headers: {
           'Content-Type': 'application/json'

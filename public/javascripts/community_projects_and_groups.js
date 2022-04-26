@@ -1,9 +1,10 @@
+const ID = sessionStorage.getItem("csra_user");
+
 function getComProjects(){
   var docData = ""
 
-  axios.get('/community_projects_and_groups/624470af18e7d40db84ff6aa').then(result => {
+  axios.get(`/community_projects_and_groups/${ID}`).then(result => {
     docData = result.data
-    console.log(docData)
   }).then(() => {
     document.getElementById('com_projects_textarea').value = docData.com_projects_and_groups
   })
@@ -28,7 +29,7 @@ function updateCommunityProjects(){
     com_projects_and_groups_completed
   }
 
-  fetch('/community_projects_and_groups/624470af18e7d40db84ff6aa', {
+  fetch(`/community_projects_and_groups/${ID}`, {
       method: "PUT", 
       headers: {
           'Content-Type': 'application/json'

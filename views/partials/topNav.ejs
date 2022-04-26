@@ -1,9 +1,11 @@
-<div class="md:ml-64 md:sticky md:top-0 bg-white">
+<div class="md:ml-64 md:sticky z-20 md:top-0 bg-white">
   <div class="h-10 md:h-12 w-full shadow-md">
     <div class="float-right h-full">
-      <button class="font-mono bg h-full hover:text-gray-200 font-bold px-3 text-[#302f2f] hover:bg-[#03857e] bg-gray-300">
-        <a href="./login">Logout</a>
-      </button>
+      <form class="h-full" action="/logout?_method=DELETE" method="POST">
+        <button type="submit" class="font-mono bg h-full hover:text-gray-200 font-bold px-3 text-[#302f2f] hover:bg-[#03857e] bg-gray-300">
+          Logout
+        </button>
+      </form>
     </div>
   </div>
 </div>

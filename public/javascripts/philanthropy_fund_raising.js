@@ -1,9 +1,10 @@
+const ID = sessionStorage.getItem("csra_user");
+
 function getPhilFundRaising(){
   var docData = ""
 
-  axios.get('/philanthropy_fund_raising/624470af18e7d40db84ff6aa').then(result => {
+  axios.get(`/philanthropy_fund_raising/${ID}`).then(result => {
     docData = result.data
-    console.log(docData)
   }).then(() => {
     document.getElementById('phil_fund_raise_textarea').value = docData.phil_fund_raising
   })
@@ -28,7 +29,7 @@ function updatePhilFundRaising(){
     phil_fund_raising_completed
   }
 
-  fetch('/philanthropy_fund_raising/624470af18e7d40db84ff6aa', {
+  fetch(`/philanthropy_fund_raising/${ID}`, {
       method: "PUT", 
       headers: {
           'Content-Type': 'application/json'

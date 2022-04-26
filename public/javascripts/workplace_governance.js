@@ -1,9 +1,10 @@
+const ID = sessionStorage.getItem("csra_user");
+
 function getWrkGovernance(){
   var docData = ""
 
-  axios.get('/workplace_governance/624470af18e7d40db84ff6aa').then(result => {
+  axios.get(`/workplace_governance/${ID}`).then(result => {
     docData = result.data
-    console.log(docData)
   }).then(() => {
     document.getElementById('wrk_governance_textarea').value = docData.wrk_governance
   })
@@ -28,7 +29,7 @@ function updateWorkPlaceGovernance(){
     wrk_governance_completed
   }
 
-  fetch('/workplace_governance/624470af18e7d40db84ff6aa', {
+  fetch(`/workplace_governance/${ID}`, {
       method: "PUT", 
       headers: {
           'Content-Type': 'application/json'

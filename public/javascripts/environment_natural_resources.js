@@ -1,7 +1,9 @@
+const ID = sessionStorage.getItem("csra_user");
+
 function getEnvNatural(){
   var docData = ""
 
-  axios.get('/environment_natural_resource/624470af18e7d40db84ff6aa').then(result => {
+  axios.get(`/environment_natural_resource/${ID}`).then(result => {
     docData = result.data
   }).then(() => {
     document.getElementById('env_natural_resource').value = docData.env_natural_resource
@@ -27,7 +29,7 @@ function updateEnvironmentNaturalResource(){
     env_natural_resource_completed
   }
 
-  fetch('/environment_natural_resource/624470af18e7d40db84ff6aa', {
+  fetch(`/environment_natural_resource/${ID}`, {
       method: "PUT", 
       headers: {
           'Content-Type': 'application/json'

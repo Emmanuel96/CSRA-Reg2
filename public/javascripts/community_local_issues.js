@@ -1,9 +1,10 @@
+const ID = sessionStorage.getItem("csra_user");
+
 function getComLocalIssues(){
   var docData = ""
 
-  axios.get('/community_local_issues/624470af18e7d40db84ff6aa').then(result => {
+  axios.get(`/community_local_issues/${ID}`).then(result => {
     docData = result.data
-    console.log(docData)
   }).then(() => {
     document.getElementById('com_local_issues_textarea').value = docData.com_local_issues
   })
@@ -28,7 +29,7 @@ function updateCommunityLocalIssues(){
     com_local_issues_completed
   }
 
-  fetch('/community_local_issues/624470af18e7d40db84ff6aa', {
+  fetch(`/community_local_issues/${ID}`, {
       method: "PUT", 
       headers: {
           'Content-Type': 'application/json'

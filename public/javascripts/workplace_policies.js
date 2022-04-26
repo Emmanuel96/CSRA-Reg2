@@ -1,9 +1,10 @@
+const ID = sessionStorage.getItem("csra_user");
+
 function getWrkPolicies(){
   var docData = ""
 
-  axios.get('/workplace_policies/624470af18e7d40db84ff6aa').then(result => {
+  axios.get(`/workplace_policies/${ID}`).then(result => {
     docData = result.data
-    console.log(docData)
   }).then(() => {
     document.getElementById('wrk_policies').value = docData.wrk_policies
   })
@@ -28,7 +29,7 @@ function updateWorkPlacePolicies(){
     wrk_policies_completed
   }
 
-  fetch('/workplace_policies/624470af18e7d40db84ff6aa', {
+  fetch(`/workplace_policies/${ID}`, {
       method: "PUT", 
       headers: {
           'Content-Type': 'application/json'

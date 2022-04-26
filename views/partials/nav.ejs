@@ -123,7 +123,7 @@
       }
     })
 
-    var userID = '624470af18e7d40db84ff6aa'
+    const userID = sessionStorage.getItem("csra_user");
 
     var company_details_completed = null
     var introduction_completed = null
@@ -307,7 +307,7 @@
     
     function run(){
       if(company_details_completed && introduction_completed && assessment_and_tips && environment_completed && workplace_completed && community_completed && philanthropy_completed){
-        finish_tick.classList.remove("hidden");
+        return finish_tick.classList.remove("hidden");
       }
     }
 

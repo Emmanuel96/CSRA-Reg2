@@ -1,9 +1,10 @@
+const ID = sessionStorage.getItem("csra_user");
+
 function getWrkEthical(){
   var docData = ""
 
-  axios.get('/workplace_ethical_practises/624470af18e7d40db84ff6aa').then(result => {
+  axios.get(`/workplace_ethical_practises/${ID}`).then(result => {
     docData = result.data
-    console.log(docData)
   }).then(() => {
     document.getElementById('wrk_ethical_practice_textarea').value = docData.wrk_ethical_practices
   })
@@ -28,7 +29,7 @@ function updateWorkPlaceEthicalPractice(){
     wrk_ethical_practices_completed
   }
 
-  fetch('/workplace_ethical_practises/624470af18e7d40db84ff6aa', {
+  fetch(`/workplace_ethical_practises/${ID}`, {
       method: "PUT", 
       headers: {
           'Content-Type': 'application/json'

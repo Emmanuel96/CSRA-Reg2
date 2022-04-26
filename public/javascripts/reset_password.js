@@ -4,7 +4,6 @@ function resetPasswordSubmit(event){
   var password = $('#input_passwprd').val()
   var confirm_password = $('#input_confirm_password').val()
   
-
   if(!password || !confirm_password){
     return Swal.fire({
       title: "Password fields cannot be empty",
