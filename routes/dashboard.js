@@ -3,22 +3,6 @@ const router = express.Router();
 const checkAuthenticated = require('../passport/checkAuthenticated')
 const DashboardController = require('../controllers/DashboardController');
 
-//GET Environment section route
-
-router.get('/api/environments/:id', DashboardController.get_environments)
-
-//GET Workplaces section route
-
-router.get('/api/workplaces/:id', DashboardController.get_workplaces)
-
-//GET Community section route
-
-router.get('/api/communities/:id', DashboardController.get_communities)
-
-//GET Philanthropy section route
-
-router.get('/api/philanthropy/:id', DashboardController.get_philanthropy)
-
 //GET PAGES ROUTES
 
 router.get('/company_details', checkAuthenticated, DashboardController.get_company_details);
@@ -123,52 +107,8 @@ router.put('/philanthropy_financial_and_kind_gifts/:id', DashboardController.put
 
 router.put('/assessment_and_tips/:id', DashboardController.put_assessment_and_tips)
 
-//GET PAGES DATA ROUTES
+// Get application document route
 
-router.get('/company_details/:id', DashboardController.get_company_details_data)
-
-router.get('/application_introduction/:id', DashboardController.get_application_introduction_data)
-
-router.get('/environment_energy/:id', DashboardController.get_environment_energy_data)
-
-router.get('/environment_natural_resource/:id', DashboardController.get_environment_natural_resource_data)
-
-router.get('/environment_travel/:id', DashboardController.get_environment_travel_data)
-
-router.get('/environment_supply_chain_management/:id', DashboardController.get_environment_supply_chain_management_data)
-
-router.get('/environment_waste/:id', DashboardController.get_environment_waste_data)
-
-router.get('/workplace_training/:id', DashboardController.get_workplace_training_data)
-
-router.get('/workplace_labour_practices/:id', DashboardController.get_workplace_labour_practices_data)
-
-router.get('/workplace_ethical_practises/:id', DashboardController.get_workplace_ethical_practises_data)
-
-router.get('/workplace_governance/:id', DashboardController.get_workplace_governance_data)
-
-router.get('/workplace_policies/:id', DashboardController.get_workplace_policies_data)
-
-router.get('/community_engagement/:id', DashboardController.get_community_engagement_data)
-
-router.get('/community_local_issues/:id', DashboardController.get_community_local_issues_data)
-
-router.get('/community_wealth_creation/:id', DashboardController.get_community_wealth_creation_data)
-
-router.get('/community_projects_and_groups/:id', DashboardController.get_community_projects_and_groups_data)
-
-router.get('/community_education/:id', DashboardController.get_community_education_data)
-
-router.get('/philanthropy_charitable_involvement/:id', DashboardController.get_philanthropy_charitable_involvement_data)
-
-router.get('/philanthropy_volunteering/:id', DashboardController.get_philanthropy_volunteering_data)
-
-router.get('/philanthropy_pro_bono/:id', DashboardController.get_philanthropy_pro_bono_data)
-
-router.get('/philanthropy_fund_raising/:id', DashboardController.get_philanthropy_fund_raising_data)
-
-router.get('/philanthropy_financial_and_kind_gifts/:id', DashboardController.get_philanthropy_financial_and_kind_gifts_data)
-
-router.get('/assessment_and_tips/:id', DashboardController.get_assessment_and_tips_data)
+router.get('/api/application/:id', DashboardController.get_application_document)
 
 module.exports = router;

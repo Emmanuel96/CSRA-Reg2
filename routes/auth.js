@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const AuthController = require('../controllers/AuthController')
 
+const AuthController = require('../controllers/AuthController')
 const checkNotAuthenticated = require('../passport/checkNotAuthenticated')
 const checkAuthenticated = require('../passport/checkAuthenticated')
 const passport = require("../passport/setup")
@@ -10,12 +10,12 @@ const passport = require("../passport/setup")
 
 router.post('/login',
   passport.authenticate('local', { 
-    failureRedirect: '/login', 
-    failureMessage: true,
-    failureFlash: true 
+    failureMessage: false,
   }),
   function(req, res) {
-    res.redirect('/company_details#' + req.user._id.toString());
+    res.json({
+      userID: req.user._id.toString()
+    })
   });
 
 router.post('/register', AuthController.post_register);

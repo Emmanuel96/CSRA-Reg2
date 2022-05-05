@@ -17,6 +17,33 @@ const UserSchema = new mongoose.Schema({
   password: {
     type: String,
     required: true
-  }
+  },
+  application: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Application'
+  },
+  environmentDocs: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'EnvironmentDoc'
+  }],
+  workplaceDocs: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'WorkplaceDoc'
+  }],
+  communityDocs: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'CommunityDoc'
+  }],
+  philanthropyDocs: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'PhilanthropyDoc'
+  }]
 });
+
+UserSchema.set('toJSON', {
+  transform: (document, returnedObject) => {
+    delete returnedObject.__v
+  }
+})
+
 module.exports = mongoose.model('User', UserSchema);

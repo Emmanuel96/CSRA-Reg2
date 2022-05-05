@@ -8,13 +8,7 @@
     <div class="bg-white text-[#514C4C] h-auto w-11/12 sm:w-96 md:w-80 lg:mt-20 lg:w-96 mx-auto mt-12 sm:mt-16 shadow-2xl rounded-lg">
       <h1 class="font-mono font-bold text-2xl lg:text-3xl text-center pt-14">Login</h1>
 
-      <p class="text-sm text-red-600 pt-7 text-center font-semibold">
-        <% if (messages.error) { %>
-          <%= messages.error %>
-        <% } %>
-      </p>
-
-      <form method="POST" action="/login" id="login_form" class="mt-7 lg:mt-7 pb-32">
+      <form id="login_form" class="mt-7 lg:mt-7 pb-32">
         <div class="mx-7 mt-1">
           <label class="text-sm lg:text-base">Email</label>
           <br>
@@ -38,6 +32,6 @@
         </div>
       </form>
     </div>
-    <!-- <script src = "/javascripts/login.js"></script> -->
+    <script src = "/javascripts/auth/login.js"></script>
   </body>
 </html>
