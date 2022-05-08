@@ -11,6 +11,9 @@ function loginSubmit(event) {
     });
   }
 
+  document.getElementById("sign_in").innerText = "Signing in..."
+  document.getElementById("sign_in").disabled = true
+
   var data = { email, password };
 
   const request = fetch("/login", {
@@ -25,10 +28,13 @@ function loginSubmit(event) {
   request
     .then(data => data.json())
     .then((response) => {
+      document.getElementById("sign_in").innerText = "Signing in..."
       var id = response.userID
       sessionStorage.setItem("csra_user", id)
       window.location.href = "/company_details"
     }).catch(() => {
+      document.getElementById("sign_in").innerText = "Sign In"
+      document.getElementById("sign_in").disabled = false
       Swal.fire({
         title: "Email or password is incorrect",
         confirmButtonColor: "#00a19a",
