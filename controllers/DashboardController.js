@@ -1,140 +1,115 @@
-const Company_Details = require("../models/Company_Details")
-const Introduction = require("../models/Introduction")
-
-const Env_Energy = require('../models/Env_Energy')
-const Env_Natural_Resource = require('../models/Env_Natural_Resource')
-const Env_Travel = require('../models/Env_Travel')
-const Env_Supply_Chain_Management = require('../models/Env_Supply_Chain_Management')
-const Env_Waste = require('../models/Env_Waste')
-
-const Wrk_Training = require('../models/Wrk_Training')
-const Wrk_Labour_Practices = require('../models/Wrk_Labour_Practices')
-const Wrk_Ethical_Practices = require('../models/Wrk_Ethical_Practices')
-const Wrk_Governance = require("../models/Wrk_Governance")
-const Wrk_Policies = require("../models/Wrk_Policies")
-
-const Com_Engagement = require("../models/Com_Engagement")
-const Com_local_issues = require("../models/Com_Local_Issues")
-const Com_Wealth_Creation = require("../models/Com_Wealth_Creation")
-const Com_Projects_And_Groups = require("../models/Com_Projects_And_Groups")
-const Com_Education = require("../models/Com_Education")
-
-const Phil_Charitable_Involvement = require("../models/Phil_Charitable_Involvement")
-const Phil_Volunteering = require("../models/Phil_Volunteering")
-const Phil_Pro_Bono = require("../models/Phil_Pro_Bono")
-const Phil_Fund_Raising = require("../models/Phil_Fund_Raising")
-const Phil_Financial_And_Kind_Gifts = require("../models/Phil_Financial_And_Kind_Gifts")
-const Assessments_and_Tips = require("../models/Assessments_and_Tips")
-const Com_Local_Issues = require("../models/Com_Local_Issues")
+const Application = require('../models/Application')
+const mongoose = require('mongoose')
 
 //GET PAGES CONTROLLERS
 
 exports.get_company_details = (req, res) => {
-  res.render('dashboard/company_details')
+  res.render('dashboard/others/company_details')
 }
 
 exports.get_application_introduction = (req, res) => {
-  res.render('dashboard/application_introduction')
+  res.render('dashboard/others/application_introduction'
+  )
 }
 
 exports.get_environment_energy = (req, res) => {
-  res.render('dashboard/environment_energy')
+  res.render('dashboard/environment/environment_energy')
 }
 
 exports.get_environment_natural_resource = (req, res) => {
-  res.render('dashboard/environment_natural_resource')
+  res.render('dashboard/environment/environment_natural_resource')
 }
 
 exports.get_environment_travel = (req, res) => {
-  res.render('dashboard/environment_travel')
+  res.render('dashboard/environment/environment_travel')
 }
 
 exports.get_environment_supply_chain_management = (req, res) => {
-  res.render('dashboard/environment_supply_chain_management')
+  res.render('dashboard/environment/environment_supply_chain_management')
 }
 
 exports.get_environment_waste = (req, res) => {
-  res.render('dashboard/environment_waste')
+  res.render('dashboard/environment/environment_waste')
 }
 
 exports.get_environment_supporting_documents = (req, res) => {
-  res.render('dashboard/environment_supporting_documents')
+  res.render('dashboard/environment/environment_supporting_documents')
 }
 
 exports.get_assessment_and_tips = (req, res) => {
-  res.render('dashboard/assessment_and_tips')
+  res.render('dashboard/others/assessment_and_tips')
 }
 
 exports.get_workplace_training = (req, res) => {
-  res.render('dashboard/workplace_training')
+  res.render('dashboard/workplace/workplace_training')
 }
 
 exports.get_workplace_labour_practices = (req, res) => {
-  res.render('dashboard/workplace_labour_practices')
+  res.render('dashboard/workplace/workplace_labour_practices')
 }
 
 exports.get_workplace_ethical_practises = (req, res) => {
-  res.render('dashboard/workplace_ethical_practises')
+  res.render('dashboard/workplace/workplace_ethical_practises')
 }
 
 exports.get_workplace_governance = (req, res) => {
-  res.render('dashboard/workplace_governance')
+  res.render('dashboard/workplace/workplace_governance')
 }
 
 exports.get_workplace_policies = (req, res) => {
-  res.render('dashboard/workplace_policies')
+  res.render('dashboard/workplace/workplace_policies')
 }
 
 exports.get_workplace_supporting_documents = (req, res) => {
-  res.render('dashboard/workplace_supporting_documents')
+  res.render('dashboard/workplace/workplace_supporting_documents')
 }
 
 exports.get_community_engagement = (req, res) => {
-  res.render('dashboard/community_engagement')
+  res.render('dashboard/community/community_engagement')
 }
 
 exports.get_community_local_issues = (req, res) => {
-  res.render('dashboard/community_local_issues')
+  res.render('dashboard/community/community_local_issues')
 }
 
 exports.get_community_wealth_creation = (req, res) => {
-  res.render('dashboard/community_wealth_creation')
+  res.render('dashboard/community/community_wealth_creation')
 }
 
 exports.get_community_projects_and_groups = (req, res) => {
-  res.render('dashboard/community_projects_and_groups')
+  res.render('dashboard/community/community_projects_and_groups')
 }
 
 exports.get_community_education = (req, res) => {
-  res.render('dashboard/community_education')
+  res.render('dashboard/community/community_education')
 }
 
 exports.get_community_supporting_documents = (req, res) => {
-  res.render('dashboard/community_supporting_documents')
+  res.render('dashboard/community/community_supporting_documents')
 }
 
 exports.get_philanthropy_charitable_involvement = (req, res) => {
-  res.render('dashboard/philanthropy_charitable_involvement')
+  res.render('dashboard/philanthropy/philanthropy_charitable_involvement')
 }
 
 exports.get_philanthropy_volunteering = (req, res) => {
-  res.render('dashboard/philanthropy_volunteering')
+  res.render('dashboard/philanthropy/philanthropy_volunteering')
 }
 
 exports.get_philanthropy_pro_bono = (req, res) => {
-  res.render('dashboard/philanthropy_pro_bono')
+  res.render('dashboard/philanthropy/philanthropy_pro_bono')
 }
 
 exports.get_philanthropy_fund_raising = (req, res) => {
-  res.render('dashboard/philanthropy_fund_raising')
+  res.render('dashboard/philanthropy/philanthropy_fund_raising')
 }
 
 exports.get_philanthropy_financial_and_kind_gifts = (req, res) => {
-  res.render('dashboard/philanthropy_financial_and_kind_gifts')
+  res.render('dashboard/philanthropy/philanthropy_financial_and_kind_gifts')
 }
 
 exports.get_philanthropy_supporting_documents = (req, res) => {
-  res.render('dashboard/philanthropy_supporting_documents')
+  res.render('dashboard/philanthropy/philanthropy_supporting_documents')
 }
 
 //PUT CONTROLLERS
@@ -156,8 +131,7 @@ exports.put_company_details = async function(req, res, next){
     company_details_completed: true
   }
 
-  Company_Details.findByIdAndUpdate(
-    req.params.id, 
+  Application.findOneAndUpdate({ owner: req.params.id }, 
     company_details, 
     {new: true, runValidators: true, context: 'query'}
   ).then(() => {
@@ -184,8 +158,7 @@ exports.put_application_introduction = async function(req, res, next){
     introduction_completed: true
   }
 
-  Introduction.findByIdAndUpdate(
-    req.params.id, 
+  Application.findOneAndUpdate({ owner: req.params.id }, 
     introduction, 
     {new: true, runValidators: true, context: 'query'}
   ).then(() => {
@@ -212,8 +185,7 @@ exports.put_environment_energy = async function(req, res, next){
     env_energy_completed: true
   }
 
-  Env_Energy.findByIdAndUpdate(
-    req.params.id, 
+  Application.findOneAndUpdate({ owner: req.params.id }, 
     env_energy, 
     {new: true, runValidators: true, context: 'query'}
   ).then(() => {
@@ -240,8 +212,7 @@ exports.put_environment_natural_resource = async function(req, res, next){
     env_natural_resource_completed: true
   }
 
-  Env_Natural_Resource.findByIdAndUpdate(
-    req.params.id, 
+  Application.findOneAndUpdate({ owner: req.params.id }, 
     env_natural_resource, 
     {new: true, runValidators: true, context: 'query'}
   ).then(() => {
@@ -268,8 +239,7 @@ exports.put_environment_travel = async function(req, res, next){
     env_travel_completed: true
   }
 
-  Env_Travel.findByIdAndUpdate(
-    req.params.id, 
+  Application.findOneAndUpdate({ owner: req.params.id }, 
     env_travel, 
     {new: true, runValidators: true, context: 'query'}
   ).then(() => {
@@ -296,8 +266,7 @@ exports.put_environment_supply_chain_management = async function(req, res, next)
     env_supply_chain_management_completed: true
   }
 
-  Env_Supply_Chain_Management.findByIdAndUpdate(
-    req.params.id, 
+  Application.findOneAndUpdate({ owner: req.params.id }, 
     env_supply_chain_management, 
     {new: true, runValidators: true, context: 'query'}
   ).then(() => {
@@ -324,8 +293,7 @@ exports.put_environment_waste = async function(req, res, next){
     env_waste_completed: true
   }
 
-  Env_Waste.findByIdAndUpdate(
-    req.params.id, 
+  Application.findOneAndUpdate({ owner: req.params.id }, 
     env_waste, 
     {new: true, runValidators: true, context: 'query'}
   ).then(() => {
@@ -352,8 +320,7 @@ exports.put_workplace_training = async function(req, res, next){
     wrk_training_completed: true
   }
 
-  Wrk_Training.findByIdAndUpdate(
-    req.params.id, 
+  Application.findOneAndUpdate({ owner: req.params.id }, 
     wrk_training, 
     {new: true, runValidators: true, context: 'query'}
   ).then(() => {
@@ -380,8 +347,7 @@ exports.put_workplace_labour_practices = async function(req, res, next){
     wrk_labour_practices_completed: true
   }
 
-  Wrk_Labour_Practices.findByIdAndUpdate(
-    req.params.id, 
+  Application.findOneAndUpdate({ owner: req.params.id }, 
     wrk_labour_practices, 
     {new: true, runValidators: true, context: 'query'}
   ).then(() => {
@@ -408,8 +374,7 @@ exports.put_workplace_ethical_practises = async function(req, res, next){
     wrk_ethical_practices_completed: true
   }
 
-  Wrk_Ethical_Practices.findByIdAndUpdate(
-    req.params.id, 
+  Application.findOneAndUpdate({ owner: req.params.id }, 
     wrk_ethical_practices, 
     {new: true, runValidators: true, context: 'query'}
   ).then(() => {
@@ -436,8 +401,7 @@ exports.put_workplace_governance = async function(req, res, next){
     wrk_governance_completed: true
   }
 
-  Wrk_Governance.findByIdAndUpdate(
-    req.params.id, 
+  Application.findOneAndUpdate({ owner: req.params.id }, 
     wrk_governance, 
     {new: true, runValidators: true, context: 'query'}
   ).then(() => {
@@ -464,8 +428,7 @@ exports.put_workplace_policies = async function(req, res, next){
     wrk_policies_completed: true
   }
 
-  Wrk_Policies.findByIdAndUpdate(
-    req.params.id, 
+  Application.findOneAndUpdate({ owner: req.params.id }, 
     wrk_policies, 
     {new: true, runValidators: true, context: 'query'}
   ).then(() => {
@@ -492,8 +455,7 @@ exports.put_community_engagement = async function(req, res, next){
     com_engagement_completed: true
   }
 
-  Com_Engagement.findByIdAndUpdate(
-    req.params.id, 
+  Application.findOneAndUpdate({ owner: req.params.id }, 
     com_engagement, 
     {new: true, runValidators: true, context: 'query'}
   ).then(() => {
@@ -520,8 +482,7 @@ exports.put_community_local_issues = async function(req, res, next){
     com_local_issues_completed: true
   }
 
-  Com_local_issues.findByIdAndUpdate(
-    req.params.id, 
+  Application.findOneAndUpdate({ owner: req.params.id }, 
     com_local_issues, 
     {new: true, runValidators: true, context: 'query'}
   ).then(() => {
@@ -548,8 +509,7 @@ exports.put_community_wealth_creation = async function(req, res, next){
     com_wealth_creation_completed: true
   }
 
-  Com_Wealth_Creation.findByIdAndUpdate(
-    req.params.id, 
+  Application.findOneAndUpdate({ owner: req.params.id }, 
     com_wealth_creation, 
     {new: true, runValidators: true, context: 'query'}
   ).then(() => {
@@ -576,8 +536,7 @@ exports.put_community_projects_and_groups = async function(req, res, next){
     com_projects_and_groups_completed: true
   }
 
-  Com_Projects_And_Groups.findByIdAndUpdate(
-    req.params.id, 
+  Application.findOneAndUpdate({ owner: req.params.id }, 
     com_projects_and_groups, 
     {new: true, runValidators: true, context: 'query'}
   ).then(() => {
@@ -604,8 +563,7 @@ exports.put_community_education = async function(req, res, next){
     com_education_completed: true
   }
 
-  Com_Education.findByIdAndUpdate(
-    req.params.id, 
+  Application.findOneAndUpdate({ owner: req.params.id }, 
     com_education, 
     {new: true, runValidators: true, context: 'query'}
   ).then(() => {
@@ -632,8 +590,7 @@ exports.put_philanthropy_charitable_involvement = async function(req, res, next)
     phil_charitable_involvement_completed: true
   }
 
-  Phil_Charitable_Involvement.findByIdAndUpdate(
-    req.params.id, 
+  Application.findOneAndUpdate({ owner: req.params.id }, 
     phil_charitable_involvement, 
     {new: true, runValidators: true, context: 'query'}
   ).then(() => {
@@ -660,8 +617,7 @@ exports.put_philanthropy_volunteering = async function(req, res, next){
     phil_volunteering_completed: true
   }
 
-  Phil_Volunteering.findByIdAndUpdate(
-    req.params.id, 
+  Application.findOneAndUpdate({ owner: req.params.id }, 
     phil_volunteering, 
     {new: true, runValidators: true, context: 'query'}
   ).then(() => {
@@ -688,8 +644,7 @@ exports.put_philanthropy_pro_bono = async function(req, res, next){
     phil_pro_bono_completed: true
   }
 
-  Phil_Pro_Bono.findByIdAndUpdate(
-    req.params.id, 
+  Application.findOneAndUpdate({ owner: req.params.id }, 
     phil_pro_bono, 
     {new: true, runValidators: true, context: 'query'}
   ).then(() => {
@@ -716,8 +671,7 @@ exports.put_philanthropy_fund_raising = async function(req, res, next){
     phil_fund_raising_completed: true
   }
 
-  Phil_Fund_Raising.findByIdAndUpdate(
-    req.params.id, 
+  Application.findOneAndUpdate({ owner: req.params.id }, 
     phil_fund_raising, 
     {new: true, runValidators: true, context: 'query'}
   ).then(() => {
@@ -744,8 +698,7 @@ exports.put_philanthropy_financial_and_kind_gifts = async function(req, res, nex
     phil_financial_and_kind_gifts_completed: true
   }
 
-  Phil_Financial_And_Kind_Gifts.findByIdAndUpdate(
-    req.params.id, 
+  Application.findOneAndUpdate({ owner: req.params.id }, 
     phil_financial_and_kind_gifts, 
     {new: true, runValidators: true, context: 'query'}
   ).then(() => {
@@ -769,8 +722,7 @@ exports.put_assessment_and_tips = async function(req, res, next){
     assessments_and_tips_completed: true
   }
 
-  Assessments_and_Tips.findByIdAndUpdate(
-    req.params.id, 
+  Application.findOneAndUpdate({ owner: req.params.id }, 
     assessments_and_tips, 
     {new: true, runValidators: true, context: 'query'}
   ).then(() => {
@@ -789,136 +741,12 @@ exports.put_assessment_and_tips = async function(req, res, next){
   })
 }
 
-// GET PAGES DATA CONTROLLERS
+// Get application document controller
 
-exports.get_company_details_data = async function(req, res, next){
-  Company_Details.findById(req.params.id).then(data => {
-    res.status(200).json(data)
-  }).catch(err => console.log("Error: ", err))
-}
-
-exports.get_application_introduction_data = async function(req, res, next){
-  Introduction.findById(req.params.id).then(data => {
-    res.status(200).json(data)
-  }).catch(err => console.log("Error: ", err))
-}
-
-exports.get_environment_energy_data = async function(req, res, next){
-  Env_Energy.findById(req.params.id).then(data => {
-    res.status(200).json(data)
-  }).catch(err => console.log("Error: ", err))
-}
-
-exports.get_environment_natural_resource_data = async function(req, res, next){
-  Env_Natural_Resource.findById(req.params.id).then(data => {
-    res.status(200).json(data)
-  }).catch(err => console.log("Error: ", err))
-}
-
-exports.get_environment_travel_data = async function(req, res, next){
-  Env_Travel.findById(req.params.id).then(data => {
-    res.status(200).json(data)
-  }).catch(err => console.log("Error: ", err))
-}
-
-exports.get_environment_supply_chain_management_data = async function(req, res, next){
-  Env_Supply_Chain_Management.findById(req.params.id).then(data => {
-    res.status(200).json(data)
-  }).catch(err => console.log("Error: ", err))
-}
-
-exports.get_environment_waste_data = async function(req, res, next){
-  Env_Waste.findById(req.params.id).then(data => {
-    res.status(200).json(data)
-  }).catch(err => console.log("Error: ", err))
-}
-
-exports.get_workplace_training_data = async function(req, res, next){
-  Wrk_Training.findById(req.params.id).then(data => {
-    res.status(200).json(data)
-  }).catch(err => console.log("Error: ", err))
-}
-
-exports.get_workplace_labour_practices_data = async function(req, res, next){
-  Wrk_Labour_Practices.findById(req.params.id).then(data => {
-    res.status(200).json(data)
-  }).catch(err => console.log("Error: ", err))
-}
-
-exports.get_workplace_ethical_practises_data = async function(req, res, next){
-  Wrk_Ethical_Practices.findById(req.params.id).then(data => {
-    res.status(200).json(data)
-  }).catch(err => console.log("Error: ", err))
-}
-
-exports.get_workplace_governance_data = async function(req, res, next){
-  Wrk_Governance.findById(req.params.id).then(data => {
-    res.status(200).json(data)
-  }).catch(err => console.log("Error: ", err))
-}
-
-exports.get_workplace_policies_data = async function(req, res, next){
-  Wrk_Policies.findById(req.params.id).then(data => {
-    res.status(200).json(data)
-  }).catch(err => console.log("Error: ", err))
-}
-
-exports.get_community_engagement_data = async function(req, res, next){
-  Com_Engagement.findById(req.params.id).then(data => {
-    res.status(200).json(data)
-  }).catch(err => console.log("Error: ", err))
-}
-
-exports.get_community_local_issues_data = async function(req, res, next){
-  Com_Local_Issues.findById(req.params.id).then(data => {
-    res.status(200).json(data)
-  }).catch(err => console.log("Error: ", err))
-}
-
-exports.get_community_wealth_creation_data = async function(req, res, next){
-  Com_Wealth_Creation.findById(req.params.id).then(data => {
-    res.status(200).json(data)
-  }).catch(err => console.log("Error: ", err))
-}
-
-exports.get_community_projects_and_groups_data = async function(req, res, next){
-  Com_Projects_And_Groups.findById(req.params.id).then(data => {
-    res.status(200).json(data)
-  }).catch(err => console.log("Error: ", err))
-}
-
-exports.get_community_education_data = async function(req, res, next){
-  Com_Education.findById(req.params.id).then(data => {
-    res.status(200).json(data)
-  }).catch(err => console.log("Error: ", err))
-}
-
-exports.get_philanthropy_charitable_involvement_data = async function(req, res, next){
-  Phil_Charitable_Involvement.findById(req.params.id).then(data => {
-    res.status(200).json(data)
-  }).catch(err => console.log("Error: ", err))
-}
-
-exports.get_philanthropy_volunteering_data = async function(req, res, next){
-  Phil_Volunteering.findById(req.params.id).then(data => {
-    res.status(200).json(data)
-  }).catch(err => console.log("Error: ", err))
-}
-
-exports.get_philanthropy_pro_bono_data = async function(req, res, next){
-  Phil_Pro_Bono.findById(req.params.id).then(data => {
-    res.status(200).json(data)
-  }).catch(err => console.log("Error: ", err))
-}
-
-exports.get_philanthropy_fund_raising_data = async function(req, res, next){
-  Phil_Fund_Raising.findById(req.params.id).then(data => {
-    res.status(200).json(data)
-  }).catch(err => console.log("Error: ", err))
-}
-
-exports.get_philanthropy_financial_and_kind_gifts_data = async function(req, res, next){
-  Phil_Financial_And_Kind_Gifts.findById(req.params.id).then(data => {
+exports.get_application_document = function(req, res, next){
+  Application.findOne(
+    { owner: req.params.id }
+  ).then(data => {
     res.status(200).json(data)
   }).catch(err => console.log("Error: ", err))
 }

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dashboard</title>
+    <%- include('../../partials/head.ejs') %>
+  </head>
+  <body class="bg-white">
+    <%- include('../../partials/nav.ejs') %>
+    <%- include('../../partials/topNav.ejs') %>
+
+    <div class="mt-6 md:mt-0 md:ml-64">
+      <div class="md:py-8 mx-5 sm:mx-8 lg:mx-14 xl:mx-20"> 
+        <div class="py-6 lg:py-10 bg-white lg:border">
+          <div class="mx-5 lg:px-6">
+            <div>
+              <img class="w-32" src="/assets/images/CSR-A_Logo-RGB.jpg" alt="logo" />
+            </div>
+          </div>  
+          
+          <div class="mx-5 lg:px-6 pb-5 text-justify text-sm lg:text-base">
+            <div class="pt-8">
+              <h2 class="text-xl font-bold font-mono text-[#00A19A]">SECTION ONE - ENVIRONMENT</h2>
+
+              <p class="pt-4 font-bold">ENVIRONMENT - 1A/ Energy</p>
+
+              <p class="pt-4">
+                For example, does your organisation implement and monitor energy saving initiatives? What statistics, KPIs and reductions have you made? What are the financial benefits and measurable impact to your organisation? Have staff demonstrated their commitment? Do you buy ‘green’ energy or have renewables on site? What ideas do you have to expand the scheme Can others adopt the procedures to their own benefit?
+              </p>
+            </div>
+
+            <div class="pt-4">
+              <h4 class="font-bold text-sm">Please use the list below to prompt your thinking.</h4>
+
+              <ul class="list-disc list-inside pt-3">
+                <li class="pl-5">
+                  Energy consumption in buildings - monitoring and low energy heating, ventilation, and air conditioning systems.
+                </li>
+
+                <li class="pl-5 pt-2">
+                  Renewable energy and green technologies - where possible, incorporated into business practice, functions and premises.
+                </li>
+
+                <li class="pl-5 pt-2">
+                  Lighting - such as LED and low energy lights
+                </li>
+
+                <li class="pl-5 pt-2">
+                  Heating - low energy, waste heat recovery or combined heat and power systems.
+                </li>
+
+                <li class="pl-5 pt-2">
+                  Hot water usage - low flow plumbing, touch free taps, grey water and rainwater harvesting.
+                </li>
+
+                <li class="pl-5 pt-2">
+                  Ventilation and air conditioning - long service life units and energy recovery.
+                </li>
+
+                <li class="pl-5 pt-2">
+                  Office equipment - recycling, responsible disposal and up-cycling.
+                </li>
+
+                <li class="pl-5 pt-2">
+                  Building fabric - steel fabrication and modular construction.                
+                </li>
+
+                <li class="pl-5 pt-2">
+                  Low carbon buildings.               
+                </li>
+
+                <li class="pl-5 pt-2">
+                  Good housekeeping and people solutions.              
+                </li>
+
+                <li class="pl-5 pt-2">
+                  Employee engagement in energy efficiency/awareness campaigns in the workplace             
+                </li>
+
+                <li class="pl-5 pt-2">
+                  Projects that make a positive impact on biodiversity.           
+                </li>
+
+                <li class="pl-5 pt-2">
+                  Climate change mitigation and adaptation.                
+                </li>
+
+                <li class="pl-5 pt-2">
+                  Carbon foot printing: Does your organisation measure its carbon footprint? What statistics, KPIs and reductions have you made?               
+                </li>
+
+                <li class="pl-5 pt-2">
+                  Please show statistical data where available.            
+                </li>
+              </ul>
+            </div>  
+
+            <form class="pt-5">
+              <textarea id="env_energy_textarea" class="p-8 max-h-96 text-justify resize-y h-40 w-full border border-[#464343]"></textarea>
+            </form>
+          </div>
+
+          <div class="text-right text-sm mt-3 text-white pr-5 lg:pr-10">
+            <button class="py-2 px-3 mr-3 hover:bg-[#03857e] rounded-md shadow-lg bg-[#00A19A] transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300">
+              <a href="./application_introduction">Previous Step</a>
+            </button>
+
+            <button onclick="updateEnvironmentEnergy()" class="py-2 px-3 hover:bg-[#03857e] rounded-md shadow-lg bg-[#00A19A] transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:animate-none animate-bounce duration-300">
+              Submit
+            </button>
+          </div>
+        </div>  
+      </div>  
+    </div>  
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <script src="/javascripts/environment/environment_energy.js"></script>
+  </body>   
+</html> 
