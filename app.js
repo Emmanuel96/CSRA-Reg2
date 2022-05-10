@@ -16,6 +16,7 @@ var usersRouter = require('./routes/users');
 var authRouter = require('./routes/auth');
 var dashboardRouter = require('./routes/dashboard');
 var mediaRouter = require('./routes/media');
+var mailRouter = require('./routes/mail');
 
 var app = express();
 var DB = require('./database/mongoDB')
@@ -46,6 +47,7 @@ app.use('/users', usersRouter);
 app.use('/', authRouter);
 app.use('/', dashboardRouter);
 app.use('/', mediaRouter);
+app.use('/', mailRouter);
 
 // Catch 404 and forward to error handler
 app.use(function(req, res, next) {
