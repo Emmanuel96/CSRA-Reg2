@@ -1,29 +1,37 @@
 const sgMail = require('@sendgrid/mail')
+const Application = require('../models/Application')
 
 exports.notify_completion = (req, res, next) => {
-  const SENDGRID_API_KEY = process.env.SENDGRID_API_KEY
-  sgMail.setApiKey(SENDGRID_API_KEY)
+  Application.findOne({ owner: req.user._id.toString() }).then(doc => {
+    const SENDGRID_API_KEY = process.env.SENDGRID_API_KEY
 
-  let USER = req.user.email
+    sgMail.setApiKey(SENDGRID_API_KEY)
 
-  let mailList = [
-    'stephenbuluswayar@gmail.com',
-    // 'csraccreditation@gmail.com',
-    // 'jennifer@csr-accreditation.co.uk'
-  ]
+    let company = doc.organisation_name
 
-  const message = {
-    to: mailList,
-    from: 'emmanuel@csr-accreditation.co.uk',
-    subject: `APPLICATION COMPLETION FROM ${USER}`,
-    text: 'Hello, this is a test email, do not reply.'
-  }
-
-  sgMail.send(message).then((mail) => {
-    console.log("Email sent!")
-    res.status(200)
-  }).catch(err => {
+    let mailList = [
+      'stephenbuluswayar@gmail.com',
+      'kole.audu@gmail.com',
+      // 'csraccreditation@gmail.com',
+      // 'jennifer@csr-accreditation.co.uk'
+    ]
+  
+    const message = {
+      to: mailList,
+      from: 'emmanuel@csr-accreditation.co.uk',
+      subject: `APPLICATION COMPLETION FROM ${company}`,
+      text: `Hello, ${company} just completed their application. Sign in to the accessors portal to view.`
+    }
+  
+    sgMail.send(message).then((mail) => {
+      console.log("Email sent!")
+      res.status(200)
+    }).catch(err => {
+      console.log(err)
+      res.json(err)
+    })
+  }).catch((err) => {
     console.log(err)
-    res.json(err)
+    res.status(404).end()
   })
 }
