@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "build": "npm run build",
     "start": "npm run build:css && node ./bin/www",
     "dev": "npm run build:css && nodemon ./bin/www",
     "build:css": "postcss public/stylesheets/tailwind.css -o public/stylesheets/style.css"
