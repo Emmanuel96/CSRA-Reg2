@@ -1,6 +1,7 @@
 const bcrypt = require("bcryptjs");
 const User = require('../models/User');
 const Application = require('../models/Application')
+const Score = require('../models/Score')
 
 //GET controllers
 
@@ -45,61 +46,62 @@ exports.post_register = async function(req, res, next){
             newUser.password = hash
             newUser.save().then(savedUser => {
               //Application variables
-              var owner = savedUser._id
-              var contact_person = null
-              var organisation_name = null 
-              var organisation_address = null
-              var organisation_nationality = null
-              var postal_code = null
-              var email_address =  req.body.email.toLowerCase()
-              var mobile_number = null
-              var telephone_number = null
-              var organisation_size = null
-              var organisation_turnover = null
-              var company_details_completed = false
-              var introduction = null
-              var introduction_completed = false 
-              var env_energy = null
-              var env_energy_completed = false
-              var env_natural_resource = null
-              var env_natural_resource_completed = false
-              var env_travel = null
-              var env_travel_completed = false
-              var env_supply_chain_management = null
-              var env_supply_chain_management_completed = false
-              var env_waste = null
-              var env_waste_completed = false
-              var wrk_training = null
-              var wrk_training_completed = false
-              var wrk_labour_practices = null
-              var wrk_labour_practices_completed = false
-              var wrk_ethical_practices = null
-              var wrk_ethical_practices_completed = false
-              var wrk_governance = null
-              var wrk_governance_completed = false
-              var wrk_policies = null
-              var wrk_policies_completed = false
-              var com_engagement = null
-              var com_engagement_completed = false
-              var com_local_issues = null
-              var com_local_issues_completed = false
-              var com_wealth_creation = null
-              var com_wealth_creation_completed = false
-              var com_projects_and_groups = null
-              var com_projects_and_groups_completed = false
-              var com_education = null
-              var com_education_completed = false
-              var phil_charitable_involvement = null
-              var phil_charitable_involvement_completed = false
-              var phil_volunteering = null
-              var phil_volunteering_completed = false
-              var phil_pro_bono = null
-              var phil_pro_bono_completed = false
-              var phil_fund_raising = null
-              var phil_fund_raising_completed = false
-              var phil_financial_and_kind_gifts = null
-              var phil_financial_and_kind_gifts_completed = false
-              var assessments_and_tips_completed = false
+              let owner = savedUser._id
+              let contact_person = null
+              let organisation_name = null 
+              let organisation_address = null
+              let organisation_nationality = null
+              let postal_code = null
+              let email_address =  req.body.email.toLowerCase()
+              let mobile_number = null
+              let telephone_number = null
+              let organisation_size = null
+              let organisation_turnover = null
+              let company_details_completed = false
+              let introduction = null
+              let introduction_completed = false 
+              let env_energy = null
+              let env_energy_completed = false
+              let env_natural_resource = null
+              let env_natural_resource_completed = false
+              let env_travel = null
+              let env_travel_completed = false
+              let env_supply_chain_management = null
+              let env_supply_chain_management_completed = false
+              let env_waste = null
+              let env_waste_completed = false
+              let wrk_training = null
+              let wrk_training_completed = false
+              let wrk_labour_practices = null
+              let wrk_labour_practices_completed = false
+              let wrk_ethical_practices = null
+              let wrk_ethical_practices_completed = false
+              let wrk_governance = null
+              let wrk_governance_completed = false
+              let wrk_policies = null
+              let wrk_policies_completed = false
+              let com_engagement = null
+              let com_engagement_completed = false
+              let com_local_issues = null
+              let com_local_issues_completed = false
+              let com_wealth_creation = null
+              let com_wealth_creation_completed = false
+              let com_projects_and_groups = null
+              let com_projects_and_groups_completed = false
+              let com_education = null
+              let com_education_completed = false
+              let phil_charitable_involvement = null
+              let phil_charitable_involvement_completed = false
+              let phil_volunteering = null
+              let phil_volunteering_completed = false
+              let phil_pro_bono = null
+              let phil_pro_bono_completed = false
+              let phil_fund_raising = null
+              let phil_fund_raising_completed = false
+              let phil_financial_and_kind_gifts = null
+              let phil_financial_and_kind_gifts_completed = false
+              let assessments_and_tips_completed = false
+              let finished = false
 
               const newApplication = new Application({
                 owner,
@@ -156,10 +158,36 @@ exports.post_register = async function(req, res, next){
                 phil_fund_raising_completed,
                 phil_financial_and_kind_gifts,
                 phil_financial_and_kind_gifts_completed,
-                assessments_and_tips_completed
+                assessments_and_tips_completed,
+                finished
               })
 
-              newApplication.save().then(() => {
+              newApplication.save().then(savedApplication => {
+                newUser.application = savedApplication._id
+                newUser.save()
+
+                const applicationScore = new Score({
+                  application: savedApplication._id,
+                  csr_benefit_score: null,
+                  environmental_benefit_score: null,
+                  social_benefit_score: null,
+                  staff_benefit_score: null,
+                  workplace_benefit_score: null,
+                  charitable_benefit_score: null,
+                  financial_benefit_score: null,
+                  commitment_score: null,
+                  evidence_score: null,
+                  degree_of_originality_score: null,
+                  future_expansion_score: null,
+                  replicability_score: null,
+                  special_merit_score: null,
+                  comment: null
+                })
+
+                applicationScore.save().then(savedScore => {
+                  savedApplication.score = savedScore._id
+                  savedApplication.save()
+                })
                 console.log("Application saved!")
               }).catch((err) => {
                 console.log("Failed to save!", err)

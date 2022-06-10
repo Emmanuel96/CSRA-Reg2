@@ -719,10 +719,12 @@ exports.put_philanthropy_financial_and_kind_gifts = async function(req, res, nex
 
 exports.put_assessment_and_tips = async function(req, res, next){
   const assessments_and_tips = {
-    assessments_and_tips_completed: true
+    assessments_and_tips_completed: true,
+    finished: true
   }
 
-  Application.findOneAndUpdate({ owner: req.params.id }, 
+  Application.findOneAndUpdate(
+    { owner: req.params.id }, 
     assessments_and_tips, 
     {new: true, runValidators: true, context: 'query'}
   ).then(() => {
