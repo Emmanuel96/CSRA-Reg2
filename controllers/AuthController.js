@@ -165,30 +165,7 @@ exports.post_register = async function(req, res, next){
               newApplication.save().then(savedApplication => {
                 newUser.application = savedApplication._id
                 newUser.save()
-
-                const applicationScore = new Score({
-                  application: savedApplication._id,
-                  csr_benefit_score: null,
-                  environmental_benefit_score: null,
-                  social_benefit_score: null,
-                  staff_benefit_score: null,
-                  workplace_benefit_score: null,
-                  charitable_benefit_score: null,
-                  financial_benefit_score: null,
-                  commitment_score: null,
-                  evidence_score: null,
-                  degree_of_originality_score: null,
-                  future_expansion_score: null,
-                  replicability_score: null,
-                  special_merit_score: null,
-                  comment: null
-                })
-
-                applicationScore.save().then(savedScore => {
-                  savedApplication.score = savedScore._id
-                  savedApplication.save()
-                })
-                console.log("Application saved!")
+                console.log("Application saved")
               }).catch((err) => {
                 console.log("Failed to save!", err)
               })

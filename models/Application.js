@@ -6,11 +6,6 @@ const ApplicationSchema = new mongoose.Schema({
     ref: 'User'
   },
 
-  score: {
-    type: String,
-    ref: 'Score'
-  },
-
   contact_person: {
     type: String
   },
