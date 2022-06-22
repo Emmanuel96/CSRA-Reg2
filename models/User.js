@@ -21,8 +21,14 @@ const UserSchema = new mongoose.Schema({
   application: {
     type: String,
     ref: 'Application'
+  },
+  resetPasswordToken: {
+    type: String
+  },
+  resetPasswordExpires: {
+    type: Date
   }
-});
+}, { timestamps: true });
 
 UserSchema.set('toJSON', {
   transform: (document, returnedObject) => {

@@ -23,15 +23,12 @@ exports.notify_completion = (req, res, next) => {
       text: `Hello, ${company} just completed their application. Sign in to the accessors portal to view.`
     }
   
-    sgMail.send(message).then((mail) => {
-      console.log("Email sent!")
+    sgMail.send(message).then(() => {
       res.status(200)
-    }).catch(err => {
-      console.log(err)
+    }).catch(() => {
       res.json(err)
     })
-  }).catch((err) => {
-    console.log(err)
+  }).catch(() => {
     res.status(404).end()
   })
 }
