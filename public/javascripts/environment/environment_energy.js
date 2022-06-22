@@ -22,6 +22,10 @@ function updateEnvironmentEnergy(){
       confirmButtonColor: '#00a19a'
     })
   }
+
+  document.getElementById('submit_btn').innerText = "Submitting"
+
+  document.getElementById('submit_btn').disabled = true
   
   var data = {
     env_energy,
@@ -38,6 +42,10 @@ function updateEnvironmentEnergy(){
   .then(response => response.json())
   .then(data => {
       if(data.success){
+        document.getElementById('submit_btn').innerText = "Submit"
+
+        document.getElementById('submit_btn').disabled = false
+
         Swal.fire({
           title: "Successfully submitted Environment Energy",
           confirmButtonColor: '#00a19a'
@@ -45,6 +53,10 @@ function updateEnvironmentEnergy(){
           window.location.href = "/environment_natural_resource"
         });
       }else{
+        document.getElementById('submit_btn').innerText = "Submit"
+
+        document.getElementById('submit_btn').disabled = false
+        
         Swal.fire({
           title: "Failed to submit. Please try again",
           confirmButtonColor: '#00a19a'

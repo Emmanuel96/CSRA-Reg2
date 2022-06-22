@@ -66,6 +66,10 @@ function updateAssessments(){
     })
   }
 
+  document.getElementById('finish_btn').innerText = "Please wait..."
+
+  document.getElementById('finish_btn').disabled = true
+
   fetch(`/assessment_and_tips/${ID}`, {
     method: "PUT", 
     headers: {
@@ -75,6 +79,10 @@ function updateAssessments(){
   .then(response => response.json())
   .then(data => {
     if(data.success){
+      document.getElementById('finish_btn').innerText = "Finish"
+
+      document.getElementById('finish_btn').disabled = false
+
       axios.post('/api/application/completed')
       
       Swal.fire({
@@ -86,6 +94,10 @@ function updateAssessments(){
         }).then(() => window.location.href = '/login')
       });
     }else{
+      document.getElementById('finish_btn').innerText = "Finish"
+
+      document.getElementById('finish_btn').disabled = false
+      
       Swal.fire({
         title: "Failed to submit. Please try again",
         confirmButtonColor: '#00a19a'

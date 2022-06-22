@@ -28,6 +28,10 @@ function updateEnvironmentSupplyChain(){
     env_supply_chain_management_completed
   }
 
+  document.getElementById('submit_btn').innerText = "Submitting"
+
+  document.getElementById('submit_btn').disabled = true
+
   fetch(`/environment_supply_chain_management/${ID}`, {
       method: "PUT", 
       headers: {
@@ -38,6 +42,10 @@ function updateEnvironmentSupplyChain(){
   .then(response => response.json())
   .then(data => {
       if(data.success){
+        document.getElementById('submit_btn').innerText = "Submit"
+
+        document.getElementById('submit_btn').disabled = false
+
         Swal.fire({
           title: "Successfully submitted Environment Supply Chain Management",
           confirmButtonColor: '#00a19a'
@@ -45,6 +53,10 @@ function updateEnvironmentSupplyChain(){
           window.location.href = "/environment_waste"
         });
       }else{
+        document.getElementById('submit_btn').innerText = "Submit"
+
+        document.getElementById('submit_btn').disabled = false
+        
         Swal.fire({
           title: "Failed to submit. Please try again",
           confirmButtonColor: '#00a19a'

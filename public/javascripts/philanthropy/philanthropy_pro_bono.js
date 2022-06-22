@@ -22,6 +22,10 @@ function updatePhilProBono(){
       confirmButtonColor: '#00a19a'
     })
   }
+
+  document.getElementById('submit_btn').innerText = "Submitting"
+
+  document.getElementById('submit_btn').disabled = true
   
   var data = {
     phil_pro_bono,
@@ -38,6 +42,10 @@ function updatePhilProBono(){
   .then(response => response.json())
   .then(data => {
       if(data.success){
+        document.getElementById('submit_btn').innerText = "Submit"
+
+        document.getElementById('submit_btn').disabled = false
+
         Swal.fire({
           title: "Successfully submitted Philanthropy Pro Bono",
           confirmButtonColor: '#00a19a'
@@ -45,6 +53,10 @@ function updatePhilProBono(){
           window.location.href = "/philanthropy_fund_raising"
         });
       }else{
+        document.getElementById('submit_btn').innerText = "Submit"
+
+        document.getElementById('submit_btn').disabled = false
+        
         Swal.fire({
           title: "Failed to submit. Please try again",
           confirmButtonColor: '#00a19a'

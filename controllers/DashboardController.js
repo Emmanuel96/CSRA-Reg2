@@ -743,6 +743,29 @@ exports.put_assessment_and_tips = async function(req, res, next){
   })
 }
 
+exports.update_phil_supporting_info = (req, res) => {
+  let { phil_other_information, phil_future_planning } = req.body
+
+  Application.findOneAndUpdate(
+    { owner: req.params.id }, 
+    { phil_other_information, phil_future_planning }, 
+    {new: true, runValidators: true, context: 'query'}
+  ).then(() => {
+    res.status(200).json({
+      success: true,
+      message: "Successfully updated phil_supporting_info"
+    })
+    console.log("Successfully updated phil_supporting_info")
+  }).catch(error => {
+    res.status(400).json({
+      success: false,
+      message: "Failed to update phil_supporting_info",
+      error: error
+    })
+    console.log("Failed to update phil_supporting_info")
+  })
+}
+
 // Get application document controller
 
 exports.get_application_document = function(req, res, next){

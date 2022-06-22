@@ -100,8 +100,11 @@ exports.post_register = async function(req, res, next){
               let phil_fund_raising_completed = false
               let phil_financial_and_kind_gifts = null
               let phil_financial_and_kind_gifts_completed = false
+              let phil_other_information = null
+              let phil_future_planning = null
               let assessments_and_tips_completed = false
               let finished = false
+              let scoredByAssessors = false
 
               const newApplication = new Application({
                 owner,
@@ -158,8 +161,11 @@ exports.post_register = async function(req, res, next){
                 phil_fund_raising_completed,
                 phil_financial_and_kind_gifts,
                 phil_financial_and_kind_gifts_completed,
+                phil_other_information,
+                phil_future_planning,
                 assessments_and_tips_completed,
-                finished
+                finished,
+                scoredByAssessors
               })
 
               newApplication.save().then(savedApplication => {

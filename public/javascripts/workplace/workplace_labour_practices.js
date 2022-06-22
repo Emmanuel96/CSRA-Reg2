@@ -23,6 +23,10 @@ function updateWorkPlaceLabourPractice(){
     })
   }
   
+  document.getElementById('submit_btn').innerText = "Submitting"
+
+  document.getElementById('submit_btn').disabled = true
+
   var data = {
     wrk_labour_practices,
     wrk_labour_practices_completed
@@ -38,6 +42,10 @@ function updateWorkPlaceLabourPractice(){
   .then(response => response.json())
   .then(data => {
       if(data.success){
+        document.getElementById('submit_btn').innerText = "Submit"
+
+        document.getElementById('submit_btn').disabled = false
+
         Swal.fire({
           title: "Successfully submitted Workplace Labour Practices",
           confirmButtonColor: '#00a19a'
@@ -45,6 +53,10 @@ function updateWorkPlaceLabourPractice(){
           window.location.href = "/workplace_ethical_practises"
         });
       }else{
+        document.getElementById('submit_btn').innerText = "Submit"
+
+        document.getElementById('submit_btn').disabled = false
+        
         Swal.fire({
           title: "Failed to submit. Please try again",
           confirmButtonColor: '#00a19a'
