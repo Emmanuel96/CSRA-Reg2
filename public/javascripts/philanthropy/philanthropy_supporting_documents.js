@@ -115,23 +115,35 @@ document.getElementById("submit").onclick = () => {
       confirmButtonColor: "#00a19a",
     });
   } else {
+    document.getElementById('submit').innerText = "Uploading"
+
+    document.getElementById('submit').disabled = true
+
     const formData = new FormData();
     for (let i = 0; i < feles.length; i++) {
       formData.append("upload", feles[i]);
     }
 
-    for (var pair of formData.entries()) {
+    for (let pair of formData.entries()) {
       console.log(pair[0]+ ', ' + pair[1]); 
     }
 
     axios.post("/api/media/upload/philanthropy", formData)
       .then((response) => {
+        document.getElementById('submit').innerText = "Upload Now"
+
+        document.getElementById('submit').disabled = false
+
         Swal.fire({
           title: response.data.message,
           confirmButtonColor: "#00a19a",
         });
       })
       .catch(() => {
+        document.getElementById('submit').innerText = "Upload Now"
+
+        document.getElementById('submit').disabled = false
+
         Swal.fire({
           title: response.message,
           confirmButtonColor: "#00a19a",
@@ -149,3 +161,97 @@ document.getElementById("cancel").onclick = () => {
   empty.classList.remove("hidden");
   gallery.append(empty);
 };
+
+const ID = sessionStorage.getItem("csra_user");
+let docData = ""
+
+axios.get(`/api/application/${ID}`).then(result => {
+  docData = result.data
+}).then(() => {
+  document.getElementById('phil_other_information').value = docData.phil_other_information
+
+  document.getElementById('phil_future_planning').value = docData.phil_future_planning
+})
+
+function updateSupportingDocs(){
+  event.preventDefault(); 
+
+  let phil_other_information = document.getElementById('phil_other_information').value
+
+  let phil_future_planning = document.getElementById('phil_future_planning').value
+
+  if(!phil_other_information || !phil_future_planning){
+    Swal.fire({
+      title: 'Are you sure you want to submit without adding any other information?',
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: 'Yes',
+      confirmButtonColor: '#00a19a',
+      denyButtonText: 'No',
+      customClass: {
+        actions: 'my-actions',
+        cancelButton: 'order-1 right-gap',
+        confirmButton: 'order-2',
+        denyButton: 'order-3',
+      }
+    }).then(result => {
+      if (result.isConfirmed){
+        let data = {
+          phil_other_information: phil_other_information,
+          phil_future_planning: phil_future_planning
+        }
+        document.getElementById('submit_btn').innerText = "Please wait"
+
+        document.getElementById('submit_btn').disabled = true
+
+        axios.put(`/philanthropy_supporting_info/${ID}`, data).then(response => {
+          if(response.data.success){  
+            window.location.href = "/assessment_and_tips"
+          }else{    
+            document.getElementById('submit_btn').innerText = "Submit"
+
+            document.getElementById('submit_btn').disabled = false
+
+            Swal.fire({
+              title: "Something went wrong. Please try again",
+              confirmButtonColor: '#00a19a'
+            })              
+          }
+        })
+      }
+    })
+  }else{
+    document.getElementById('submit_btn').innerText = "Submitting"
+
+    document.getElementById('submit_btn').disabled = true
+
+    let data = {
+      phil_other_information: phil_other_information,
+      phil_future_planning: phil_future_planning
+    }
+
+    axios.put(`/philanthropy_supporting_info/${ID}`, data).then(response => {
+      if(response.data.success){
+        document.getElementById('submit_btn').innerText = "Submit"
+
+        document.getElementById('submit_btn').disabled = false
+
+        Swal.fire({
+          title: "Successfully submitted additional information",
+          confirmButtonColor: '#00a19a'
+        }).then(function(){
+          window.location.href = "/assessment_and_tips"
+        });
+      }else{
+        document.getElementById('submit_btn').innerText = "Submit"
+
+        document.getElementById('submit_btn').disabled = false
+        
+        Swal.fire({
+          title: "Failed to submit. Please try again",
+          confirmButtonColor: '#00a19a'
+        })              
+      }
+    })
+  }
+}

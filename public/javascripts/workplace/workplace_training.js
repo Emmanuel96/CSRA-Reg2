@@ -22,6 +22,10 @@ function updateWorkPlaceTraining(){
       confirmButtonColor: '#00a19a'
     })
   }
+
+  document.getElementById('submit_btn').innerText = "Submitting"
+
+  document.getElementById('submit_btn').disabled = true
   
   var data = {
     wrk_training,
@@ -38,6 +42,10 @@ function updateWorkPlaceTraining(){
   .then(response => response.json())
   .then(data => {
       if(data.success){
+        document.getElementById('submit_btn').innerText = "Submit"
+
+        document.getElementById('submit_btn').disabled = false
+
         Swal.fire({
           title: "Successfully submitted Workplace Training",
           confirmButtonColor: '#00a19a'
@@ -45,6 +53,10 @@ function updateWorkPlaceTraining(){
           window.location.href = "/workplace_labour_practices"
         });
       }else{
+        document.getElementById('submit_btn').innerText = "Submit"
+
+        document.getElementById('submit_btn').disabled = false
+        
         Swal.fire({
           title: "Failed to submit. Please try again",
           confirmButtonColor: '#00a19a'

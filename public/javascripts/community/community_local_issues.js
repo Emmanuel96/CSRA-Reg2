@@ -22,6 +22,10 @@ function updateCommunityLocalIssues(){
       confirmButtonColor: '#00a19a'
     })
   }
+
+  document.getElementById('submit_btn').innerText = "Submitting"
+
+  document.getElementById('submit_btn').disabled = true
   
   var data = {
     com_local_issues,
@@ -38,6 +42,10 @@ function updateCommunityLocalIssues(){
   .then(response => response.json())
   .then(data => {
       if(data.success){
+        document.getElementById('submit_btn').innerText = "Submit"
+
+        document.getElementById('submit_btn').disabled = false
+
         Swal.fire({
           title: "Successfully submitted Community Local Issues",
           confirmButtonColor: '#00a19a'
@@ -45,6 +53,10 @@ function updateCommunityLocalIssues(){
           window.location.href = "/community_wealth_creation"
         });
       }else{
+        document.getElementById('submit_btn').innerText = "Submit"
+
+        document.getElementById('submit_btn').disabled = false
+        
         Swal.fire({
           title: "Failed to submit. Please try again",
           confirmButtonColor: '#00a19a'

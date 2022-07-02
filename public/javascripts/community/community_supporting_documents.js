@@ -115,6 +115,10 @@ document.getElementById("submit").onclick = () => {
       confirmButtonColor: "#00a19a",
     });
   } else {
+    document.getElementById('submit').innerText = "Uploading"
+
+    document.getElementById('submit').disabled = true
+
     const formData = new FormData();
     for (let i = 0; i < feles.length; i++) {
       formData.append("upload", feles[i]);
@@ -126,12 +130,22 @@ document.getElementById("submit").onclick = () => {
 
     axios.post("/api/media/upload/community", formData)
       .then((response) => {
+        document.getElementById('submit').innerText = "Upload Now"
+
+        document.getElementById('submit').disabled = false
+
         Swal.fire({
           title: response.data.message,
           confirmButtonColor: "#00a19a",
-        });
+        }).then(function(){
+          window.location.href = "/philanthropy_charitable_involvement"
+        })
       })
       .catch(() => {
+        document.getElementById('submit').innerText = "Upload Now"
+
+        document.getElementById('submit').disabled = false
+
         Swal.fire({
           title: response.message,
           confirmButtonColor: "#00a19a",

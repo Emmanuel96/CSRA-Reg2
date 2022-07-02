@@ -9,7 +9,7 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  email: { 
+  email: {
     type: String,
     unique: true,
     required: true
@@ -19,26 +19,16 @@ const UserSchema = new mongoose.Schema({
     required: true
   },
   application: {
-    type: mongoose.Schema.Types.ObjectId,
+    type: String,
     ref: 'Application'
   },
-  environmentDocs: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'EnvironmentDoc'
-  }],
-  workplaceDocs: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'WorkplaceDoc'
-  }],
-  communityDocs: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'CommunityDoc'
-  }],
-  philanthropyDocs: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'PhilanthropyDoc'
-  }]
-});
+  resetPasswordToken: {
+    type: String
+  },
+  resetPasswordExpires: {
+    type: Date
+  }
+}, { timestamps: true });
 
 UserSchema.set('toJSON', {
   transform: (document, returnedObject) => {

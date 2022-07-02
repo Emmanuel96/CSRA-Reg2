@@ -4,11 +4,6 @@ const multerS3 = require('multer-s3');
 const {ListObjectsCommand, DeleteObjectCommand} = require("@aws-sdk/client-s3");
 const s3Client  = require("../utils/s3Client");
 
-const EnvironmentDoc = require("../models/EnvironmentDoc")
-const WorkplaceDoc = require("../models/WorkplaceDoc")
-const CommunityDoc = require("../models/CommunityDoc")
-const PhilanthropyDoc = require("../models/PhilanthropyDoc")
-
 // Set S3 endpoint to DigitalOcean Spaces
 const spacesEndpoint = new aws.Endpoint('nyc3.digitaloceanspaces.com');
 const s3 = new aws.S3({
@@ -28,13 +23,6 @@ exports.media_upload_environment = async (request, response, next) => {
         cb(null, fileName)
   
         console.log('csra' + '/users/' + `${request.user._id.toString()}` + '/environment-docs')
-  
-        const environmentDoc = new EnvironmentDoc({
-          fileName,
-          owner: request.user._id.toString()
-        })
-  
-        await environmentDoc.save()
       },
       bucket: 'csra' + '/users/' + `${request.user._id.toString()}` + '/environment-docs',
     })
@@ -69,13 +57,6 @@ exports.media_upload_workplace = async (request, response, next) => {
         cb(null, fileName)
   
         console.log('csra' + '/users/' + `${request.user._id.toString()}` + '/workplace-docs')
-  
-        const workplaceDoc = new WorkplaceDoc({
-          fileName,
-          owner: request.user._id.toString()
-        })
-  
-        await workplaceDoc.save()
       },
       bucket: 'csra' + '/users/' + `${request.user._id.toString()}` + '/workplace-docs',
     })
@@ -110,13 +91,6 @@ exports.media_upload_community = async (request, response, next) => {
         cb(null, fileName)
   
         console.log('csra' + '/users/' + `${request.user._id.toString()}` + '/community-docs')
-  
-        const communityDoc = new CommunityDoc({
-          fileName,
-          owner: request.user._id.toString()
-        })
-  
-        await communityDoc.save()
       },
       bucket: 'csra' + '/users/' + `${request.user._id.toString()}` + '/community-docs',
     })
@@ -151,13 +125,6 @@ exports.media_upload_philanthropy = async (request, response, next) => {
         cb(null, fileName)
   
         console.log('csra' + '/users/' + `${request.user._id.toString()}` + '/philanthropy-docs')
-  
-        const philanthropyDoc = new PhilanthropyDoc({
-          fileName,
-          owner: request.user._id.toString()
-        })
-  
-        await philanthropyDoc.save()
       },
       bucket: 'csra' + '/users/' + `${request.user._id.toString()}` + '/philanthropy-docs',
     })
@@ -178,11 +145,6 @@ exports.media_upload_philanthropy = async (request, response, next) => {
     })
   });
 }
-
-
-
-
-
 
 exports.fetch_media = async (request, response, next) => {
   const bucketParams = { 

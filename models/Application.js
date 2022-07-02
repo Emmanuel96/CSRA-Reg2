@@ -7,23 +7,23 @@ const ApplicationSchema = new mongoose.Schema({
   },
 
   contact_person: {
-    type: String  
+    type: String
   },
 
   organisation_name: {
-    type: String  
+    type: String
   },
 
   organisation_address: {
-    type: String  
+    type: String
   },
 
   organisation_nationality: {
-    type: String  
+    type: String
   },
 
   postal_code: {
-    type: String,  
+    type: String,
   },
 
   email_address: {
@@ -69,7 +69,7 @@ const ApplicationSchema = new mongoose.Schema({
   introduction: {
     type: String
   },
-  
+
   introduction_completed: Boolean,
 
   env_energy: {
@@ -192,7 +192,19 @@ const ApplicationSchema = new mongoose.Schema({
 
   phil_financial_and_kind_gifts_completed: Boolean,
 
-  assessments_and_tips_completed: Boolean
+  phil_other_information: {
+    typer: String
+  },
+
+  phil_future_planning: {
+    typer: String
+  },
+
+  assessments_and_tips_completed: Boolean,
+
+  finished: Boolean,
+
+  scoredByAssessors: Boolean
 });
 
 ApplicationSchema.set('toJSON', {

@@ -20,9 +20,9 @@ router.post('/login',
 
 router.post('/register', AuthController.post_register);
 
-router.post('/forgot_password', AuthController.post_forgot_password);
+router.post('/api/auth/forgot_password', AuthController.post_forgot_password);
 
-router.post('/reset_password', AuthController.post_reset_password);
+router.post('/api/auth/reset_password/:token', AuthController.post_reset_password);
 
 //DELETE route
 
@@ -37,8 +37,8 @@ router.get('/login', checkNotAuthenticated, AuthController.get_login);
 
 router.get('/register', checkNotAuthenticated, AuthController.get_register);
 
-router.get('/forgot_password', checkNotAuthenticated, AuthController.get_forgot_password);
+router.get('/forgot_password', checkNotAuthenticated, AuthController.get_forgot_password)
 
-router.get('/reset_password', checkAuthenticated, AuthController.get_reset_password);
+router.get('/reset_password/:token', AuthController.get_reset_password)
 
 module.exports = router;

@@ -22,6 +22,9 @@ function registerSubmit(event){
       confirmButtonColor: '#00a19a'
     })
   }else{
+    document.getElementById('signin_btn').innerText = "Signing up..."
+    document.getElementById('signin_btn').disabled = true
+
     var data = {email, password, firstName, lastName}
 
     fetch('/register', {
@@ -34,6 +37,9 @@ function registerSubmit(event){
     .then(response => response.json())
     .then(data => {
         if(data.success){
+          document.getElementById('signin_btn').innerText = "Sign Up"
+          document.getElementById('signin_btn').disabled = false
+
           swal.fire({
               title: "Successfully registered!",
               confirmButtonText: "Login",
@@ -42,6 +48,9 @@ function registerSubmit(event){
               window.location.href = "/login"
           });
         }else{
+          document.getElementById('signin_btn').innerText = "Sign Up"
+          document.getElementById('signin_btn').disabled = false
+
           Swal.fire({
             title: data.message,
             confirmButtonColor: '#00a19a'
@@ -49,7 +58,6 @@ function registerSubmit(event){
         }
     })
   }
-
 }
 
 var registration_form = $('#registration_form');

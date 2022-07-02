@@ -139,14 +139,12 @@ exports.put_company_details = async function(req, res, next){
       success: true,
       message: "Successfully updated company_details"
     })
-    console.log("Successfully updated company_details")
   }).catch(error => {
     res.status(400).json({
       success: false,
       message: "Failed to update company_details",
       error: error
     })
-    console.log("Failed to update company_details")
   })
 }
 
@@ -173,7 +171,6 @@ exports.put_application_introduction = async function(req, res, next){
       message: "Failed to update application_introduction",
       error: error
     })
-    console.log("Failed to update application_introduction")
   })
 }
 
@@ -193,14 +190,12 @@ exports.put_environment_energy = async function(req, res, next){
       success: true,
       message: "Successfully updated env_energy"
     })
-    console.log("Successfully updated env_energy")
   }).catch(error => {
     res.status(400).json({
       success: false,
       message: "Failed to update env_energy",
       error: error
     })
-    console.log("Failed to update env_energy")
   })
 }
 
@@ -220,14 +215,12 @@ exports.put_environment_natural_resource = async function(req, res, next){
       success: true,
       message: "Successfully environment_natural_resource"
     })
-    console.log("Successfully environment_natural_resource")
   }).catch(error => {
     res.status(400).json({
       success: false,
       message: "Failed to update environment_natural_resource",
       error: error
     })
-    console.log("Failed to update environment_natural_resource")
   })
 }
 
@@ -247,14 +240,12 @@ exports.put_environment_travel = async function(req, res, next){
       success: true,
       message: "Successfully updated env_travel"
     })
-    console.log("Successfully updated env_travel")
   }).catch(error => {
     res.status(400).json({
       success: false,
       message: "Failed to update env_travel",
       error: error
     })
-    console.log("Failed to update env_travel")
   })
 }
 
@@ -274,14 +265,12 @@ exports.put_environment_supply_chain_management = async function(req, res, next)
       success: true,
       message: "Successfully updated env_supply_chain_management"
     })
-    console.log("Successfully updated env_supply_chain_management")
   }).catch(error => {
     res.status(400).json({
       success: false,
       message: "Failed to update env_supply_chain_management",
       error: error
     })
-    console.log("Failed to update env_supply_chain_management")
   })
 }
 
@@ -301,14 +290,12 @@ exports.put_environment_waste = async function(req, res, next){
       success: true,
       message: "Successfully updated env_waste"
     })
-    console.log("Successfully updated env_waste")
   }).catch(error => {
     res.status(400).json({
       success: false,
       message: "Failed to update env_waste",
       error: error
     })
-    console.log("Failed to update env_waste")
   })
 }
 
@@ -328,14 +315,12 @@ exports.put_workplace_training = async function(req, res, next){
       success: true,
       message: "Successfully updated wrk_training"
     })
-    console.log("Successfully updated wrk_training")
   }).catch(error => {
     res.status(400).json({
       success: false,
       message: "Failed to update wrk_training",
       error: error
     })
-    console.log("Failed to update wrk_training")
   })
 }
 
@@ -355,14 +340,12 @@ exports.put_workplace_labour_practices = async function(req, res, next){
       success: true,
       message: "Successfully updated wrk_labour_practices"
     })
-    console.log("Successfully updated wrk_labour_practices")
   }).catch(error => {
     res.status(400).json({
       success: false,
       message: "Failed to update wrk_labour_practices",
       error: error
     })
-    console.log("Failed to update wrk_labour_practices")
   })
 }
 
@@ -382,14 +365,12 @@ exports.put_workplace_ethical_practises = async function(req, res, next){
       success: true,
       message: "Successfully updated wrk_ethical_practices"
     })
-    console.log("Successfully updated wrk_ethical_practices")
   }).catch(error => {
     res.status(400).json({
       success: false,
       message: "Failed to update wrk_ethical_practices",
       error: error
     })
-    console.log("Failed to update wrk_ethical_practices")
   })
 }
 
@@ -409,14 +390,12 @@ exports.put_workplace_governance = async function(req, res, next){
       success: true,
       message: "Successfully updated wrk_governance"
     })
-    console.log("Successfully updated wrk_governance")
   }).catch(error => {
     res.status(400).json({
       success: false,
       message: "Failed to update wrk_governance",
       error: error
     })
-    console.log("Failed to update wrk_governance")
   })
 }
 
@@ -436,14 +415,12 @@ exports.put_workplace_policies = async function(req, res, next){
       success: true,
       message: "Successfully updated wrk_policies"
     })
-    console.log("Successfully updated wrk_policies")
   }).catch(error => {
     res.status(400).json({
       success: false,
       message: "Failed to update wrk_policies",
       error: error
     })
-    console.log("Failed to update wrk_policies")
   })
 }
 
@@ -463,14 +440,12 @@ exports.put_community_engagement = async function(req, res, next){
       success: true,
       message: "Successfully updated com_engagement"
     })
-    console.log("Successfully updated com_engagement")
   }).catch(error => {
     res.status(400).json({
       success: false,
       message: "Failed to update com_engagement",
       error: error
     })
-    console.log("Failed to update com_engagement")
   })
 }
 
@@ -490,14 +465,12 @@ exports.put_community_local_issues = async function(req, res, next){
       success: true,
       message: "Successfully updated com_local_issues"
     })
-    console.log("Successfully updated com_local_issues")
   }).catch(error => {
     res.status(400).json({
       success: false,
       message: "Failed to update com_local_issues",
       error: error
     })
-    console.log("Failed to update com_local_issues")
   })
 }
 
@@ -517,14 +490,12 @@ exports.put_community_wealth_creation = async function(req, res, next){
       success: true,
       message: "Successfully updated com_wealth_creation"
     })
-    console.log("Successfully updated com_wealth_creation")
   }).catch(error => {
     res.status(400).json({
       success: false,
       message: "Failed to update com_wealth_creation",
       error: error
     })
-    console.log("Failed to update com_wealth_creation")
   })
 }
 
@@ -544,14 +515,12 @@ exports.put_community_projects_and_groups = async function(req, res, next){
       success: true,
       message: "Successfully updated com_projects_and_groups"
     })
-    console.log("Successfully updated com_projects_and_groups")
   }).catch(error => {
     res.status(400).json({
       success: false,
       message: "Failed to update com_projects_and_groups",
       error: error
     })
-    console.log("Failed to update com_projects_and_groups")
   })
 }
 
@@ -571,14 +540,12 @@ exports.put_community_education = async function(req, res, next){
       success: true,
       message: "Successfully updated com_education"
     })
-    console.log("Successfully updated com_education")
   }).catch(error => {
     res.status(400).json({
       success: false,
       message: "Failed to update com_education",
       error: error
     })
-    console.log("Failed to update com_education")
   })
 }
 
@@ -598,14 +565,12 @@ exports.put_philanthropy_charitable_involvement = async function(req, res, next)
       success: true,
       message: "Successfully updated phil_charitable_involvement"
     })
-    console.log("Successfully updated phil_charitable_involvement")
   }).catch(error => {
     res.status(400).json({
       success: false,
       message: "Failed to update phil_charitable_involvement",
       error: error
     })
-    console.log("Failed to update phil_charitable_involvement")
   })
 }
 
@@ -625,14 +590,12 @@ exports.put_philanthropy_volunteering = async function(req, res, next){
       success: true,
       message: "Successfully updated phil_volunteering"
     })
-    console.log("Successfully updated phil_volunteering")
   }).catch(error => {
     res.status(400).json({
       success: false,
       message: "Failed to update phil_volunteering",
       error: error
     })
-    console.log("Failed to update phil_volunteering")
   })
 }
 
@@ -652,14 +615,12 @@ exports.put_philanthropy_pro_bono = async function(req, res, next){
       success: true,
       message: "Successfully updated phil_pro_bono"
     })
-    console.log("Successfully updated phil_pro_bono")
   }).catch(error => {
     res.status(400).json({
       success: false,
       message: "Failed to update phil_pro_bono",
       error: error
     })
-    console.log("Failed to update phil_pro_bono")
   })
 }
 
@@ -679,14 +640,12 @@ exports.put_philanthropy_fund_raising = async function(req, res, next){
       success: true,
       message: "Successfully updated phil_fund_raising"
     })
-    console.log("Successfully updated phil_fund_raising")
   }).catch(error => {
     res.status(400).json({
       success: false,
       message: "Failed to update phil_fund_raising",
       error: error
     })
-    console.log("Failed to update phil_fund_raising")
   })
 }
 
@@ -706,23 +665,23 @@ exports.put_philanthropy_financial_and_kind_gifts = async function(req, res, nex
       success: true,
       message: "Successfully updated phil_financial_and_kind_gifts"
     })
-    console.log("Successfully updated phil_financial_and_kind_gifts")
   }).catch(error => {
     res.status(400).json({
       success: false,
       message: "Failed to update phil_financial_and_kind_gifts",
       error: error
     })
-    console.log("Failed to update phil_financial_and_kind_gifts")
   })
 }
 
 exports.put_assessment_and_tips = async function(req, res, next){
   const assessments_and_tips = {
-    assessments_and_tips_completed: true
+    assessments_and_tips_completed: true,
+    finished: true
   }
 
-  Application.findOneAndUpdate({ owner: req.params.id }, 
+  Application.findOneAndUpdate(
+    { owner: req.params.id }, 
     assessments_and_tips, 
     {new: true, runValidators: true, context: 'query'}
   ).then(() => {
@@ -730,14 +689,33 @@ exports.put_assessment_and_tips = async function(req, res, next){
       success: true,
       message: "Successfully updated assessments_and_tips_completed"
     })
-    console.log("Successfully updated assessments_and_tips_completed")
   }).catch(error => {
     res.status(400).json({
       success: false,
       message: "Failed to update assessments_and_tips_completed",
       error: error
     })
-    console.log("Failed to update assessments_and_tips_completed")
+  })
+}
+
+exports.update_phil_supporting_info = (req, res) => {
+  let { phil_other_information, phil_future_planning } = req.body
+
+  Application.findOneAndUpdate(
+    { owner: req.params.id }, 
+    { phil_other_information, phil_future_planning }, 
+    {new: true, runValidators: true, context: 'query'}
+  ).then(() => {
+    res.status(200).json({
+      success: true,
+      message: "Successfully updated phil_supporting_info"
+    })
+  }).catch(error => {
+    res.status(400).json({
+      success: false,
+      message: "Failed to update phil_supporting_info",
+      error: error
+    })
   })
 }
 

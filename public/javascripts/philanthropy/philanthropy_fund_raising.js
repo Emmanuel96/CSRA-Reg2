@@ -22,6 +22,10 @@ function updatePhilFundRaising(){
       confirmButtonColor: '#00a19a'
     })
   }
+
+  document.getElementById('submit_btn').innerText = "Submitting"
+
+  document.getElementById('submit_btn').disabled = true
   
   var data = {
     phil_fund_raising,
@@ -38,6 +42,10 @@ function updatePhilFundRaising(){
   .then(response => response.json())
   .then(data => {
       if(data.success){
+        document.getElementById('submit_btn').innerText = "Submit"
+
+        document.getElementById('submit_btn').disabled = false
+
         Swal.fire({
           title: "Successfully submitted Philanthropy Fund Raising",
           confirmButtonColor: '#00a19a'
@@ -45,6 +53,10 @@ function updatePhilFundRaising(){
           window.location.href = "/philanthropy_financial_and_kind_gifts"
         });
       }else{
+        document.getElementById('submit_btn').innerText = "Submit"
+
+        document.getElementById('submit_btn').disabled = false
+        
         Swal.fire({
           title: "Failed to submit. Please try again",
           confirmButtonColor: '#00a19a'

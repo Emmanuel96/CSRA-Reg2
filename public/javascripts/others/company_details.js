@@ -71,6 +71,10 @@ function updateCompanyDetails(){
       confirmButtonColor: '#00a19a'
     })
   }else{
+    document.getElementById('submit_btn').innerText = "Submitting"
+
+    document.getElementById('submit_btn').disabled = true
+
     let data = {
       contact_person,
       organisation_name,
@@ -95,6 +99,10 @@ function updateCompanyDetails(){
     .then(response => response.json())
     .then(data => {
       if(data.success){
+        document.getElementById('submit_btn').innerText = "Submit"
+
+        document.getElementById('submit_btn').disabled = false
+
         Swal.fire({
           title: "Successfully submitted Company Details",
           confirmButtonColor: '#00a19a'
@@ -102,6 +110,10 @@ function updateCompanyDetails(){
           window.location.href = "/application_introduction"
         });
       }else{
+        document.getElementById('submit_btn').innerText = "Submit"
+
+        document.getElementById('submit_btn').disabled = false
+
         Swal.fire({
           title: "Failed to submit. Please try again",
           confirmButtonColor: '#00a19a'

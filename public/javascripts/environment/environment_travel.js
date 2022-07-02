@@ -22,6 +22,10 @@ function updateEnvironmentTravel(){
       confirmButtonColor: '#00a19a'
     })
   }
+
+  document.getElementById('submit_btn').innerText = "Submitting"
+
+  document.getElementById('submit_btn').disabled = true
   
   var data = {
     env_travel,
@@ -38,6 +42,10 @@ function updateEnvironmentTravel(){
   .then(response => response.json())
   .then(data => {
       if(data.success){
+        document.getElementById('submit_btn').innerText = "Submit"
+
+        document.getElementById('submit_btn').disabled = false
+
         Swal.fire({
           title: "Successfully submitted Environment Travel",
           confirmButtonColor: '#00a19a'
@@ -45,6 +53,10 @@ function updateEnvironmentTravel(){
           window.location.href = "/environment_supply_chain_management"
         });
       }else{
+        document.getElementById('submit_btn').innerText = "Submit"
+
+        document.getElementById('submit_btn').disabled = false
+        
         Swal.fire({
           title: "Failed to submit. Please try again",
           confirmButtonColor: '#00a19a'

@@ -23,6 +23,10 @@ function updatePhilCharitableInv(){
     })
   }
   
+  document.getElementById('submit_btn').innerText = "Submitting"
+
+  document.getElementById('submit_btn').disabled = true
+
   var data = {
     phil_charitable_involvement,
     phil_charitable_involvement_completed
@@ -38,6 +42,10 @@ function updatePhilCharitableInv(){
   .then(response => response.json())
   .then(data => {
       if(data.success){
+        document.getElementById('submit_btn').innerText = "Submit"
+
+        document.getElementById('submit_btn').disabled = false
+
         Swal.fire({
           title: "Successfully submitted Philanthropy Charitable Involvement",
           confirmButtonColor: '#00a19a'
@@ -45,6 +53,10 @@ function updatePhilCharitableInv(){
           window.location.href = "/philanthropy_volunteering"
         });
       }else{
+        document.getElementById('submit_btn').innerText = "Submit"
+
+        document.getElementById('submit_btn').disabled = false
+        
         Swal.fire({
           title: "Failed to submit. Please try again",
           confirmButtonColor: '#00a19a'
