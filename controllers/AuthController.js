@@ -240,7 +240,7 @@ exports.post_forgot_password = async (req, res, next) => {
     sgMail.setApiKey(SENDGRID_API_KEY)
 
     const resetEmail = {
-      to: 'stephenbuluswayar@gmail.com',
+      to: req.body.email,
       from: 'emmanuel@csr-accreditation.co.uk',
       subject: 'Your Password Reset Link',
       html: `Hi ${user.firstName} <br> You are receiving this mail because you (or someone else) have requested to reset the password to your account. <br> Please click on the following link, or paste this into your browser to complete the process: <br> <br> http://${req.headers.host}/reset_password/${token} <br> <br> If you did not request this, please ignore this email and your password will remain unchanged.
