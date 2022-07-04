@@ -195,6 +195,7 @@ exports.post_register = async function(req, res, next){
               })
 
               newApplication.save().then(savedApplication => {
+                console.log(savedApplication)
                 newUser.application = savedApplication._id
                 newUser.save()
               }).catch((err) => {
