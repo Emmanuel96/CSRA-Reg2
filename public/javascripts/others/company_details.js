@@ -9,6 +9,7 @@ function getCompanyDetails(){
     document.getElementById("contact_person").value = docData.contact_person;
     document.getElementById("organisation_name").value = docData.organisation_name;
     document.getElementById("organisation_address").value = docData.organisation_address;
+    document.getElementById("industry_sector").value = docData.industry_sector;
     document.getElementById("organisation_nationality").value = docData.organisation_nationality;
     document.getElementById("postal_code").value = docData.postal_code;
     document.getElementById("email_address").value = docData.email_address;
@@ -57,6 +58,7 @@ function updateCompanyDetails(){
   let organisation_name = document.getElementById("organisation_name").value
   let organisation_address = document.getElementById("organisation_address").value
   let organisation_nationality = document.getElementById("organisation_nationality").value
+  let industry_sector = document.getElementById("industry_sector").value
   let postal_code = document.getElementById("postal_code").value
   let email_address = document.getElementById("email_address").value
   let mobile_number = document.getElementById("mobile_number").value
@@ -65,7 +67,7 @@ function updateCompanyDetails(){
   let organisation_turnover = orgTurnOverVal
   let company_details_completed = true
 
-  if(!contact_person || !organisation_name || !organisation_address || !organisation_nationality || !postal_code || !email_address || !mobile_number || !telephone_number || !organisation_size || !organisation_turnover){
+  if(!contact_person || !organisation_name || !organisation_address || !organisation_nationality || !industry_sector || !postal_code || !email_address || !mobile_number || !telephone_number || !organisation_size || !organisation_turnover){
     return Swal.fire({
       title: "Please complete all input fields",
       confirmButtonColor: '#00a19a'
@@ -80,6 +82,7 @@ function updateCompanyDetails(){
       organisation_name,
       organisation_address,
       organisation_nationality,
+      industry_sector,
       postal_code,
       email_address,
       mobile_number,
@@ -107,7 +110,7 @@ function updateCompanyDetails(){
           title: "Successfully submitted Company Details",
           confirmButtonColor: '#00a19a'
         }).then(function(){
-          window.location.href = "/application_introduction"
+          window.location.href = "/assessment_and_tips"
         });
       }else{
         document.getElementById('submit_btn').innerText = "Submit"

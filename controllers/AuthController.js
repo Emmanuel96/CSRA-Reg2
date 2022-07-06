@@ -77,6 +77,7 @@ exports.post_register = async function(req, res, next){
               let organisation_name = null 
               let organisation_address = null
               let organisation_nationality = null
+              let industry_sector = null
               let postal_code = null
               let email_address =  req.body.email.toLowerCase()
               let mobile_number = null
@@ -138,6 +139,7 @@ exports.post_register = async function(req, res, next){
                 organisation_name,
                 organisation_address,
                 organisation_nationality,
+                industry_sector,
                 postal_code,
                 email_address,
                 mobile_number,

@@ -122,6 +122,7 @@ exports.put_company_details = async function(req, res, next){
     organisation_name: body.organisation_name,
     organisation_address: body.organisation_address,
     organisation_nationality: body.organisation_nationality,
+    industry_sector: body.industry_sector,
     postal_code: body.postal_code,
     email_address: body.email_address,
     mobile_number: body.mobile_number,
@@ -677,7 +678,6 @@ exports.put_philanthropy_financial_and_kind_gifts = async function(req, res, nex
 exports.put_assessment_and_tips = async function(req, res, next){
   const assessments_and_tips = {
     assessments_and_tips_completed: true,
-    finished: true
   }
 
   Application.findOneAndUpdate(
@@ -714,6 +714,25 @@ exports.update_phil_supporting_info = (req, res) => {
     res.status(400).json({
       success: false,
       message: "Failed to update phil_supporting_info",
+      error: error
+    })
+  })
+}
+
+exports.put_application_finished = (req, res) => {
+  Application.findOneAndUpdate(
+    { owner: req.params.id }, 
+    { finished: true }, 
+    {new: true, runValidators: true, context: 'query'}
+  ).then(() => {
+    res.status(200).json({
+      success: true,
+      message: "Successfully finished application"
+    })
+  }).catch(error => {
+    res.status(400).json({
+      success: false,
+      message: "Failed to finished application",
       error: error
     })
   })

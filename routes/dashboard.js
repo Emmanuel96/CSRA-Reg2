@@ -109,6 +109,8 @@ router.put('/philanthropy_supporting_info/:id', DashboardController.update_phil_
 
 router.put('/assessment_and_tips/:id', DashboardController.put_assessment_and_tips)
 
+router.put('/application_finished/:id', DashboardController.put_application_finished)
+
 // Get application document route
 
 router.get('/api/application/:id', DashboardController.get_application_document)

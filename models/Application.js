@@ -18,6 +18,10 @@ const ApplicationSchema = new mongoose.Schema({
     type: String
   },
 
+  industry_sector: {
+    type: String
+  },
+
   organisation_nationality: {
     type: String
   },
