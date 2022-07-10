@@ -115,6 +115,21 @@ document.getElementById("submit").onclick = () => {
       confirmButtonColor: "#00a19a",
     });
   } else {
+    let fi = document.getElementById('hidden-input');
+
+    for (let i = 0; i <= fi.files.length - 1; i++) {
+ 
+      let fsize = fi.files.item(i).size;
+      let file = Math.round((fsize / 20480));
+      // The size of the file.
+      if (file >= 100) {
+        return Swal.fire({
+          title: "Please upload files less than 20mb",
+          confirmButtonColor: "#00a19a",
+        });
+      }
+    }
+    
     document.getElementById('submit').innerText = "Uploading"
 
     document.getElementById('submit').disabled = true
