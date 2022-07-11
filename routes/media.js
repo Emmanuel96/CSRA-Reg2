@@ -11,8 +11,8 @@ router.post('/api/media/upload/community', MediaController.media_upload_communit
 
 router.post('/api/media/upload/philanthropy', MediaController.media_upload_philanthropy);
 
-//Get routes
-// router.get('/api/media/fetch', MediaController.fetch_media);
+// Get routes
+router.get('/api/media/fetch', MediaController.fetch_media);
 
 //Delete routes
 // router.post('/api/media/delete', MediaController.delete_media);

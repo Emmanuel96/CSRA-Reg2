@@ -178,3 +178,22 @@ document.getElementById("cancel").onclick = () => {
   empty.classList.remove("hidden");
   gallery.append(empty);
 };
+
+let fileNames = []
+
+axios.get('/api/media/fetch').then((res) => {
+  fileNames = res.data
+
+  let files = fileNames.map(fileName => (
+    `
+    <p class="text-sm font-light text-gray-500">${fileName.Filename.split('-').pop()}</p>`
+  ))
+
+  document.getElementById('uploaded_files').innerHTML = 
+  `<div class="mb-3">
+    <h1 class="text-lg text-blue-700">Previously Uploaded Files</h1>
+    <div class="mt-2 ml-3">
+      ${files.join(' ')}
+    </div>
+  </div>`
+})

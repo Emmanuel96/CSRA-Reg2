@@ -157,7 +157,8 @@ exports.fetch_media = async (request, response, next) => {
 
     console.log("Success", data);
 
-    return response.status(200).json(data.Contents);
+    console.log()
+    return response.status(200).json([...data.Contents.map(d => ({...d, "Filename": d.Key.split("/").pop()}))]);
 
   } catch (err) {
 
