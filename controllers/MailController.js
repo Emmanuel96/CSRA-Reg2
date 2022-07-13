@@ -9,21 +9,29 @@ exports.notify_completion = (req, res, next) => {
 
     let company = doc.organisation_name
 
+    console.log(req.user)
     let mailList = [
-      'stephenbuluswayar@gmail.com',
       'kole.audu@gmail.com',
-      // 'csraccreditation@gmail.com',
-      // 'jennifer@csr-accreditation.co.uk'
+      'csraccreditation@gmail.com',
+      'jennifer@csr-accreditation.co.uk'
     ]
   
-    const message = {
+    const adminNotificationMessage = {
       to: mailList,
       from: 'emmanuel@csr-accreditation.co.uk',
       subject: `APPLICATION COMPLETION FROM ${company}`,
       text: `Hello, ${company} just completed their application. Sign in to the accessors portal to view.`
     }
+
+    const companyNotificationMessage = {
+      to: req.user.email,
+      from: 'emmanuel@csr-accreditation.co.uk',
+      subject: `APPLICATION COMPLETED`,
+      text: `Hello, ${req.user.firstName}, you have successfully completed your CSRA application. Our team will review your application and we will be in touch. Have a great day!`
+    }
   
-    sgMail.send(message).then(() => {
+    sgMail.send(companyNotificationMessage)
+    sgMail.send(adminNotificationMessage).then(() => {
       res.status(200)
     }).catch(() => {
       res.json(err)
