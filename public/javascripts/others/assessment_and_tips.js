@@ -16,5 +16,5 @@ function updateAssessments(){
 
     document.getElementById('nxt_btn').disabled = false
     
-    window.location.href = '/login'})
+    window.location.href = '/application_introduction'})
 }
